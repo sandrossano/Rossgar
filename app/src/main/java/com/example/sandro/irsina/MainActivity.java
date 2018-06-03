@@ -1,5 +1,6 @@
 package com.example.sandro.irsina;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity
     static ViewPager viewPager;
     static int banner;
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
-    private int currentPage = 0;
+    int currentPage = 0;
     static float width_device=0;
     static Timer swipeTimer;
     @Override
@@ -116,16 +117,24 @@ public class MainActivity extends AppCompatActivity
                 webView.scrollTo(0,(webView.getHeight()/2)-10);
             }
 
+
+            @SuppressLint("NewApi")
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 String[] a=url.split("attrazione=");
                 if(a[1].equals("cattedrale")) {
                     Intent intent = new Intent(MainActivity.this, Cattedrale.class);
                     startActivity(intent);
+                    swipeTimer.cancel();
+                    swipeTimer.purge();
+                    finish();
                 }
                 if(a[1].equals("sanfrancesco")) {
                     Intent intent = new Intent(MainActivity.this, SanFrancesco.class);
                     startActivity(intent);
+                    swipeTimer.cancel();
+                    swipeTimer.purge();
+                    finish();
                 }
                 return true;
             }
@@ -331,7 +340,7 @@ public class MainActivity extends AppCompatActivity
         viewPager = (ViewPager) findViewById(R.id.pager_banner);
         banner = getResources().getConfiguration().densityDpi;
         viewPager.setAdapter(new SlideAdapter_Sponsor_banner(MainActivity.this, XMENArray));
-
+        currentPage = 0;
         // Auto start of viewpager
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
@@ -343,13 +352,16 @@ public class MainActivity extends AppCompatActivity
 
             }
         };
-        swipeTimer = new Timer();
-        swipeTimer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                handler.post(Update);
-            }
-        }, 1000, 7000);
+
+
+            swipeTimer = new Timer();
+
+            swipeTimer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    handler.post(Update);
+                }
+            }, 1000, 7000);
 
     }
 
@@ -527,6 +539,8 @@ public class MainActivity extends AppCompatActivity
 
     public void cambioLingua(View view) {
         swipeTimer.cancel();
+        swipeTimer.purge();
+
         Locale current = getResources().getConfiguration().locale;
 
         if(current.getLanguage().equals("it")) {
@@ -540,7 +554,7 @@ public class MainActivity extends AppCompatActivity
             Intent refresh = new Intent(this, MainActivity.class);
             refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(refresh);
-            finish();
+                finish();
             return;
         }
 
@@ -556,6 +570,7 @@ public class MainActivity extends AppCompatActivity
             refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(refresh);
             finish();
+
             return;
         }
         if(current.getLanguage().equals("fr")) {
@@ -570,6 +585,7 @@ public class MainActivity extends AppCompatActivity
             refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(refresh);
             finish();
+
             return;
         }
 
