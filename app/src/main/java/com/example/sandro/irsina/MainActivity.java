@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
     private int currentPage = 0;
     static float width_device=0;
-
+    static Timer swipeTimer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -165,16 +165,47 @@ public class MainActivity extends AppCompatActivity
                 "\t\tfunction showDiv() {\n" +
                 "\t\t\tif(document.getElementById('card').style.display == \"block\")document.getElementById('card').style.display = \"none\";\n" +
                 "   \t\t\telse {document.getElementById('card').style.display = \"block\";" +
+                "               document.getElementById('card2').style.display = \"none\";" +
+                "                      document.getElementById('card3').style.display = \"none\";" +
+                "                      document.getElementById('card4').style.display = \"none\";" +
                 "               document.getElementById('card1').style.display = \"none\";}\n" +
                 "\t\t}\n" +
                 "\n" +
                 "\t\tfunction showDiv1() {\n" +
                 "\t\t\tif(document.getElementById('card1').style.display == \"block\")document.getElementById('card1').style.display = \"none\";\n" +
                 "   \t\t\telse {document.getElementById('card1').style.display = \"block\";" +
+                "               document.getElementById('card2').style.display = \"none\";" +
+                "                      document.getElementById('card3').style.display = \"none\";" +
+                "                      document.getElementById('card4').style.display = \"none\";" +
                 "               document.getElementById('card').style.display = \"none\";}\n" +
                 "\t\t}\n" +
                 "\n" +
-                "\t</script>\n" +
+
+                "function showDiv2() {" +
+                "               if(document.getElementById('card2').style.display == \"block\")document.getElementById('card2').style.display = \"none\";\n" +
+                "                else {document.getElementById('card2').style.display = \"block\"; " +
+                "                      document.getElementById('card1').style.display = \"none\";" +
+                "                      document.getElementById('card3').style.display = \"none\";" +
+                "                      document.getElementById('card4').style.display = \"none\";" +
+                "                      document.getElementById('card').style.display = \"none\";}" +
+                "}\n" +
+                "function showDiv3() {" +
+                "               if(document.getElementById('card3').style.display == \"block\")document.getElementById('card3').style.display = \"none\";\n" +
+                "                else {document.getElementById('card3').style.display = \"block\"; " +
+                "                      document.getElementById('card2').style.display = \"none\";" +
+                "                      document.getElementById('card4').style.display = \"none\";" +
+                "                       document.getElementById('card').style.display = \"none\";" +
+                "                      document.getElementById('card1').style.display = \"none\";}" +
+                "}\n" +
+                "function showDiv4() {" +
+                "               if(document.getElementById('card4').style.display == \"block\")document.getElementById('card4').style.display = \"none\";\n" +
+                "                else {document.getElementById('card4').style.display = \"block\"; " +
+                "                      document.getElementById('card3').style.display = \"none\";" +
+                "                      document.getElementById('card1').style.display = \"none\";" +
+                "                       document.getElementById('card').style.display = \"none\";" +
+                "                      document.getElementById('card2').style.display = \"none\";}" +
+                "}" +
+                "</script>\n" +
                 "</head>\n" +
                 "<body style=\"background-color:#dfd1b0;\">\n" +
                 "\n" +
@@ -184,7 +215,7 @@ public class MainActivity extends AppCompatActivity
                 "<div class=\"card\">\n" +
                 "\t<div class=\"container\">\n" +
                 "\t\t<a style=\"text-decoration: none;\" href=\"https://www.google.it/attrazione=cattedrale\">"+
-                "<img src=\"./visit.png\" alt=\"Avatar\" style=\"margin-top:22px; margin-right:5px; float:right;width:30%\"></a>\n" +
+                "<img src=\"./visit.png\" alt=\"Avatar\" style=\"margin-top:35px; margin-right:5px; float:right;width:25%\"></a>\n" +
                 "<div style=\"margin-left:10px;\">"+
                 "\t\t<h1 style=\"font-size:260%;\"><b>Cattedrale di Santa Maria Assunta</b></h1>\n" +
                 "\n" +
@@ -195,11 +226,11 @@ public class MainActivity extends AppCompatActivity
                 "</div>\n" +
                 "</div>\n" +
 
-                "<div id=\"card1\" style=\"position:absolute;top:1675px; left:1170px;display:none;\">\n" +
+                "<div id=\"card1\" style=\"position:absolute;top:1545px; left:1070px;display:none;\">\n" +
                 "<div class=\"card\">\n" +
                 "\t<div class=\"container\">\n" +
                 "\t\t<a style=\"text-decoration: none;\" href=\"https://www.google.it/attrazione=sanfrancesco\">"+
-                "<img src=\"./visit.png\" alt=\"Avatar\" style=\"margin-top:22px; margin-right:5px; float:right;width:30%\"></a>\n" +
+                "<img src=\"./visit.png\" alt=\"Avatar\" style=\"margin-top:35px; margin-right:5px; float:right;width:25%\"></a>\n" +
                 "<div style=\"margin-left:10px;\">"+
                 "\t\t<h1 style=\"font-size:260%;\"><b>Chiesa San Francesco D'Assisi</b></h1>\n" +
                 "\n" +
@@ -209,13 +240,66 @@ public class MainActivity extends AppCompatActivity
                 "\t</div>\n" +
                 "</div>\n" +
                 "</div>\n" +
+                "" +
+                "<div id=\"card2\" style=\"position:absolute;top:2000px; left:630px;display:none;\">" +
+                "                <div class=\"card\">" +
+                "                <div class=\"container\">\n" +
+                "                <a style=\"text-decoration: none;\" href=\"https://www.google.it/attrazione=museo\">" +
+                "                <img src=\"./visit.png\" alt=\"Avatar\" style=\"margin-top:15px; margin-right:5px; float:right;width:25%\"></a>" +
+                "                <div style=\"margin-left:10px;\">" +
+                "                <h1 style=\"font-size:260%;\"><b>Museo Janora</b></h1>" +
+                "                " +
+                "                <p style=\"font-size:220%;\">Largo San Francesco, 8</p></div>" +
+                "                " +
+                "                </div>" +
+                "                </div>" +
+                "                </div>" +
+                ""+
+                "<div id=\"card3\" style=\"position:absolute;top:2235px; left:380px;display:none;\">" +
+                "                <div class=\"card\">" +
+                "                <div class=\"container\">\n" +
+                "                <a style=\"text-decoration: none;\" href=\"https://www.google.it/attrazione=porticella\">" +
+                "                <img src=\"./visit.png\" alt=\"Avatar\" style=\"margin-top:15px; margin-right:5px; float:right;width:25%\"></a>" +
+                "                <div style=\"margin-left:10px;\">" +
+                "                <h1 style=\"font-size:260%;\"><b>Porticella</b></h1>" +
+                "                " +
+                "                <p style=\"font-size:220%;\">via Porticella</p></div>" +
+                "                " +
+                "                </div>" +
+                "                </div>" +
+                "                </div>" +
+                "<div id=\"card4\" style=\"position:absolute;top:1500px; left:410px;display:none;\">" +
+                "                <div class=\"card\">" +
+                "                <div class=\"container\">\n" +
+                "                <a style=\"text-decoration: none;\" href=\"https://www.google.it/attrazione=muretto\">" +
+                "                <img src=\"./visit.png\" alt=\"Avatar\" style=\"margin-top:15px; margin-right:5px; float:right;width:25%\"></a>" +
+                "                <div style=\"margin-left:10px;\">" +
+                "                <h1 style=\"font-size:260%;\"><b>Le Mura</b></h1>" +
+                "                " +
+                "                <p style=\"font-size:220%;\">Via Ascensione</p></div>" +
+                "                " +
+                "                </div>" +
+                "                </div>" +
+                "                </div>" +
 
+                ""+
                 "<div onclick=\"showDiv()\">\n" +
                 "\t<img src=\"./cattedrale_irsina.png\" alt=\"ciao\" width=\"150px\" height=\"150px\" style=\"position: absolute;top: 1100px; left: 350px \" >\n" +
                 "</div>\n" +
                 "\n "+
                 "<div onclick=\"showDiv1()\">\n" +
-                "\t<img src=\"./sanfrancesco.png\" alt=\"ciao\" width=\"150px\" height=\"150px\" style=\"position: absolute;top: 1950px; left: 1400px \" >\n" +
+                "\t<img src=\"./sanfrancesco.png\" alt=\"ciao\" width=\"150px\" height=\"150px\" style=\"position: absolute;top: 1825px; left: 1350px \" >\n" +
+                "</div>\n" +
+                "" +
+                "<div onclick=\"showDiv2()\">" +
+                "<img src=\"./museo_janora.png\" alt=\"ciao\" width=\"150px\" height=\"150px\" style=\"position: absolute;top: 2000px; left: 1400px \" >\n" +
+                "</div>\n" +
+                "" +
+                "<div onclick=\"showDiv3()\">" +
+                "<img src=\"./porticella.png\" alt=\"ciao\" width=\"150px\" height=\"150px\" style=\"position: absolute;top: 2470px; left: 720px \" >\n" +
+                "</div>\n" +
+                "<div onclick=\"showDiv4()\">" +
+                "<img src=\"./muretto.png\" alt=\"ciao\" width=\"150px\" height=\"150px\" style=\"position: absolute;top: 1650px; left: 295px \" >\n" +
                 "</div>\n" +
 
                 "</body>\n" +
@@ -236,7 +320,7 @@ public class MainActivity extends AppCompatActivity
         //SubsamplingScaleImageView imageView = (SubsamplingScaleImageView)findViewById(R.id.imageView4);
         //imageView.setImage(ImageSource.resource(R.drawable.mappa));
 
-        final Integer[] XMEN = {R.drawable.banner1, R.drawable.flag_italy, R.drawable.flag_unionjack};
+        final Integer[] XMEN = {R.drawable.banner1, R.drawable.banner2, R.drawable.banner3};
 
         for(int i=0;i<XMEN.length;i++) {
 
@@ -259,13 +343,14 @@ public class MainActivity extends AppCompatActivity
 
             }
         };
-        Timer swipeTimer = new Timer();
+        swipeTimer = new Timer();
         swipeTimer.schedule(new TimerTask() {
             @Override
             public void run() {
                 handler.post(Update);
             }
         }, 1000, 7000);
+
     }
 
 
@@ -441,6 +526,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void cambioLingua(View view) {
+        swipeTimer.cancel();
         Locale current = getResources().getConfiguration().locale;
 
         if(current.getLanguage().equals("it")) {
