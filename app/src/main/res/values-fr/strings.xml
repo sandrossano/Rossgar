@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Visit Irsina</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Impostazioni</string>
+    <string name="ita">ITA</string>
+    <string name="eng">ENG</string>
+    <string name="fra">FRA</string>
+    <string name="prova">Ciao Mondo!</string>
+    <string name="cambio">Cambia lingua</string>
+    <string name="seleziona">Choisir la Langue</string>
+    <string name="storia">Histoire et Description</string>
+    <string name="orari">Horaire</string>
+    <string name="vedere">Que voir</string>
+    <string name="statua">Statue de Mantegna</string>
+    <string name="miglionico">Peintures du Miglionico</string>
+    <string name="cripta">Crypte</string>
+    <string name="scegli">Choisissez un lieu sur la carte pour plus d\'informations</string>
+    <string name="fuori_mappa">Fuori Mappa</string>
+    <string name="continua">Continue</string>
+</resources>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mappa</title>
+	<style>
+
+.card {
+    box-shadow: 8px 8px 8px 8px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 300px;
+    background-color:#FFF;
+    float:left;
+}
+
+.card:hover {
+    box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+    padding: 2px 15px;
+
+}
+</style>
+	<script type="text/javascript">
+		function showDiv() {
+			if(document.getElementById('card').style.display == "block")document.getElementById('card').style.display = "none";
+   			else document.getElementById('card').style.display = "block";
+		}
+
+	</script>
+</head>
+<body>
+
+<img src="./mappa.png" alt="mapppa" >
+<div id="card" style="position:absolute;top:128px; left:510px;display:none;">
+<div class="card">
+	<div class="container">
+		<img src="./info.png" alt="Avatar" style="margin-top:25px; float:right;width:20%">
+		<h3><b>John Doe</b></h3>
+
+		<p>Architect & Engineer</p>
+
+
+	</div>
+</div>
+</div>
+<div onclick="showDiv()">
+	<img src="./flag_italy.gif" alt="ciao" width="100px" height="100px" style="position: absolute;top: 180px; left: 400px " >
+</div>
+
+</body>
+</html>
+
+
