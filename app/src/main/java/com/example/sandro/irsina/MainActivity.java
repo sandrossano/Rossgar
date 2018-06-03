@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Point;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -29,6 +30,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -41,9 +43,11 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     WebView webView;
-    ViewPager viewPager;
+    static ViewPager viewPager;
+    static int banner;
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
     private int currentPage = 0;
+    static float width_device=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,8 +107,15 @@ public class MainActivity extends AppCompatActivity
         webView.getSettings().setUseWideViewPort( true );
         webView.getSettings().setBuiltInZoomControls( true );
         webView.setInitialScale(1);
+
         //webView.getSettings().setDefaultZoom(WebSettings.ZoomDensity.FAR);
         webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                webView.scrollTo(0,(webView.getHeight()/2)-10);
+            }
+
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 String[] a=url.split("attrazione=");
@@ -124,6 +135,8 @@ public class MainActivity extends AppCompatActivity
         getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
         float height = displaymetrics.heightPixels;
         float width = displaymetrics.widthPixels;
+        width_device=width;
+
 
         String html="<!DOCTYPE html>\n" +
                 "<html>\n" +
@@ -211,6 +224,7 @@ public class MainActivity extends AppCompatActivity
                 "\n";
 
         webView.loadDataWithBaseURL("file:///android_asset/", html, "text/html", "utf-8", null);
+
         //webView.loadUrl( "file:///android_asset/mappa.html" );
         //webView.loadData(html,"text/html", "UTF-8");
 /*        PhotoView mappa=(PhotoView) findViewById(R.id.imageView4);
@@ -222,7 +236,7 @@ public class MainActivity extends AppCompatActivity
         //SubsamplingScaleImageView imageView = (SubsamplingScaleImageView)findViewById(R.id.imageView4);
         //imageView.setImage(ImageSource.resource(R.drawable.mappa));
 
-        final Integer[] XMEN = {R.drawable.flag_france, R.drawable.flag_italy, R.drawable.flag_unionjack};
+        final Integer[] XMEN = {R.drawable.banner1, R.drawable.flag_italy, R.drawable.flag_unionjack};
 
         for(int i=0;i<XMEN.length;i++) {
 
@@ -231,6 +245,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         viewPager = (ViewPager) findViewById(R.id.pager_banner);
+        banner = getResources().getConfiguration().densityDpi;
         viewPager.setAdapter(new SlideAdapter_Sponsor_banner(MainActivity.this, XMENArray));
 
         // Auto start of viewpager
@@ -389,8 +404,11 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-
+        if (id == R.id.web) {
+            String url = "http://www.comune.irsina.mt.it";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
         }
 
 

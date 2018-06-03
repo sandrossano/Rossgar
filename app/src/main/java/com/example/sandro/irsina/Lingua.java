@@ -53,7 +53,7 @@ public class Lingua extends AppCompatActivity {
 
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar4);
-        DrawableCompat.setTint(progressBar.getIndeterminateDrawable(), Color.CYAN);
+        DrawableCompat.setTint(progressBar.getIndeterminateDrawable(), Color.rgb(255,153,0));
 
         Window window = getWindow();
 
@@ -72,11 +72,11 @@ public class Lingua extends AppCompatActivity {
             @Override
             public void run() {
                 if(pronto==0) {
-                    progressBar.setVisibility(View.GONE);
                     //continua.setVisibility(View.VISIBLE);
                     Intent refresh = new Intent(getApplicationContext(), MainActivity.class);
                     refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(refresh);
+
                 }
 
             }
