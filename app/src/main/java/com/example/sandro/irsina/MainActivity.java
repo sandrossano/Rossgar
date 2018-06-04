@@ -65,6 +65,9 @@ public class MainActivity extends AppCompatActivity
         findViewById(R.id.include_catt_mantegna).setVisibility(View.GONE);
         findViewById(R.id.include_catt_vedere).setVisibility(View.GONE);
         findViewById(R.id.include_sanfrancesco).setVisibility(View.GONE);
+        findViewById(R.id.include_museo).setVisibility(View.GONE);
+        findViewById(R.id.include_porticella).setVisibility(View.GONE);
+        findViewById(R.id.include_muretto).setVisibility(View.GONE);
 
         ImageView ib=(ImageView)findViewById(R.id.cambio);
         Locale current = getResources().getConfiguration().locale;
@@ -131,6 +134,27 @@ public class MainActivity extends AppCompatActivity
                 }
                 if(a[1].equals("sanfrancesco")) {
                     Intent intent = new Intent(MainActivity.this, SanFrancesco.class);
+                    startActivity(intent);
+                    swipeTimer.cancel();
+                    swipeTimer.purge();
+                    finish();
+                }
+                if(a[1].equals("museo")) {
+                    Intent intent = new Intent(MainActivity.this, Museo.class);
+                    startActivity(intent);
+                    swipeTimer.cancel();
+                    swipeTimer.purge();
+                    finish();
+                }
+                if(a[1].equals("porticella")) {
+                    Intent intent = new Intent(MainActivity.this, Porticella.class);
+                    startActivity(intent);
+                    swipeTimer.cancel();
+                    swipeTimer.purge();
+                    finish();
+                }
+                if(a[1].equals("muretto")) {
+                    Intent intent = new Intent(MainActivity.this, Muretto.class);
                     startActivity(intent);
                     swipeTimer.cancel();
                     swipeTimer.purge();
@@ -361,7 +385,7 @@ public class MainActivity extends AppCompatActivity
                 public void run() {
                     handler.post(Update);
                 }
-            }, 1000, 7000);
+            }, 1000, 6000);
 
     }
 

@@ -36,6 +36,21 @@
         android:visibility="gone" />
 
     <include
+        android:id="@+id/include_museo"
+        layout="@layout/museo"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/include_porticella"
+        layout="@layout/porticella"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/include_muretto"
+        layout="@layout/muretto"
+        android:visibility="gone" />
+
+    <include
         android:id="@+id/include_catt_storia"
         layout="@layout/storia"
         android:layout_width="match_parent"

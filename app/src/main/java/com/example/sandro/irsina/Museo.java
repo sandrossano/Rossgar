@@ -25,7 +25,7 @@ import java.util.Locale;
  * Created by sandro on 21/05/18.
  */
 
-public class SanFrancesco extends AppCompatActivity
+public class Museo extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +38,11 @@ public class SanFrancesco extends AppCompatActivity
         findViewById(R.id.include_catt_vedere).setVisibility(View.GONE);
         findViewById(R.id.include_catt_miglionico).setVisibility(View.GONE);
         findViewById(R.id.include_catt_miglionico).setVisibility(View.GONE);
-        findViewById(R.id.include_sanfrancesco).setVisibility(View.VISIBLE);
-        findViewById(R.id.include_museo).setVisibility(View.GONE);
+        findViewById(R.id.include_sanfrancesco).setVisibility(View.GONE);
+        findViewById(R.id.include_museo).setVisibility(View.VISIBLE);
         findViewById(R.id.include_porticella).setVisibility(View.GONE);
         findViewById(R.id.include_muretto).setVisibility(View.GONE);
-        setTitle("San Francesco D'Assisi");
+        setTitle("Museo Janora");
 
         Log.d("lingua",Locale.getDefault().getLanguage());
         Log.d("linguaDisplay",Locale.getDefault().getDisplayLanguage());
@@ -53,7 +53,7 @@ public class SanFrancesco extends AppCompatActivity
             getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
-            ImageView ib=(ImageView)findViewById(R.id.cambiol);
+            ImageView ib=(ImageView)findViewById(R.id.cambio3);
                 Locale current = getResources().getConfiguration().locale;
             if(current.getLanguage().equals("en")) {
                 ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_unionjack));
@@ -100,7 +100,7 @@ public class SanFrancesco extends AppCompatActivity
             conf.locale = myLocale;
             res.updateConfiguration(conf, dm);
 
-            Intent refresh = new Intent(this, SanFrancesco.class);
+            Intent refresh = new Intent(this, Museo.class);
             refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(refresh);
             finish();
@@ -115,7 +115,7 @@ public class SanFrancesco extends AppCompatActivity
             conf.locale = myLocale;
             res.updateConfiguration(conf, dm);
 
-            Intent refresh = new Intent(this, SanFrancesco.class);
+            Intent refresh = new Intent(this, Museo.class);
             refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(refresh);
             finish();
@@ -129,7 +129,7 @@ public class SanFrancesco extends AppCompatActivity
             conf.locale = myLocale;
             res.updateConfiguration(conf, dm);
 
-            Intent refresh = new Intent(this, SanFrancesco.class);
+            Intent refresh = new Intent(this, Museo.class);
             refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(refresh);
             finish();

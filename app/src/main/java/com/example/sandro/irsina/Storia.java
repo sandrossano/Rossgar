@@ -34,6 +34,9 @@ public class Storia extends AppCompatActivity
         findViewById(R.id.include_catt_mantegna).setVisibility(View.GONE);
         findViewById(R.id.include_catt_vedere).setVisibility(View.GONE);
         findViewById(R.id.include_catt_miglionico).setVisibility(View.GONE);
+        findViewById(R.id.include_museo).setVisibility(View.GONE);
+        findViewById(R.id.include_porticella).setVisibility(View.GONE);
+        findViewById(R.id.include_muretto).setVisibility(View.GONE);
         setTitle(R.string.storia);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

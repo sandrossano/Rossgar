@@ -37,6 +37,9 @@ public class Miglionico extends AppCompatActivity
         findViewById(R.id.include_catt_storia).setVisibility(View.GONE);
         findViewById(R.id.include_catt_mantegna).setVisibility(View.GONE);
         findViewById(R.id.include_catt_miglionico).setVisibility(View.VISIBLE);
+        findViewById(R.id.include_museo).setVisibility(View.GONE);
+        findViewById(R.id.include_porticella).setVisibility(View.GONE);
+        findViewById(R.id.include_muretto).setVisibility(View.GONE);
         setTitle(R.string.miglionico);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

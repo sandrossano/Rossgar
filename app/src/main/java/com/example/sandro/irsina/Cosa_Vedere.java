@@ -25,6 +25,9 @@ public class Cosa_Vedere extends AppCompatActivity
         findViewById(R.id.include_catt_mantegna).setVisibility(View.GONE);
         findViewById(R.id.include_catt_vedere).setVisibility(View.VISIBLE);
         findViewById(R.id.include_catt_miglionico).setVisibility(View.GONE);
+        findViewById(R.id.include_museo).setVisibility(View.GONE);
+        findViewById(R.id.include_porticella).setVisibility(View.GONE);
+        findViewById(R.id.include_muretto).setVisibility(View.GONE);
         setTitle(R.string.vedere);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
