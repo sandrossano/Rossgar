@@ -47,6 +47,7 @@ public class Mantegna extends AppCompatActivity
         findViewById(R.id.include_museo).setVisibility(View.GONE);
         findViewById(R.id.include_porticella).setVisibility(View.GONE);
         findViewById(R.id.include_muretto).setVisibility(View.GONE);
+        findViewById(R.id.include_fuori).setVisibility(View.GONE);
         setTitle(R.string.statua);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

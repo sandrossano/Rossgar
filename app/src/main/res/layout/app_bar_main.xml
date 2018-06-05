@@ -31,6 +31,11 @@
         android:visibility="gone" />
 
     <include
+        android:id="@+id/include_fuori"
+        layout="@layout/fuori"
+        android:visibility="visible" />
+
+    <include
         android:id="@+id/include_sanfrancesco"
         layout="@layout/sanfrancesco"
         android:visibility="gone" />

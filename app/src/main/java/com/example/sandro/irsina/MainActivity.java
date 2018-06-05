@@ -1,17 +1,33 @@
 package com.example.sandro.irsina;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.DownloadManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Point;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Process;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
@@ -32,7 +48,20 @@ import android.webkit.WebViewClient;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -48,8 +77,9 @@ public class MainActivity extends AppCompatActivity
     static int banner;
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
     int currentPage = 0;
-    static float width_device=0;
+    static int width_device=0;
     static Timer swipeTimer;
+    static int height_device=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +98,7 @@ public class MainActivity extends AppCompatActivity
         findViewById(R.id.include_museo).setVisibility(View.GONE);
         findViewById(R.id.include_porticella).setVisibility(View.GONE);
         findViewById(R.id.include_muretto).setVisibility(View.GONE);
+        findViewById(R.id.include_fuori).setVisibility(View.GONE);
 
         ImageView ib=(ImageView)findViewById(R.id.cambio);
         Locale current = getResources().getConfiguration().locale;
@@ -166,9 +197,10 @@ public class MainActivity extends AppCompatActivity
 
         DisplayMetrics displaymetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-        float height = displaymetrics.heightPixels;
-        float width = displaymetrics.widthPixels;
+        int height = displaymetrics.heightPixels;
+        int width = displaymetrics.widthPixels;
         width_device=width;
+        height_device=height;
 
 
         String html="<!DOCTYPE html>\n" +
@@ -307,7 +339,7 @@ public class MainActivity extends AppCompatActivity
                 "                <a style=\"text-decoration: none;\" href=\"https://www.google.it/attrazione=muretto\">" +
                 "                <img src=\"./visit.png\" alt=\"Avatar\" style=\"margin-top:15px; margin-right:5px; float:right;width:25%\"></a>" +
                 "                <div style=\"margin-left:10px;\">" +
-                "                <h1 style=\"font-size:260%;\"><b>Le Mura</b></h1>" +
+                "                <h1 style=\"font-size:260%;\"><b>Antiche Mura</b></h1>" +
                 "                " +
                 "                <p style=\"font-size:220%;\">Via Ascensione</p></div>" +
                 "                " +
@@ -387,6 +419,14 @@ public class MainActivity extends AppCompatActivity
                 }
             }, 1000, 6000);
 
+    }
+
+    public void fuori(View view) {
+        Intent refresh = new Intent(this, Fuori.class);
+        startActivity(refresh);
+        swipeTimer.cancel();
+        swipeTimer.purge();
+        finish();
     }
 
 
@@ -611,6 +651,84 @@ public class MainActivity extends AppCompatActivity
             finish();
 
             return;
+        }
+
+    }
+    public  boolean haveStoragePermission() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.e("Permission error","You have permission");
+                return true;
+            } else {
+
+                Log.e("Permission error","You have asked for permission");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                return false;
+            }
+        }
+        else { //you dont need to worry about these stuff below api level 23
+            Log.e("Permission error","You already have the permission");
+            return true;
+        }
+    }
+    private boolean isNetworkAvailable() {
+        ConnectivityManager manager =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = manager.getActiveNetworkInfo();
+        boolean isAvailable = false;
+        if (networkInfo != null && networkInfo.isConnected()) {
+            // Network is present and connected
+            isAvailable = true;
+        }
+        return isAvailable;
+    }
+    public void download(View v) {
+        if(haveStoragePermission()==true) {
+            if(isNetworkAvailable()==true) {
+/*
+                DownloadManager downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+                Uri uri = Uri.parse("http://fire94.altervista.org/Images/download.php");
+                DownloadManager.Request request = new DownloadManager.Request(uri);
+                request.allowScanningByMediaScanner();
+                request.setMimeType("application/jpeg");
+                request.setDestinationInExternalPublicDir("/Download", "giro.jpeg");
+                request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                Long reference = downloadManager.enqueue(request);*/
+
+                String url="http://fire94.altervista.org/Images/giro.jpeg";
+                Uri uri = Uri.parse(url);
+                DownloadManager.Request r = new DownloadManager.Request(uri);
+
+                String fileName = url.substring( url.lastIndexOf('/')+ 1, url.length() );
+
+                // This put the download in the same Download dir the browser uses
+                r.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName);
+                r.allowScanningByMediaScanner();
+
+                // Notify user when download is completed
+                // (Seems to be available since Honeycomb only)
+                r.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+
+                // Start download
+                DownloadManager dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+                dm.enqueue(r);
+
+
+                BroadcastReceiver onComplete=new BroadcastReceiver() {
+                    public void onReceive(Context ctxt, Intent intent) {
+
+                        Toast.makeText(MainActivity.this, "Image Downloaded", Toast.LENGTH_SHORT).show();
+                    }
+                };
+                registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+
+
+                Toast.makeText(MainActivity.this, "Download Started...", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(MainActivity.this, "Connessione Internet Assente", Toast.LENGTH_LONG).show();
+            }
         }
 
     }

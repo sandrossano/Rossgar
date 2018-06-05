@@ -42,6 +42,7 @@ public class Porticella extends AppCompatActivity
         findViewById(R.id.include_museo).setVisibility(View.GONE);
         findViewById(R.id.include_porticella).setVisibility(View.VISIBLE);
         findViewById(R.id.include_muretto).setVisibility(View.GONE);
+        findViewById(R.id.include_fuori).setVisibility(View.GONE);
         setTitle("Porticella");
 
         Log.d("lingua",Locale.getDefault().getLanguage());
@@ -153,13 +154,12 @@ public class Porticella extends AppCompatActivity
     }
     public void maps(View view){
         //placeid: https://developers.google.com/places/place-id
-        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=Chiesa%20di%20Santa%20Maria%20Assunta&query_place_id=ChIJu_KlfCKKOBMRlifQ-uWZnNY");
+        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=Via+Porticella,+Irsina");
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
         if (mapIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(mapIntent);
         }
-
     }
     public void vedere(View view) {
         Intent refresh = new Intent(this, Cosa_Vedere.class);

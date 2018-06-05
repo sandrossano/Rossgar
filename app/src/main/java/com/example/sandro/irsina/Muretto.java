@@ -42,7 +42,8 @@ public class Muretto extends AppCompatActivity
         findViewById(R.id.include_museo).setVisibility(View.GONE);
         findViewById(R.id.include_porticella).setVisibility(View.GONE);
         findViewById(R.id.include_muretto).setVisibility(View.VISIBLE);
-        setTitle("Le Mura");
+        findViewById(R.id.include_fuori).setVisibility(View.GONE);
+        setTitle("Antiche Mura");
 
         Log.d("lingua",Locale.getDefault().getLanguage());
         Log.d("linguaDisplay",Locale.getDefault().getDisplayLanguage());
@@ -153,7 +154,7 @@ public class Muretto extends AppCompatActivity
     }
     public void maps(View view){
         //placeid: https://developers.google.com/places/place-id
-        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=Chiesa%20di%20Santa%20Maria%20Assunta&query_place_id=ChIJu_KlfCKKOBMRlifQ-uWZnNY");
+        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=Antiche+Mura,+Irsina");
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
         if (mapIntent.resolveActivity(getPackageManager()) != null) {
