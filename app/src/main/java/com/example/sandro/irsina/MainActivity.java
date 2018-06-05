@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity
         findViewById(R.id.include_porticella).setVisibility(View.GONE);
         findViewById(R.id.include_muretto).setVisibility(View.GONE);
         findViewById(R.id.include_fuori).setVisibility(View.GONE);
+        findViewById(R.id.include_nuget).setVisibility(View.GONE);
 
         ImageView ib=(ImageView)findViewById(R.id.cambio);
         Locale current = getResources().getConfiguration().locale;
@@ -191,6 +192,13 @@ public class MainActivity extends AppCompatActivity
                     swipeTimer.purge();
                     finish();
                 }
+                if(a[1].equals("nuget")) {
+                    Intent intent = new Intent(MainActivity.this, Nuget.class);
+                    startActivity(intent);
+                    swipeTimer.cancel();
+                    swipeTimer.purge();
+                    finish();
+                }
                 return true;
             }
         });
@@ -233,6 +241,7 @@ public class MainActivity extends AppCompatActivity
                 "               document.getElementById('card2').style.display = \"none\";" +
                 "                      document.getElementById('card3').style.display = \"none\";" +
                 "                      document.getElementById('card4').style.display = \"none\";" +
+                "                       document.getElementById('card5').style.display = \"none\";" +
                 "               document.getElementById('card1').style.display = \"none\";}\n" +
                 "\t\t}\n" +
                 "\n" +
@@ -242,6 +251,7 @@ public class MainActivity extends AppCompatActivity
                 "               document.getElementById('card2').style.display = \"none\";" +
                 "                      document.getElementById('card3').style.display = \"none\";" +
                 "                      document.getElementById('card4').style.display = \"none\";" +
+                "                       document.getElementById('card5').style.display = \"none\";" +
                 "               document.getElementById('card').style.display = \"none\";}\n" +
                 "\t\t}\n" +
                 "\n" +
@@ -252,6 +262,7 @@ public class MainActivity extends AppCompatActivity
                 "                      document.getElementById('card1').style.display = \"none\";" +
                 "                      document.getElementById('card3').style.display = \"none\";" +
                 "                      document.getElementById('card4').style.display = \"none\";" +
+                "                       document.getElementById('card5').style.display = \"none\";" +
                 "                      document.getElementById('card').style.display = \"none\";}" +
                 "}\n" +
                 "function showDiv3() {" +
@@ -260,7 +271,17 @@ public class MainActivity extends AppCompatActivity
                 "                      document.getElementById('card2').style.display = \"none\";" +
                 "                      document.getElementById('card4').style.display = \"none\";" +
                 "                       document.getElementById('card').style.display = \"none\";" +
+                "                       document.getElementById('card5').style.display = \"none\";" +
                 "                      document.getElementById('card1').style.display = \"none\";}" +
+                "}\n" +
+                "function showDiv5() {" +
+                "               if(document.getElementById('card5').style.display == \"block\")document.getElementById('card5').style.display = \"none\";\n" +
+                "                else {document.getElementById('card5').style.display = \"block\"; " +
+                "                      document.getElementById('card2').style.display = \"none\";" +
+                "                      document.getElementById('card4').style.display = \"none\";" +
+                "                       document.getElementById('card1').style.display = \"none\";" +
+                "                       document.getElementById('card').style.display = \"none\";" +
+                "                      document.getElementById('card3').style.display = \"none\";}" +
                 "}\n" +
                 "function showDiv4() {" +
                 "               if(document.getElementById('card4').style.display == \"block\")document.getElementById('card4').style.display = \"none\";\n" +
@@ -268,6 +289,7 @@ public class MainActivity extends AppCompatActivity
                 "                      document.getElementById('card3').style.display = \"none\";" +
                 "                      document.getElementById('card1').style.display = \"none\";" +
                 "                       document.getElementById('card').style.display = \"none\";" +
+                "                       document.getElementById('card5').style.display = \"none\";" +
                 "                      document.getElementById('card2').style.display = \"none\";}" +
                 "}" +
                 "</script>\n" +
@@ -346,6 +368,19 @@ public class MainActivity extends AppCompatActivity
                 "                </div>" +
                 "                </div>" +
                 "                </div>" +
+                "<div id=\"card5\" style=\"position:absolute;top:1500px; left:750px;display:none;\">" +
+                "                <div class=\"card\">" +
+                "                <div class=\"container\">\n" +
+                "                <a style=\"text-decoration: none;\" href=\"https://www.google.it/attrazione=nuget\">" +
+                "                <img src=\"./visit.png\" alt=\"Avatar\" style=\"margin-top:15px; margin-right:5px; float:right;width:25%\"></a>" +
+                "                <div style=\"margin-left:10px;\">" +
+                "                <h1 style=\"font-size:260%;\"><b>Palazzo Nugent</b></h1>" +
+                "                " +
+                "                <p style=\"font-size:220%;\">Piazza Garibaldi</p></div>" +
+                "                " +
+                "                </div>" +
+                "                </div>" +
+                "                </div>" +
 
                 ""+
                 "<div onclick=\"showDiv()\">\n" +
@@ -365,6 +400,9 @@ public class MainActivity extends AppCompatActivity
                 "</div>\n" +
                 "<div onclick=\"showDiv4()\">" +
                 "<img src=\"./muretto.png\" alt=\"ciao\" width=\"150px\" height=\"150px\" style=\"position: absolute;top: 1650px; left: 295px \" >\n" +
+                "</div>\n" +
+                "<div onclick=\"showDiv5()\">" +
+                "<img src=\"./nuget.png\" alt=\"ciao\" width=\"150px\" height=\"150px\" style=\"position: absolute;top: 1320px; left: 715px \" >\n" +
                 "</div>\n" +
 
                 "</body>\n" +

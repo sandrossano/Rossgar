@@ -46,6 +46,11 @@
         android:visibility="gone" />
 
     <include
+        android:id="@+id/include_nuget"
+        layout="@layout/nuget"
+        android:visibility="gone" />
+
+    <include
         android:id="@+id/include_porticella"
         layout="@layout/porticella"
         android:visibility="gone" />

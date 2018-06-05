@@ -46,6 +46,7 @@ public class Cattedrale extends AppCompatActivity
         findViewById(R.id.include_porticella).setVisibility(View.GONE);
         findViewById(R.id.include_muretto).setVisibility(View.GONE);
         findViewById(R.id.include_fuori).setVisibility(View.GONE);
+        findViewById(R.id.include_nuget).setVisibility(View.GONE);
         setTitle("Cattedrale");
 
         Log.d("lingua",Locale.getDefault().getLanguage());

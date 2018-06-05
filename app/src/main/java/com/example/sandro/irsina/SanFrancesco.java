@@ -43,6 +43,7 @@ public class SanFrancesco extends AppCompatActivity
         findViewById(R.id.include_porticella).setVisibility(View.GONE);
         findViewById(R.id.include_muretto).setVisibility(View.GONE);
         findViewById(R.id.include_fuori).setVisibility(View.GONE);
+        findViewById(R.id.include_nuget).setVisibility(View.GONE);
         setTitle("San Francesco D'Assisi");
 
         Log.d("lingua",Locale.getDefault().getLanguage());

@@ -61,7 +61,9 @@ public class SponsorSingolo extends AppCompatActivity
         findViewById(R.id.include_catt_miglionico).setVisibility(View.GONE);
         findViewById(R.id.include_catt_miglionico).setVisibility(View.GONE);
         findViewById(R.id.include_sanfrancesco).setVisibility(View.GONE);
+        findViewById(R.id.include_fuori).setVisibility(View.GONE);
         findViewById(R.id.include_sponsor).setVisibility(View.VISIBLE);
+        findViewById(R.id.include_nuget).setVisibility(View.GONE);
         setTitle("Nome Società");
 
 

@@ -25,7 +25,7 @@ import java.util.Locale;
  * Created by sandro on 21/05/18.
  */
 
-public class Museo extends AppCompatActivity
+public class Nuget extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +39,12 @@ public class Museo extends AppCompatActivity
         findViewById(R.id.include_catt_miglionico).setVisibility(View.GONE);
         findViewById(R.id.include_catt_miglionico).setVisibility(View.GONE);
         findViewById(R.id.include_sanfrancesco).setVisibility(View.GONE);
-        findViewById(R.id.include_museo).setVisibility(View.VISIBLE);
+        findViewById(R.id.include_museo).setVisibility(View.GONE);
         findViewById(R.id.include_porticella).setVisibility(View.GONE);
         findViewById(R.id.include_muretto).setVisibility(View.GONE);
         findViewById(R.id.include_fuori).setVisibility(View.GONE);
-        findViewById(R.id.include_nuget).setVisibility(View.GONE);
-        setTitle("Museo Janora");
+        findViewById(R.id.include_nuget).setVisibility(View.VISIBLE);
+        setTitle("Antiche Mura");
 
         Log.d("lingua",Locale.getDefault().getLanguage());
         Log.d("linguaDisplay",Locale.getDefault().getDisplayLanguage());
@@ -55,7 +55,7 @@ public class Museo extends AppCompatActivity
             getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
-            ImageView ib=(ImageView)findViewById(R.id.cambio3);
+            ImageView ib=(ImageView)findViewById(R.id.cambio2);
                 Locale current = getResources().getConfiguration().locale;
             if(current.getLanguage().equals("en")) {
                 ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_unionjack));
@@ -102,7 +102,7 @@ public class Museo extends AppCompatActivity
             conf.locale = myLocale;
             res.updateConfiguration(conf, dm);
 
-            Intent refresh = new Intent(this, Museo.class);
+            Intent refresh = new Intent(this, Nuget.class);
             refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(refresh);
             finish();
@@ -117,7 +117,7 @@ public class Museo extends AppCompatActivity
             conf.locale = myLocale;
             res.updateConfiguration(conf, dm);
 
-            Intent refresh = new Intent(this, Museo.class);
+            Intent refresh = new Intent(this, Nuget.class);
             refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(refresh);
             finish();
@@ -131,7 +131,7 @@ public class Museo extends AppCompatActivity
             conf.locale = myLocale;
             res.updateConfiguration(conf, dm);
 
-            Intent refresh = new Intent(this, Museo.class);
+            Intent refresh = new Intent(this, Nuget.class);
             refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(refresh);
             finish();
@@ -155,7 +155,7 @@ public class Museo extends AppCompatActivity
     }
     public void maps(View view){
         //placeid: https://developers.google.com/places/place-id
-        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=Museo+Michele+Janora,+Irsina");
+        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=Antiche+Mura,+Irsina");
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
         if (mapIntent.resolveActivity(getPackageManager()) != null) {

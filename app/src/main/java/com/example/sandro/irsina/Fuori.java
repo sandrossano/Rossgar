@@ -66,6 +66,7 @@ public class Fuori extends AppCompatActivity
         findViewById(R.id.include_museo).setVisibility(View.GONE);
         findViewById(R.id.include_porticella).setVisibility(View.GONE);
         findViewById(R.id.include_muretto).setVisibility(View.GONE);
+        findViewById(R.id.include_nuget).setVisibility(View.GONE);
         setTitle("Fuori Mappa");
 
         Log.d("lingua",Locale.getDefault().getLanguage());
@@ -127,6 +128,30 @@ public class Fuori extends AppCompatActivity
                     finish();*/
                     Toast.makeText(Fuori.this, "fontane", Toast.LENGTH_SHORT).show();
                 }
+                if(a[1].equals("peschiera")) {
+                    /*Intent intent = new Intent(Fuori.this, MainActivity.class);
+                    startActivity(intent);
+                    swipeTimer2.cancel();
+                    swipeTimer2.purge();
+                    finish();*/
+                    Toast.makeText(Fuori.this, "peschiera", Toast.LENGTH_SHORT).show();
+                }
+                if(a[1].equals("pieta")) {
+                    /*Intent intent = new Intent(Fuori.this, MainActivity.class);
+                    startActivity(intent);
+                    swipeTimer2.cancel();
+                    swipeTimer2.purge();
+                    finish();*/
+                    Toast.makeText(Fuori.this, "pietà", Toast.LENGTH_SHORT).show();
+                }
+                if(a[1].equals("juso")) {
+                    /*Intent intent = new Intent(Fuori.this, MainActivity.class);
+                    startActivity(intent);
+                    swipeTimer2.cancel();
+                    swipeTimer2.purge();
+                    finish();*/
+                    Toast.makeText(Fuori.this, "madonna dello Juso", Toast.LENGTH_SHORT).show();
+                }
                 return true;
             }
         });
@@ -147,6 +172,18 @@ public class Fuori extends AppCompatActivity
                 "<a style=\"text-decoration: none;\" href=\"https://www.google.it/attrazione=fontane\">" +
                 "<div >\n" +
                 "\t<img src=\"./banner1.png\" alt=\"ciao\" width=\"410px\" height=\"190px\" style=\"position: absolute;top: 1375px; left: 100px;opacity:0;\" >\n" +
+                "</div></a>\n" +
+                "<a style=\"text-decoration: none;\" href=\"https://www.google.it/attrazione=peschiera\">" +
+                "<div >\n" +
+                "\t<img src=\"./banner1.png\" alt=\"ciao\" width=\"410px\" height=\"180px\" style=\"position: absolute;top: 1585px; left: 600px;opacity:0;\" >\n" +
+                "</div></a>\n" +
+                "<a style=\"text-decoration: none;\" href=\"https://www.google.it/attrazione=pieta\">" +
+                "<div >\n" +
+                "\t<img src=\"./banner1.png\" alt=\"ciao\" width=\"410px\" height=\"180px\" style=\"position: absolute;top: 1825px; left: 530px;opacity:0;\" >\n" +
+                "</div></a>\n" +
+                "<a style=\"text-decoration: none;\" href=\"https://www.google.it/attrazione=juso\">" +
+                "<div >\n" +
+                "\t<img src=\"./banner1.png\" alt=\"ciao\" width=\"485px\" height=\"215px\" style=\"position: absolute;top: 1175px; left: 990px;opacity:0;\" >\n" +
                 "</div></a>\n" +
                 "</body>\n" +
                 "</html>\n" +
