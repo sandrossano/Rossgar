@@ -119,6 +119,14 @@ public class Fuori extends AppCompatActivity
                     finish();*/
                     Toast.makeText(Fuori.this, "bott", Toast.LENGTH_SHORT).show();
                 }
+                if(a[1].equals("fontane")) {
+                    /*Intent intent = new Intent(Fuori.this, MainActivity.class);
+                    startActivity(intent);
+                    swipeTimer2.cancel();
+                    swipeTimer2.purge();
+                    finish();*/
+                    Toast.makeText(Fuori.this, "fontane", Toast.LENGTH_SHORT).show();
+                }
                 return true;
             }
         });
@@ -136,7 +144,10 @@ public class Fuori extends AppCompatActivity
                 "<div >\n" +
                 "\t<img src=\"./banner1.png\" alt=\"ciao\" width=\"395px\" height=\"190px\" style=\"position: absolute;top: 1155px; left: 50px;opacity:0;\" >\n" +
                 "</div></a>\n" +
-
+                "<a style=\"text-decoration: none;\" href=\"https://www.google.it/attrazione=fontane\">" +
+                "<div >\n" +
+                "\t<img src=\"./banner1.png\" alt=\"ciao\" width=\"410px\" height=\"190px\" style=\"position: absolute;top: 1375px; left: 100px;opacity:0;\" >\n" +
+                "</div></a>\n" +
                 "</body>\n" +
                 "</html>\n" +
                 "\n" +
