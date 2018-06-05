@@ -3,23 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#acc9eb">
+    android:background="#FFC281">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#acc9eb">
-
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView16"
-            android:layout_alignStart="@+id/textView16"
-            android:paddingTop="5dp"
-            android:text="@string/miglionico"
-            android:textSize="24sp"
-            android:textStyle="bold|italic" />
+        android:background="#FFC281">
 
         <TextView
             android:id="@+id/textView20"
@@ -27,6 +16,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textView15"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:paddingRight="5dp"
             android:text="@string/miglionico1"
             android:textColor="@android:color/black"
             android:textSize="14sp" />
@@ -34,11 +25,9 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/pager_miglionico"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="300dp"
             android:layout_below="@+id/textView20"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:layout_marginTop="5dp" />
 
         <me.relex.circleindicator.CircleIndicator
@@ -56,7 +45,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/pager_miglionico"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
             android:paddingBottom="20dp"
+            android:paddingRight="5dp"
             android:text="@string/miglionico2"
             android:textColor="@android:color/black"
             android:textSize="16sp" />

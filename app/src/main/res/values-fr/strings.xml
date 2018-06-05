@@ -20,4 +20,10 @@
     <string name="scegli">Choisissez un lieu sur la carte pour plus d\'informations</string>
     <string name="fuori_mappa">Fuori Mappa</string>
     <string name="continua">Continue</string>
+    <string name="porticella">Porticella</string>
+    <string name="porticellatesto">PorticellaTesto</string>
+    <string name="muretto">Antiche Mura</string>
+    <string name="murettotesto">Muretto Testo</string>
+    <string name="nuget">Palazzo Nugent</string>
+    <string name="nugettesto">Nuget Testo</string>
 </resources>

@@ -60,7 +60,7 @@ public class Mantegna extends AppCompatActivity
 
     private void init() {
 
-        final Integer[] XMEN = {R.drawable.flag_france, R.drawable.flag_italy, R.drawable.flag_unionjack};
+        final Integer[] XMEN = {R.drawable.statua_1,R.drawable.statua_2,R.drawable.statua_3,R.drawable.statua_4,R.drawable.statua_5,R.drawable.statua_6,R.drawable.statua_7};
 
         for(int i=0;i<XMEN.length;i++) {
 
@@ -100,7 +100,7 @@ public class Mantegna extends AppCompatActivity
             Mantegna.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if (viewPager.getCurrentItem() == 2) {
+                    if (viewPager.getCurrentItem() == 7) {
                         viewPager.setCurrentItem(0);
                     } else {
                         viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);

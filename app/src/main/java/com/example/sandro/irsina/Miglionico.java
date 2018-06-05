@@ -53,7 +53,7 @@ public class Miglionico extends AppCompatActivity
 
     private void init() {
 
-        final Integer[] XMEN = {R.drawable.flag_france, R.drawable.flag_italy, R.drawable.flag_unionjack};
+        final Integer[] XMEN = {R.drawable.miglionico_2, R.drawable.miglionico_1, R.drawable.miglionico_3};
 
         for(int i=0;i<XMEN.length;i++) {
 
@@ -93,7 +93,7 @@ public class Miglionico extends AppCompatActivity
             Miglionico.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if (viewPager.getCurrentItem() == 2) {
+                    if (viewPager.getCurrentItem() == 3) {
                         viewPager.setCurrentItem(0);
                     } else {
                         viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);

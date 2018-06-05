@@ -7,6 +7,7 @@
     tools:context="com.example.sandro.irsina.MainActivity">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -47,25 +48,22 @@
 
     <include
         android:id="@+id/include_nuget"
-        layout="@layout/nuget"
+        layout="@layout/nuget1"
         android:visibility="gone" />
 
     <include
         android:id="@+id/include_porticella"
-        layout="@layout/porticella"
+        layout="@layout/porticella1"
         android:visibility="gone" />
 
     <include
         android:id="@+id/include_muretto"
-        layout="@layout/muretto"
+        layout="@layout/muretto1"
         android:visibility="gone" />
 
     <include
         android:id="@+id/include_catt_storia"
         layout="@layout/storia"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="55dp"
         android:visibility="gone" />
 
     <include
@@ -79,9 +77,6 @@
     <include
         android:id="@+id/include_catt_mantegna"
         layout="@layout/mantegna"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="55dp"
         android:visibility="gone" />
 
     <include

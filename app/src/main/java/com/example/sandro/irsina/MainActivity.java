@@ -179,21 +179,21 @@ public class MainActivity extends AppCompatActivity
                     finish();
                 }
                 if(a[1].equals("porticella")) {
-                    Intent intent = new Intent(MainActivity.this, Porticella.class);
+                    Intent intent = new Intent(MainActivity.this, Porticella1.class);
                     startActivity(intent);
                     swipeTimer.cancel();
                     swipeTimer.purge();
                     finish();
                 }
                 if(a[1].equals("muretto")) {
-                    Intent intent = new Intent(MainActivity.this, Muretto.class);
+                    Intent intent = new Intent(MainActivity.this, Muretto1.class);
                     startActivity(intent);
                     swipeTimer.cancel();
                     swipeTimer.purge();
                     finish();
                 }
                 if(a[1].equals("nuget")) {
-                    Intent intent = new Intent(MainActivity.this, Nuget.class);
+                    Intent intent = new Intent(MainActivity.this, Nuget1.class);
                     startActivity(intent);
                     swipeTimer.cancel();
                     swipeTimer.purge();

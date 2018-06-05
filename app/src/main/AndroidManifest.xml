@@ -30,9 +30,10 @@
         <activity android:name=".Miglionico"></activity>
         <activity android:name=".SanFrancesco"></activity>
         <activity android:name=".SponsorSingolo"></activity>
-        <activity android:name=".Muretto"></activity>
+        <activity android:name=".Nuget1"></activity>
         <activity android:name=".Museo"></activity>
-        <activity android:name=".Porticella"></activity>
+        <activity android:name=".Muretto1"></activity>
+        <activity android:name=".Porticella1"></activity>
         <activity android:name=".Fuori"></activity>
         <activity android:name=".Nuget"></activity>
     </application>
