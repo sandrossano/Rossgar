@@ -34,6 +34,7 @@
         <activity android:name=".Museo"></activity>
         <activity android:name=".Porticella"></activity>
         <activity android:name=".Fuori"></activity>
+        <activity android:name=".Nuget"></activity>
     </application>
 
 </manifest>

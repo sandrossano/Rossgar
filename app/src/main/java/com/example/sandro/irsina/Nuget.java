@@ -44,7 +44,7 @@ public class Nuget extends AppCompatActivity
         findViewById(R.id.include_muretto).setVisibility(View.GONE);
         findViewById(R.id.include_fuori).setVisibility(View.GONE);
         findViewById(R.id.include_nuget).setVisibility(View.VISIBLE);
-        setTitle("Antiche Mura");
+        setTitle("Palazzo Nugent");
 
         Log.d("lingua",Locale.getDefault().getLanguage());
         Log.d("linguaDisplay",Locale.getDefault().getDisplayLanguage());
@@ -155,7 +155,7 @@ public class Nuget extends AppCompatActivity
     }
     public void maps(View view){
         //placeid: https://developers.google.com/places/place-id
-        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=Antiche+Mura,+Irsina");
+        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=Piazza+Giuseppe+Garibaldi,+Irsina");
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
         if (mapIntent.resolveActivity(getPackageManager()) != null) {

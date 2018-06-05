@@ -298,7 +298,7 @@ public class MainActivity extends AppCompatActivity
                 "\n" +
                 "<img src=\"./mappa.png\" width=\"1800px\" height=\"3200px\"alt=\"mapppa\">\n" +
 
-                "<div id=\"card\" style=\"position:absolute;top:950px; left:520px;display:none;\">\n" +
+                "<div id=\"card\" style=\"position:absolute;top:1280px; left:220px;display:none;\">\n" +
                 "<div class=\"card\">\n" +
                 "\t<div class=\"container\">\n" +
                 "\t\t<a style=\"text-decoration: none;\" href=\"https://www.google.it/attrazione=cattedrale\">"+
@@ -313,7 +313,7 @@ public class MainActivity extends AppCompatActivity
                 "</div>\n" +
                 "</div>\n" +
 
-                "<div id=\"card1\" style=\"position:absolute;top:1545px; left:1070px;display:none;\">\n" +
+                "<div id=\"card1\" style=\"position:absolute;top:1555px; left:870px;display:none;\">\n" +
                 "<div class=\"card\">\n" +
                 "\t<div class=\"container\">\n" +
                 "\t\t<a style=\"text-decoration: none;\" href=\"https://www.google.it/attrazione=sanfrancesco\">"+
@@ -368,7 +368,7 @@ public class MainActivity extends AppCompatActivity
                 "                </div>" +
                 "                </div>" +
                 "                </div>" +
-                "<div id=\"card5\" style=\"position:absolute;top:1500px; left:750px;display:none;\">" +
+                "<div id=\"card5\" style=\"position:absolute;top:1200px; left:700px;display:none;\">" +
                 "                <div class=\"card\">" +
                 "                <div class=\"container\">\n" +
                 "                <a style=\"text-decoration: none;\" href=\"https://www.google.it/attrazione=nuget\">" +
@@ -402,7 +402,7 @@ public class MainActivity extends AppCompatActivity
                 "<img src=\"./muretto.png\" alt=\"ciao\" width=\"150px\" height=\"150px\" style=\"position: absolute;top: 1650px; left: 295px \" >\n" +
                 "</div>\n" +
                 "<div onclick=\"showDiv5()\">" +
-                "<img src=\"./nuget.png\" alt=\"ciao\" width=\"150px\" height=\"150px\" style=\"position: absolute;top: 1320px; left: 715px \" >\n" +
+                "<img src=\"./nuget.png\" alt=\"ciao\" width=\"150px\" height=\"150px\" style=\"position: absolute;top: 1020px; left: 715px \" >\n" +
                 "</div>\n" +
 
                 "</body>\n" +
