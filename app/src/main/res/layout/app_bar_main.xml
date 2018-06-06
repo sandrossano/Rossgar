@@ -39,7 +39,7 @@
     <include
         android:id="@+id/include_sanfrancesco"
         layout="@layout/sanfrancesco"
-        android:visibility="gone" />
+        android:visibility="visible" />
 
     <include
         android:id="@+id/include_museo"

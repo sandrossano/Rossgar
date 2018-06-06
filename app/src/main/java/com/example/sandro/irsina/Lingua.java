@@ -80,7 +80,7 @@ public class Lingua extends AppCompatActivity {
                 }
 
             }
-        },2500);
+        },5500);
     }
 
     @Override
