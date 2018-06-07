@@ -1,12 +1,22 @@
 package com.example.sandro.irsina;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import java.util.Locale;
 
 
 /**
@@ -41,15 +51,105 @@ public class Cosa_Vedere extends AppCompatActivity
 
     }
 
-    @Override
+        @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
+        return true;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent refresh = new Intent(this, Cattedrale.class);
+        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(refresh);
+        finishAffinity();
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        Locale current = getResources().getConfiguration().locale;
+        if(current.getLanguage().equals("en")) {
+            getMenuInflater().inflate(R.menu.main_pagina_en, menu);
+        }
+        if(current.getLanguage().equals("it")) {
+            getMenuInflater().inflate(R.menu.main_pagina_it, menu);
+        }
+        if(current.getLanguage().equals("fr")) {
+            getMenuInflater().inflate(R.menu.main_pagina_fr, menu);
+        }
+
         return true;
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         return false;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.web) {
+            cambioLingua();
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void cambioLingua() {
+        Locale current = getResources().getConfiguration().locale;
+
+        if (current.getLanguage().equals("it")) {
+            Locale myLocale = new Locale("en");
+            Resources res = getResources();
+            DisplayMetrics dm = res.getDisplayMetrics();
+            Configuration conf = res.getConfiguration();
+            conf.locale = myLocale;
+            res.updateConfiguration(conf, dm);
+
+            Intent refresh = new Intent(this, Cosa_Vedere.class);
+            refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(refresh);
+            finish();
+            return;
+        }
+
+        if (current.getLanguage().equals("en")) {
+            Locale myLocale = new Locale("fr");
+            Resources res = getResources();
+            DisplayMetrics dm = res.getDisplayMetrics();
+            Configuration conf = res.getConfiguration();
+            conf.locale = myLocale;
+            res.updateConfiguration(conf, dm);
+
+            Intent refresh = new Intent(this, Cosa_Vedere.class);
+            refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(refresh);
+            finish();
+            return;
+        }
+        if (current.getLanguage().equals("fr")) {
+            Locale myLocale = new Locale("it");
+            Resources res = getResources();
+            DisplayMetrics dm = res.getDisplayMetrics();
+            Configuration conf = res.getConfiguration();
+            conf.locale = myLocale;
+            res.updateConfiguration(conf, dm);
+
+            Intent refresh = new Intent(this, Cosa_Vedere.class);
+            refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(refresh);
+            finish();
+            return;
+        }
     }
 
 }

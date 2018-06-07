@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -104,7 +105,7 @@ public class Fuori extends AppCompatActivity
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                webView.scrollTo(0,(webView.getHeight())-10);
+                webView.scrollTo(0,(webView.getHeight()));
             }
 
 
@@ -113,44 +114,44 @@ public class Fuori extends AppCompatActivity
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 String[] a=url.split("attrazione=");
                 if(a[1].equals("bottini")) {
-                    /*Intent intent = new Intent(Fuori.this, MainActivity.class);
+                    Intent intent = new Intent(Fuori.this, Bottini.class);
                     startActivity(intent);
                     swipeTimer2.cancel();
                     swipeTimer2.purge();
-                    finish();*/
-                    Toast.makeText(Fuori.this, "bott", Toast.LENGTH_SHORT).show();
+                    finish();
+                    //Toast.makeText(Fuori.this, "bott", Toast.LENGTH_SHORT).show();
                 }
                 if(a[1].equals("fontane")) {
-                    /*Intent intent = new Intent(Fuori.this, MainActivity.class);
+                    Intent intent = new Intent(Fuori.this, Fontane.class);
                     startActivity(intent);
                     swipeTimer2.cancel();
                     swipeTimer2.purge();
-                    finish();*/
-                    Toast.makeText(Fuori.this, "fontane", Toast.LENGTH_SHORT).show();
+                    finish();
+                    //Toast.makeText(Fuori.this, "fontane", Toast.LENGTH_SHORT).show();
                 }
                 if(a[1].equals("peschiera")) {
-                    /*Intent intent = new Intent(Fuori.this, MainActivity.class);
+                    Intent intent = new Intent(Fuori.this, Peschiera.class);
                     startActivity(intent);
                     swipeTimer2.cancel();
                     swipeTimer2.purge();
-                    finish();*/
-                    Toast.makeText(Fuori.this, "peschiera", Toast.LENGTH_SHORT).show();
+                    finish();
+                    //Toast.makeText(Fuori.this, "peschiera", Toast.LENGTH_SHORT).show();
                 }
                 if(a[1].equals("pieta")) {
-                    /*Intent intent = new Intent(Fuori.this, MainActivity.class);
+                    Intent intent = new Intent(Fuori.this, Pieta.class);
                     startActivity(intent);
                     swipeTimer2.cancel();
                     swipeTimer2.purge();
-                    finish();*/
-                    Toast.makeText(Fuori.this, "pietà", Toast.LENGTH_SHORT).show();
+                    finish();
+                    //Toast.makeText(Fuori.this, "pietà", Toast.LENGTH_SHORT).show();
                 }
                 if(a[1].equals("juso")) {
-                    /*Intent intent = new Intent(Fuori.this, MainActivity.class);
+                    Intent intent = new Intent(Fuori.this, Juso.class);
                     startActivity(intent);
                     swipeTimer2.cancel();
                     swipeTimer2.purge();
-                    finish();*/
-                    Toast.makeText(Fuori.this, "madonna dello Juso", Toast.LENGTH_SHORT).show();
+                    finish();
+                    //Toast.makeText(Fuori.this, "madonna dello Juso", Toast.LENGTH_SHORT).show();
                 }
                 return true;
             }
@@ -224,8 +225,13 @@ public class Fuori extends AppCompatActivity
             ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_france));
         }
 
-        final Integer[] XMEN = {R.drawable.banner1, R.drawable.banner2, R.drawable.banner3};
-
+        Random r = new Random();
+        int i1 = r.nextInt(3);
+        Integer[] caso=new Integer[]{};
+        if (i1==0){caso = new Integer[]{R.drawable.banner1, R.drawable.banner3, R.drawable.banner2};}
+        if (i1==1){caso= new Integer[]{R.drawable.banner2, R.drawable.banner1, R.drawable.banner3};}
+        if (i1==2){caso= new Integer[]{R.drawable.banner3, R.drawable.banner2, R.drawable.banner1};}
+        final Integer[] XMEN =caso;
         for(int i=0;i<XMEN.length;i++) {
 
             XMENArray.add(XMEN[i]);

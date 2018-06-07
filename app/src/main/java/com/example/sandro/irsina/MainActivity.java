@@ -66,6 +66,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -423,7 +424,13 @@ public class MainActivity extends AppCompatActivity
         //SubsamplingScaleImageView imageView = (SubsamplingScaleImageView)findViewById(R.id.imageView4);
         //imageView.setImage(ImageSource.resource(R.drawable.mappa));
 
-        final Integer[] XMEN = {R.drawable.banner1, R.drawable.banner2, R.drawable.banner3};
+        Random r = new Random();
+        int i1 = r.nextInt(3);
+        Integer[] caso=new Integer[]{};
+        if (i1==0){caso = new Integer[]{R.drawable.banner1, R.drawable.banner3, R.drawable.banner2};}
+        if (i1==1){caso= new Integer[]{R.drawable.banner2, R.drawable.banner1, R.drawable.banner3};}
+        if (i1==2){caso= new Integer[]{R.drawable.banner3, R.drawable.banner2, R.drawable.banner1};}
+        final Integer[] XMEN =caso;
 
         for(int i=0;i<XMEN.length;i++) {
 

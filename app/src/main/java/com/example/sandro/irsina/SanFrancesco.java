@@ -147,8 +147,8 @@ public class SanFrancesco extends AppCompatActivity
         return;
     }
 
-    public void mantegna(View view) {
-        Intent refresh = new Intent(this, Mantegna.class);
+    public void cripta(View view) {
+        Intent refresh = new Intent(this, CriptaFrancesco.class);
         refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(refresh);
         return;
@@ -164,16 +164,5 @@ public class SanFrancesco extends AppCompatActivity
         }
 
     }
-    public void vedere(View view) {
-        Intent refresh = new Intent(this, Cosa_Vedere.class);
-        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(refresh);
-        return;
-    }
-    public void miglionico(View view) {
-        Intent refresh = new Intent(this, Miglionico.class);
-        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(refresh);
-        return;
-    }
+
 }

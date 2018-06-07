@@ -36,6 +36,12 @@
         <activity android:name=".Porticella1"></activity>
         <activity android:name=".Fuori"></activity>
         <activity android:name=".Nuget"></activity>
+        <activity android:name=".Bottini"></activity>
+        <activity android:name=".Fontane"></activity>
+        <activity android:name=".Peschiera"></activity>
+        <activity android:name=".Pieta"></activity>
+        <activity android:name=".Juso"></activity>
+        <activity android:name=".CriptaFrancesco"></activity>
     </application>
 
 </manifest>

@@ -26,4 +26,14 @@
     <string name="murettotesto">Muretto Testo</string>
     <string name="nuget">Palazzo Nugent</string>
     <string name="nugettesto">Nuget Testo</string>
+    <string name="bottini">Bottini</string>
+    <string name="bottinitesto">Testo di Bottini</string>
+    <string name="fontane">12 Fontane</string>
+    <string name="fontanetesto">Testo di Fontane</string>
+    <string name="peschiera">Peschiera</string>
+    <string name="peschieratesto">Testo di Peschiera</string>
+    <string name="pieta">Chiesa della Pietà</string>
+    <string name="pietatesto">Testo di Chiesa della Pietà</string>
+    <string name="juso">Madonna dello Juso</string>
+    <string name="jusotesto">Testo di Madonna dello Juso</string>
 </resources>

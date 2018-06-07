@@ -39,7 +39,37 @@
     <include
         android:id="@+id/include_sanfrancesco"
         layout="@layout/sanfrancesco"
-        android:visibility="visible" />
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/include_bottini"
+        layout="@layout/bottini"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/include_pieta"
+        layout="@layout/pieta"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/include_juso"
+        layout="@layout/juso"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/include_peschiera"
+        layout="@layout/peschiera"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/include_fontane"
+        layout="@layout/fontane"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/include_sanfrancesco_cripta"
+        layout="@layout/sanfrancescocripta"
+        android:visibility="gone" />
 
     <include
         android:id="@+id/include_museo"

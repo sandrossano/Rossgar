@@ -64,17 +64,19 @@
         android:layout_marginRight="25dp"
         app:srcCompat="@drawable/logo" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <ImageView
+        android:id="@+id/imageViewBannerLogo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="false"
         android:layout_toEndOf="@+id/textView21"
         android:layout_toRightOf="@+id/textView21"
-        android:text="Created By ..."
+        android:scaleType="fitXY"
+        android:src="@drawable/banner_logo"
         android:textAlignment="center"
-        android:textColor="@android:color/background_light" />
+        android:textColor="@android:color/background_light"
+        app:srcCompat="@drawable/banner_logo" />
 
 
 </RelativeLayout>
