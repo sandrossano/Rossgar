@@ -97,6 +97,11 @@
         android:visibility="gone" />
 
     <include
+        android:id="@+id/include_sanfra_storia"
+        layout="@layout/storia_sanfrancesco"
+        android:visibility="gone" />
+
+    <include
         android:id="@+id/include_sponsor"
         layout="@layout/content_sing"
         android:layout_width="match_parent"

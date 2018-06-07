@@ -58,7 +58,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:onClick="apri_storia">
+        android:onClick="apri_storia_sanfrancesco">
 
         <ImageView
             android:id="@+id/imageView7"

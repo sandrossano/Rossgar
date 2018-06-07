@@ -67,7 +67,7 @@ public class Muretto1 extends AppCompatActivity
 
     private void init() {
 
-        final Integer[] XMEN = {R.drawable.statua_1,R.drawable.statua_2,R.drawable.statua_3,R.drawable.statua_4,R.drawable.statua_5,R.drawable.statua_6,R.drawable.statua_7};
+        final Integer[] XMEN = {R.drawable.muro1};
 
         for(int i=0;i<XMEN.length;i++) {
 
@@ -107,7 +107,7 @@ public class Muretto1 extends AppCompatActivity
             Muretto1.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if (viewPager.getCurrentItem() == 7) {
+                    if (viewPager.getCurrentItem() == 0) {
                         viewPager.setCurrentItem(0);
                     } else {
                         viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);

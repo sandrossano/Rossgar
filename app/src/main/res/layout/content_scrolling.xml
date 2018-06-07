@@ -150,6 +150,14 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
+            <ImageView
+                android:id="@+id/imageView20"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:onClick="maps_sponsor"
+                android:src="@drawable/maps_icon" />
+
         </RelativeLayout>
 
         <!-- Webiste -->
@@ -159,6 +167,7 @@
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
+            android:onClick="apri_sito"
             android:padding="@dimen/activity_horizontal_margin">
 
             <ImageView

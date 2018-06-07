@@ -101,7 +101,7 @@ public class Miglionico extends AppCompatActivity
             Miglionico.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if (viewPager.getCurrentItem() == 3) {
+                    if (viewPager.getCurrentItem() == 2) {
                         viewPager.setCurrentItem(0);
                     } else {
                         viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);

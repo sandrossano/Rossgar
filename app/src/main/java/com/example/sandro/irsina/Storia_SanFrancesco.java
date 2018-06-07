@@ -3,7 +3,6 @@ package com.example.sandro.irsina;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -25,13 +24,13 @@ import java.util.TimerTask;
 
 import me.relex.circleindicator.CircleIndicator;
 
+
 /**
  * Created by sandro on 21/05/18.
  */
 
-public class Fontane extends AppCompatActivity
+public class Storia_SanFrancesco extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
     private ViewPager viewPager;
     private int currentPage = 0;
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
@@ -40,46 +39,43 @@ public class Fontane extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        findViewById(R.id.include_juso).setVisibility(View.GONE);
-        findViewById(R.id.include_pieta).setVisibility(View.GONE);
-        findViewById(R.id.include_peschiera).setVisibility(View.GONE);
-        findViewById(R.id.include_fontane).setVisibility(View.VISIBLE);
-        findViewById(R.id.include_bottini).setVisibility(View.GONE);
-        findViewById(R.id.include_fuori).setVisibility(View.GONE);
+        findViewById(R.id.include_sanfra_storia).setVisibility(View.VISIBLE);
+        findViewById(R.id.include_sanfrancesco).setVisibility(View.GONE);
         findViewById(R.id.include_cattedrale).setVisibility(View.GONE);
         findViewById(R.id.include_main).setVisibility(View.GONE);
         findViewById(R.id.include_catt_storia).setVisibility(View.GONE);
         findViewById(R.id.include_catt_mantegna).setVisibility(View.GONE);
         findViewById(R.id.include_catt_vedere).setVisibility(View.GONE);
         findViewById(R.id.include_catt_miglionico).setVisibility(View.GONE);
-        findViewById(R.id.include_catt_miglionico).setVisibility(View.GONE);
-        findViewById(R.id.include_sanfrancesco).setVisibility(View.GONE);
         findViewById(R.id.include_museo).setVisibility(View.GONE);
         findViewById(R.id.include_porticella).setVisibility(View.GONE);
         findViewById(R.id.include_muretto).setVisibility(View.GONE);
+        findViewById(R.id.include_fuori).setVisibility(View.GONE);
         findViewById(R.id.include_nuget).setVisibility(View.GONE);
-        setTitle(R.string.fontane);
+        setTitle(R.string.cenni_storici_sanfra_titolo);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        init();
+
+
+    init();
+
     }
 
     private void init() {
 
-        final Integer[] XMEN = {R.drawable.fontana,R.drawable.fontane2,R.drawable.fontana1};
+        final Integer[] XMEN = {R.drawable.sanfrancesco1,R.drawable.sanfrancesco2,R.drawable.sanfrancesco3};
 
         for(int i=0;i<XMEN.length;i++) {
 
-               XMENArray.add(XMEN[i]);
+            XMENArray.add(XMEN[i]);
 
         }
-        viewPager = (ViewPager) findViewById(R.id.pager_fontane);
-        viewPager.setAdapter(new SlideAdapter(Fontane.this, XMENArray));
-        CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator_fontane);
+        viewPager = (ViewPager) findViewById(R.id.pager_storia_sanfra);
+        viewPager.setAdapter(new SlideAdapter(Storia_SanFrancesco.this, XMENArray));
+        CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator_storia_sanfra);
         indicator.setViewPager(viewPager);
 
         // Auto start of viewpager
@@ -107,7 +103,7 @@ public class Fontane extends AppCompatActivity
 
         @Override
         public void run() {
-            Fontane.this.runOnUiThread(new Runnable() {
+            Storia_SanFrancesco.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     if (viewPager.getCurrentItem() == 2) {
@@ -121,7 +117,6 @@ public class Fontane extends AppCompatActivity
         }
     }
 
-
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
@@ -132,7 +127,7 @@ public class Fontane extends AppCompatActivity
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent refresh = new Intent(this, Fuori.class);
+        Intent refresh = new Intent(this, SanFrancesco.class);
         refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(refresh);
         finishAffinity();
@@ -186,7 +181,7 @@ public class Fontane extends AppCompatActivity
             conf.locale = myLocale;
             res.updateConfiguration(conf, dm);
 
-            Intent refresh = new Intent(this, Fontane.class);
+            Intent refresh = new Intent(this, Storia_SanFrancesco.class);
             refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(refresh);
             finish();
@@ -201,7 +196,7 @@ public class Fontane extends AppCompatActivity
             conf.locale = myLocale;
             res.updateConfiguration(conf, dm);
 
-            Intent refresh = new Intent(this, Fontane.class);
+            Intent refresh = new Intent(this, Storia_SanFrancesco.class);
             refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(refresh);
             finish();
@@ -215,22 +210,12 @@ public class Fontane extends AppCompatActivity
             conf.locale = myLocale;
             res.updateConfiguration(conf, dm);
 
-            Intent refresh = new Intent(this, Fontane.class);
+            Intent refresh = new Intent(this, Storia_SanFrancesco.class);
             refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(refresh);
             finish();
             return;
         }
     }
-    public void maps(View view){
-        //placeid: https://developers.google.com/places/place-id
-        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=Via+Porticella,+Irsina");
-        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-        mapIntent.setPackage("com.google.android.apps.maps");
-        if (mapIntent.resolveActivity(getPackageManager()) != null) {
-            startActivity(mapIntent);
-        }
-    }
 
 }
-

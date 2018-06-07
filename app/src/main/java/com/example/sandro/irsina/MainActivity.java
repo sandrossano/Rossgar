@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity
     static int width_device=0;
     static Timer swipeTimer;
     static int height_device=0;
+    static int numero_random=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -436,6 +437,7 @@ public class MainActivity extends AppCompatActivity
 
         Random r = new Random();
         int i1 = r.nextInt(3);
+        numero_random=i1;
         Integer[] caso=new Integer[]{};
         if (i1==0){caso = new Integer[]{R.drawable.banner1, R.drawable.banner3, R.drawable.banner2};}
         if (i1==1){caso= new Integer[]{R.drawable.banner2, R.drawable.banner1, R.drawable.banner3};}

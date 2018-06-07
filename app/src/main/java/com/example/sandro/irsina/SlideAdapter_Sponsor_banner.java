@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 
 import static com.example.sandro.irsina.MainActivity.banner;
+import static com.example.sandro.irsina.MainActivity.numero_random;
 import static com.example.sandro.irsina.MainActivity.viewPager;
 import static com.example.sandro.irsina.MainActivity.width_device;
 
@@ -48,19 +49,14 @@ public class SlideAdapter_Sponsor_banner extends PagerAdapter {
     }
 
     @Override
-    public Object instantiateItem(ViewGroup view, int position) {
+    public Object instantiateItem(ViewGroup view, final int position) {
         View myImageLayout = inflater.inflate(R.layout.slide, view, false);
         ImageView myImage = (ImageView) myImageLayout
                 .findViewById(R.id.image);
         myImage.setImageResource(images.get(position));
         BitmapDrawable drawable = (BitmapDrawable) myImage.getDrawable();
         Bitmap bitmap = drawable.getBitmap();
-        int density=50;
-        if(banner==160){density=38;}
-        if(banner==240){density=50;}
-        if(banner==320){density=75;}
-        if(banner==480){density=100;}
-        if(banner==640){density=150;}
+
         Bitmap resized = Bitmap.createScaledBitmap(bitmap, (int)width_device, (55*banner)/160, true);
         myImage.setImageBitmap(resized);
 
@@ -70,6 +66,75 @@ public class SlideAdapter_Sponsor_banner extends PagerAdapter {
             @Override
             public void onClick(View v) {
                 Intent refresh = new Intent(context, SponsorSingolo.class);
+                if (numero_random == 0) {
+                    if (position == 0) {
+                        refresh.putExtra("nome", "Società 1 Prova");
+                        refresh.putExtra("numero", "+39 3333333333");
+                        refresh.putExtra("email", "email@email.it");
+                        refresh.putExtra("indirizzo", "via Fasulla, 69");
+                        refresh.putExtra("sito", "http://www.sito.it");
+                    }
+                    if (position == 1) {
+                        refresh.putExtra("nome", "Società 3 Hello Word");
+                        refresh.putExtra("numero", "+39 1111111111");
+                        refresh.putExtra("email", "email@email.it");
+                        refresh.putExtra("indirizzo", "via Fasulla, 22");
+                        refresh.putExtra("sito", "http://www.sito.it");
+                    }
+                    if (position == 2) {
+                        refresh.putExtra("nome", "Società 2 Esempio");
+                        refresh.putExtra("numero", "+39 9898989898");
+                        refresh.putExtra("email", "email@email.it");
+                        refresh.putExtra("indirizzo", "via Fasulla, 33");
+                        refresh.putExtra("sito", "http://www.sito.it");
+                    }
+                }
+                else if (numero_random == 1) {
+                    if (position == 0) {
+                        refresh.putExtra("nome", "Società 2 Esempio");
+                        refresh.putExtra("numero", "+39 3333333333");
+                        refresh.putExtra("email", "email@email.it");
+                        refresh.putExtra("indirizzo", "via Fasulla, 69");
+                        refresh.putExtra("sito", "http://www.sito.it");
+                    }
+                    if (position == 1) {
+                        refresh.putExtra("nome", "Società 1 Prova");
+                        refresh.putExtra("numero", "+39 1111111111");
+                        refresh.putExtra("email", "email@email.it");
+                        refresh.putExtra("indirizzo", "via Fasulla, 22");
+                        refresh.putExtra("sito", "http://www.sito.it");
+                    }
+                    if (position == 2) {
+                        refresh.putExtra("nome", "Società 3 Hello Word");
+                        refresh.putExtra("numero", "+39 9898989898");
+                        refresh.putExtra("email", "email@email.it");
+                        refresh.putExtra("indirizzo", "via Fasulla, 33");
+                        refresh.putExtra("sito", "http://www.sito.it");
+                        }
+                    }
+                    else if (numero_random == 2) {
+                        if (position == 0) {
+                            refresh.putExtra("nome", "Società 3 Hello Word");
+                            refresh.putExtra("numero", "+39 3333333333");
+                            refresh.putExtra("email", "email@email.it");
+                            refresh.putExtra("indirizzo", "via Fasulla, 69");
+                            refresh.putExtra("sito", "http://www.sito.it");
+                        }
+                        if (position == 1) {
+                            refresh.putExtra("nome", "Società 2 Esempio");
+                            refresh.putExtra("numero", "+39 1111111111");
+                            refresh.putExtra("email", "email@email.it");
+                            refresh.putExtra("indirizzo", "via Fasulla, 22");
+                            refresh.putExtra("sito", "http://www.sito.it");
+                        }
+                        if (position == 2) {
+                            refresh.putExtra("nome", "Società 1 Prova");
+                            refresh.putExtra("numero", "+39 9898989898");
+                            refresh.putExtra("email", "email@email.it");
+                            refresh.putExtra("indirizzo", "via Fasulla, 33");
+                            refresh.putExtra("sito", "http://www.sito.it");
+                        }
+                    }
                 context.startActivity(refresh);
             }
         });

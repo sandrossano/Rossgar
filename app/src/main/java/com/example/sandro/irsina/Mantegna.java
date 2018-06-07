@@ -107,7 +107,7 @@ public class Mantegna extends AppCompatActivity
             Mantegna.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if (viewPager.getCurrentItem() == 7) {
+                    if (viewPager.getCurrentItem() == 6) {
                         viewPager.setCurrentItem(0);
                     } else {
                         viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);

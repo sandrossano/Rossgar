@@ -45,6 +45,7 @@
         <activity android:name=".Peschiera"></activity>
         <activity android:name=".Pieta"></activity>
         <activity android:name=".Juso"></activity>
+        <activity android:name=".Storia_SanFrancesco"></activity>
         <activity android:name=".Cancelle"></activity>
         <activity android:name=".CriptaFrancesco"></activity>
     </application>

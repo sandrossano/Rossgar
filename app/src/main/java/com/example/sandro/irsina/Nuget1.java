@@ -107,7 +107,7 @@ public class Nuget1 extends AppCompatActivity
             Nuget1.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if (viewPager.getCurrentItem() == 2) {
+                    if (viewPager.getCurrentItem() == 1) {
                         viewPager.setCurrentItem(0);
                     } else {
                         viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);

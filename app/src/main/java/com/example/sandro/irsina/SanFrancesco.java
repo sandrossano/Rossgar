@@ -140,8 +140,8 @@ public class SanFrancesco extends AppCompatActivity
 
     }
 
-    public void apri_storia(View view) {
-        Intent refresh = new Intent(this, Storia.class);
+    public void apri_storia_sanfrancesco(View view) {
+        Intent refresh = new Intent(this, Storia_SanFrancesco.class);
         refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(refresh);
         return;

@@ -31,6 +31,7 @@ public class Storia extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViewById(R.id.include_sanfra_storia).setVisibility(View.GONE);
         findViewById(R.id.include_cattedrale).setVisibility(View.GONE);
         findViewById(R.id.include_main).setVisibility(View.GONE);
         findViewById(R.id.include_catt_storia).setVisibility(View.VISIBLE);

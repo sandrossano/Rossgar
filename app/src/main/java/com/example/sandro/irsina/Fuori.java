@@ -33,6 +33,8 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static com.example.sandro.irsina.MainActivity.numero_random;
+import static com.example.sandro.irsina.Lingua.deleteCache;
 import static com.example.sandro.irsina.MainActivity.banner;
 import static com.example.sandro.irsina.MainActivity.height_device;
 import static com.example.sandro.irsina.MainActivity.swipeTimer;
@@ -49,7 +51,6 @@ public class Fuori extends AppCompatActivity
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
     int currentPage2 = 0;
     static Timer swipeTimer2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -69,6 +70,8 @@ public class Fuori extends AppCompatActivity
         findViewById(R.id.include_muretto).setVisibility(View.GONE);
         findViewById(R.id.include_nuget).setVisibility(View.GONE);
         setTitle("Fuori Mappa");
+
+        deleteCache(getApplicationContext());
 
         Log.d("lingua",Locale.getDefault().getLanguage());
         Log.d("linguaDisplay",Locale.getDefault().getDisplayLanguage());
@@ -228,6 +231,7 @@ public class Fuori extends AppCompatActivity
 
         Random r = new Random();
         int i1 = r.nextInt(3);
+        numero_random=i1;
         Integer[] caso=new Integer[]{};
         if (i1==0){caso = new Integer[]{R.drawable.banner1, R.drawable.banner3, R.drawable.banner2};}
         if (i1==1){caso= new Integer[]{R.drawable.banner2, R.drawable.banner1, R.drawable.banner3};}

@@ -70,7 +70,7 @@ public class Pieta extends AppCompatActivity
 
     private void init() {
 
-        final Integer[] XMEN = {R.drawable.statua_1,R.drawable.statua_2,R.drawable.statua_3,R.drawable.statua_4,R.drawable.statua_5,R.drawable.statua_6,R.drawable.statua_7};
+        final Integer[] XMEN = {R.drawable.pieta1};
 
         for(int i=0;i<XMEN.length;i++) {
 
@@ -110,7 +110,7 @@ public class Pieta extends AppCompatActivity
             Pieta.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if (viewPager.getCurrentItem() == 7) {
+                    if (viewPager.getCurrentItem() == 0) {
                         viewPager.setCurrentItem(0);
                     } else {
                         viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
@@ -224,7 +224,7 @@ public class Pieta extends AppCompatActivity
     }
     public void maps(View view){
         //placeid: https://developers.google.com/places/place-id
-        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=Via+Porticella,+Irsina");
+        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=Chiesa+della+Pietà,+Via+della+Pietá,+Irsina,+MT");
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
         if (mapIntent.resolveActivity(getPackageManager()) != null) {

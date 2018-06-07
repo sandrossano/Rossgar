@@ -38,5 +38,7 @@
     <string name="jusotesto">Testo di Madonna dello Juso</string>
     <string name="cancelle">Cancelle</string>
     <string name="testocancelle">Cancelle</string>
+    <string name="cenni_storici_sanfra_titolo">Storia e Descrizione</string>
+    <string name="cenni_storici_sanfra"></string>
 
 </resources>

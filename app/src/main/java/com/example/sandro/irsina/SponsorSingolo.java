@@ -41,6 +41,7 @@ import me.relex.circleindicator.CircleIndicator;
 
 public class SponsorSingolo extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    String nome="";
     String sede ="";
     String indirizzo="";
     String email = "";
@@ -65,7 +66,13 @@ public class SponsorSingolo extends AppCompatActivity
         findViewById(R.id.include_fuori).setVisibility(View.GONE);
         findViewById(R.id.include_sponsor).setVisibility(View.VISIBLE);
         findViewById(R.id.include_nuget).setVisibility(View.GONE);
-        setTitle("Nome Società");
+        nome=getIntent().getStringExtra("nome");
+        setTitle(nome);
+
+        telefono_fisso=getIntent().getStringExtra("numero");
+        email=getIntent().getStringExtra("email");
+        sede=getIntent().getStringExtra("indirizzo");
+        indirizzo=getIntent().getStringExtra("sito");
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -75,9 +82,6 @@ public class SponsorSingolo extends AppCompatActivity
 
 
         ImageView imm=(ImageView) findViewById(R.id.immagineSingolo);
-
-        String nomesing="";
-        String fotosing="";
 
 
         //BitmapDrawable d=writeOnDrawable(R.drawable.flag_italy,"Nome Società");
@@ -194,5 +198,20 @@ public class SponsorSingolo extends AppCompatActivity
         canvas.drawText(text, 10, bm.getHeight()-30, paint);
 
         return new BitmapDrawable(bm);
+    }
+    public void maps_sponsor(View view){
+        //placeid: https://developers.google.com/places/place-id
+        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=Chiesa+Madonna+dello+Juso,+Irsina,+MT");
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        if (mapIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(mapIntent);
+        }
+    }
+    public void apri_sito(View view){
+        String url = indirizzo;
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
 }
