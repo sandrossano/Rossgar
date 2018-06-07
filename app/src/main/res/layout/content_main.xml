@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/coloreBarraDark"
+    android:background="@drawable/color_back"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.sandro.irsina.MainActivity"
     tools:showIn="@layout/app_bar_main">
@@ -14,11 +14,10 @@
         android:id="@+id/webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/down"
-        android:layout_marginBottom="50dp"
-        android:background="@color/colorPrimaryDark"
+        android:layout_above="@+id/banner"
 
+        android:layout_below="@+id/down"
+        android:background="@color/colorPrimaryDark"
         android:scrollbars="none">
 
     </WebView>
@@ -27,8 +26,8 @@
         android:id="@+id/fuori"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp"
+        android:layout_above="@+id/banner"
+        android:layout_alignParentBottom="false"
         android:onClick="fuori">
 
         <ImageView
@@ -58,8 +57,10 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/scegli"
         android:textColor="@android:color/background_light"
+        android:textSize="15dp"
         android:textStyle="italic" />
 
     <RelativeLayout
@@ -102,13 +103,13 @@
     <RelativeLayout
         android:id="@+id/banner"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
         android:layout_alignParentBottom="true">
 
         <android.support.v4.view.ViewPager
             android:id="@+id/pager_banner"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="55dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="false" />

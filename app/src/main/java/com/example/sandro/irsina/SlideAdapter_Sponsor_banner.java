@@ -61,7 +61,7 @@ public class SlideAdapter_Sponsor_banner extends PagerAdapter {
         if(banner==320){density=75;}
         if(banner==480){density=100;}
         if(banner==640){density=150;}
-        Bitmap resized = Bitmap.createScaledBitmap(bitmap, (int)width_device, (50*banner)/160, true);
+        Bitmap resized = Bitmap.createScaledBitmap(bitmap, (int)width_device, (55*banner)/160, true);
         myImage.setImageBitmap(resized);
 
         Log.d("density",banner+"");

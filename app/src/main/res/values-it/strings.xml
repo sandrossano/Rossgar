@@ -71,4 +71,6 @@
     <string name="pietatesto">Testo di Chiesa della Pietà</string>
     <string name="juso">Madonna dello Juso</string>
     <string name="jusotesto">Testo di Madonna dello Juso</string>
+    <string name="cancelle">Cancelle</string>
+    <string name="testocancelle">Cancelle</string>
 </resources>

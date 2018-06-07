@@ -105,6 +105,11 @@
         android:visibility="gone" />
 
     <include
+        android:id="@+id/include_cancelle"
+        layout="@layout/cancelle"
+        android:visibility="gone" />
+
+    <include
         android:id="@+id/include_catt_mantegna"
         layout="@layout/mantegna"
         android:visibility="gone" />

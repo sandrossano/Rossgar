@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,7 @@ public class ThreeLevelListAdapter extends BaseExpandableListAdapter{
     List<String[]> secondLevel;
     private Context context;
     List<LinkedHashMap<String, String[]>> data;
+    static int position_=0;
 
     /**
      * Constructor
@@ -88,9 +90,19 @@ public class ThreeLevelListAdapter extends BaseExpandableListAdapter{
     @Override
     public View getGroupView(final int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
 
+        position_=groupPosition;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView = inflater.inflate(R.layout.list_group, null);
         ImageView immagine=(ImageView) convertView.findViewById(R.id.ident);
+        if(groupPosition==0) {
+            immagine.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.food));
+        }
+        if(groupPosition==1) {
+            immagine.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.hotel));
+        }
+        if(groupPosition==2) {
+            immagine.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.shop));
+        }
         TextView text = (TextView) convertView.findViewById(R.id.submenu1);
         text.setText(this.parentHeaders.get(groupPosition));
 
@@ -100,43 +112,53 @@ public class ThreeLevelListAdapter extends BaseExpandableListAdapter{
 
     @Override
     public View getChildView(final int groupPosition, int childPosition, boolean isLastChild, final View convertView, ViewGroup parent) {
-        final SecondLevelExpandableListView secondLevelELV = new SecondLevelExpandableListView(context);
 
-        String[] headers = secondLevel.get(groupPosition);
+            final SecondLevelExpandableListView secondLevelELV = new SecondLevelExpandableListView(context);
 
-
-        List<String[]> childData = new ArrayList<>();
-        HashMap<String, String[]> secondLevelData = data.get(groupPosition);
-
-        for (String key : secondLevelData.keySet()) {
+            String[] headers = secondLevel.get(groupPosition);
 
 
-            childData.add(secondLevelData.get(key));
+            List<String[]> childData = new ArrayList<>();
+            HashMap<String, String[]> secondLevelData=null;
+            if(position_!=2) {
+                secondLevelData = data.get(groupPosition);
 
-        }
+                for (String key : secondLevelData.keySet()) {
 
 
-        secondLevelELV.setAdapter(new SecondLevelAdapter(context, headers, childData, groupPosition));
+                    childData.add(secondLevelData.get(key));
 
-        secondLevelELV.setGroupIndicator(null);
-        secondLevelELV.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-            @Override
-            public boolean onGroupClick(ExpandableListView expandableListView, View view, int i,long l) {
+                }
+            }
 
+            secondLevelELV.setAdapter(new SecondLevelAdapter(context, headers, childData, groupPosition));
+
+            secondLevelELV.setGroupIndicator(null);
+            secondLevelELV.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+                @Override
+                public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
+                    position_ = groupPosition;
                     Log.d("secondolivello", "Hai premuto: ");
+
+                    if (position_==2){
+                        Intent visualizza = new Intent(context, Cancelle.class);
+                        context.startActivity(visualizza);
+                    }
+
                     return false;
 
-        }});
+                }
+            });
 
-        secondLevelELV.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            secondLevelELV.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
                 @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                 @Override
                 public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
-                    Log.d("primo", "Hai premuto: "+groupPosition);
+                    Log.d("primo", "Hai premuto: " + groupPosition);
 
-                    Log.d("secondolivello", "Hai premuto: "+i);
+                    Log.d("secondolivello", "Hai premuto: " + i);
 
-                    Log.d("terzolivello", "Hai premuto: "+i1);
+                    Log.d("terzolivello", "Hai premuto: " + i1);
                     Intent visualizza = new Intent(context, SponsorSingolo.class);
                     context.startActivity(visualizza);
                     return false;
@@ -156,8 +178,10 @@ public class ThreeLevelListAdapter extends BaseExpandableListAdapter{
             });
 
 
-        return secondLevelELV;
+            return secondLevelELV;
+
     }
+
 
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {

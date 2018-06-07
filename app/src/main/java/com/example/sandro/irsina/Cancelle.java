@@ -1,8 +1,6 @@
 package com.example.sandro.irsina;
 
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -16,30 +14,24 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import me.relex.circleindicator.CircleIndicator;
 
 
 /**
  * Created by sandro on 21/05/18.
  */
 
-public class SponsorSingolo extends AppCompatActivity
+public class Cancelle extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     String sede ="";
     String indirizzo="";
@@ -53,7 +45,7 @@ public class SponsorSingolo extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.include_cancelle).setVisibility(View.GONE);
+        findViewById(R.id.include_cancelle).setVisibility(View.VISIBLE);
         findViewById(R.id.include_cattedrale).setVisibility(View.GONE);
         findViewById(R.id.include_main).setVisibility(View.GONE);
         findViewById(R.id.include_catt_storia).setVisibility(View.GONE);
@@ -63,9 +55,9 @@ public class SponsorSingolo extends AppCompatActivity
         findViewById(R.id.include_catt_miglionico).setVisibility(View.GONE);
         findViewById(R.id.include_sanfrancesco).setVisibility(View.GONE);
         findViewById(R.id.include_fuori).setVisibility(View.GONE);
-        findViewById(R.id.include_sponsor).setVisibility(View.VISIBLE);
+        findViewById(R.id.include_sponsor).setVisibility(View.GONE);
         findViewById(R.id.include_nuget).setVisibility(View.GONE);
-        setTitle("Nome Società");
+        setTitle(R.string.cancelle);
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -102,8 +94,8 @@ public class SponsorSingolo extends AppCompatActivity
 
         }
 
-        viewPager = (ViewPager) findViewById(R.id.pager_sponsor);
-        viewPager.setAdapter(new SlideAdapter_Sponsor(SponsorSingolo.this, XMENArray));
+        viewPager = (ViewPager) findViewById(R.id.pager_tipici);
+        viewPager.setAdapter(new SlideAdapter_Sponsor(Cancelle.this, XMENArray));
 
         // Auto start of viewpager
         final Handler handler = new Handler();
@@ -130,7 +122,7 @@ public class SponsorSingolo extends AppCompatActivity
 
         @Override
         public void run() {
-            SponsorSingolo.this.runOnUiThread(new Runnable() {
+            Cancelle.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     if (viewPager.getCurrentItem() == 2) {

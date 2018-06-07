@@ -106,6 +106,7 @@ public class Fuori extends AppCompatActivity
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 webView.scrollTo(0,(webView.getHeight()));
+                webView.setVisibility(View.VISIBLE);
             }
 
 

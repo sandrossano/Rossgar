@@ -16,6 +16,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
@@ -48,6 +49,7 @@ import android.webkit.WebViewClient;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
@@ -69,6 +71,8 @@ import java.util.Locale;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import static com.example.sandro.irsina.Lingua.deleteCache;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -102,6 +106,8 @@ public class MainActivity extends AppCompatActivity
         findViewById(R.id.include_fuori).setVisibility(View.GONE);
         findViewById(R.id.include_nuget).setVisibility(View.GONE);
 
+        deleteCache(getApplicationContext());
+
         ImageView ib=(ImageView)findViewById(R.id.cambio);
         Locale current = getResources().getConfiguration().locale;
         if(current.getLanguage().equals("en")) {
@@ -113,6 +119,9 @@ public class MainActivity extends AppCompatActivity
         if(current.getLanguage().equals("fr")) {
             ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_france));
         }
+
+
+        TextView scegli=(TextView) findViewById(R.id.textView14);
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -151,6 +160,7 @@ public class MainActivity extends AppCompatActivity
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 webView.scrollTo(0,(webView.getHeight()/2)-10);
+
             }
 
 
@@ -509,9 +519,9 @@ public class MainActivity extends AppCompatActivity
          * Inner level data
          */
         List<LinkedHashMap<String, String[]>> data = new ArrayList<>();
-        String[] ciao={"1","2","3"};
-        String[] ciao_1={"a","b","c"};
-        String[] ciao_2={"11","22","33"};
+        String[] ciao={"Ristoranti","Panifici","Rosticceria"};
+        String[] ciao_1={"Bed & Breakfast"};
+        String[] ciao_2={"Cancelle","Mastacciole"};
 
         String[] ciao2={"3","4","5"};
         String[] ciao3={"6","7","8"};
@@ -521,25 +531,24 @@ public class MainActivity extends AppCompatActivity
 
         thirdLevelq1 = new LinkedHashMap<>();
         thirdLevelq1.put("padrepio", ciao2);
-        thirdLevelq1.put("padrepio2", ciao3);thirdLevelq1.put("padrepio3", ciao4);
+        thirdLevelq1.put("padrepio2", ciao3);
+        thirdLevelq1.put("padrepio3", ciao4);
         thirdLevelq2 = new LinkedHashMap<>();
         thirdLevelq2.put("padrepio", ciao5);
-        thirdLevelq2.put("padrepio2", ciao6);thirdLevelq2.put("padrepio3", ciao2);
         thirdLevelq3 = new LinkedHashMap<>();
-        thirdLevelq3.put("padrepio", ciao4);
-        thirdLevelq3.put("padrepio2", ciao6);thirdLevelq3.put("padrepio3", ciao3);
+
 
         ArrayList<String> ParentString= new ArrayList<String>();
         ParentString.add("Dove Mangiare");
         ParentString.add("Dove Dormire");
-        ParentString.add("Territorio");
+        ParentString.add("Prodotti Tipici");
 
         secondLevel.add(ciao);
         secondLevel.add(ciao_1);
         secondLevel.add(ciao_2);
         data.add(thirdLevelq1);
         data.add(thirdLevelq2);
-        data.add(thirdLevelq3);
+        //data.add(thirdLevelq3);
 
         final ExpandableListView expandableListView = (ExpandableListView) findViewById(R.id.navigationmenu);
         //passing three level of information to constructor

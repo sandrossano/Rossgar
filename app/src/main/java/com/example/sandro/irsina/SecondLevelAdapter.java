@@ -6,15 +6,19 @@ package com.example.sandro.irsina;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
+
+import static com.example.sandro.irsina.ThreeLevelListAdapter.position_;
 
 
 public class SecondLevelAdapter extends BaseExpandableListAdapter {
@@ -56,6 +60,26 @@ public class SecondLevelAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.list_item, null);
+        ImageView immagine=(ImageView) convertView.findViewById(R.id.identchild);
+
+            if (groupPosition == 0) {
+                immagine.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.icon3));
+            }
+            if (groupPosition == 1) {
+                immagine.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.pane));
+            }
+            if (groupPosition == 2) {
+                immagine.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.rosticceria));
+            }
+
+        if (position_==1) {
+            if (groupPosition == 0) {
+                immagine.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.bb));
+            }
+        }
+        if (position_==2) {
+            convertView = inflater.inflate(R.layout.list_item_tipici, null);
+        }
             TextView text = (TextView) convertView.findViewById(R.id.submenu2);
             String groupText = getGroup(groupPosition).toString();
             text.setText(groupText);
@@ -101,9 +125,12 @@ public class SecondLevelAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        String[] children = data.get(groupPosition);
+        if(position_!=2) {
+            String[] children = data.get(groupPosition);
 
-        return children.length;
+            return children.length;
+        }
+        else{return 0;}
     }
 
     @Override
