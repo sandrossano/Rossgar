@@ -70,7 +70,7 @@ public class Bottini extends AppCompatActivity
 
     private void init() {
 
-        final Integer[] XMEN = {R.drawable.bottini1,R.drawable.bottini2,R.drawable.bottini3};
+        final Integer[] XMEN = {R.drawable.bottini1,R.drawable.bottini2,R.drawable.juso4,R.drawable.bottini3};
 
         for(int i=0;i<XMEN.length;i++) {
 
@@ -110,7 +110,7 @@ public class Bottini extends AppCompatActivity
             Bottini.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if (viewPager.getCurrentItem() == 2) {
+                    if (viewPager.getCurrentItem() == 3) {
                         viewPager.setCurrentItem(0);
                     } else {
                         viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
@@ -224,12 +224,9 @@ public class Bottini extends AppCompatActivity
     }
     public void maps(View view){
         //placeid: https://developers.google.com/places/place-id
-        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=Via+Porticella,+Irsina");
-        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-        mapIntent.setPackage("com.google.android.apps.maps");
-        if (mapIntent.resolveActivity(getPackageManager()) != null) {
-            startActivity(mapIntent);
-        }
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:40.747035, 16.245359?q=40.747035, 16.245359(Bottini)"));
+        startActivity(intent);
+
     }
 }
 

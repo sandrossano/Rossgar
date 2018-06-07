@@ -224,12 +224,9 @@ public class Fontane extends AppCompatActivity
     }
     public void maps(View view){
         //placeid: https://developers.google.com/places/place-id
-        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=Via+Porticella,+Irsina");
-        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-        mapIntent.setPackage("com.google.android.apps.maps");
-        if (mapIntent.resolveActivity(getPackageManager()) != null) {
-            startActivity(mapIntent);
-        }
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:40.747035, 16.245359?q=40.747035, 16.245359(12 Fontane)"));
+        startActivity(intent);
+
     }
 
 }

@@ -70,7 +70,7 @@ public class Juso extends AppCompatActivity
 
     private void init() {
 
-        final Integer[] XMEN = {R.drawable.juso2,R.drawable.juso4,R.drawable.juso3,R.drawable.juso1};
+        final Integer[] XMEN = {R.drawable.juso2,R.drawable.juso3,R.drawable.juso1};
 
         for(int i=0;i<XMEN.length;i++) {
 
@@ -110,7 +110,7 @@ public class Juso extends AppCompatActivity
             Juso.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if (viewPager.getCurrentItem() == 3) {
+                    if (viewPager.getCurrentItem() == 2) {
                         viewPager.setCurrentItem(0);
                     } else {
                         viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
