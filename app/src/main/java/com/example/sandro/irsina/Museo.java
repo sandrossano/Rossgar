@@ -140,19 +140,6 @@ public class Museo extends AppCompatActivity
 
     }
 
-    public void apri_storia(View view) {
-        Intent refresh = new Intent(this, Storia.class);
-        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(refresh);
-        return;
-    }
-
-    public void mantegna(View view) {
-        Intent refresh = new Intent(this, Mantegna.class);
-        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(refresh);
-        return;
-    }
     public void maps(View view){
         //placeid: https://developers.google.com/places/place-id
         Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=Museo+Michele+Janora,+Irsina");
@@ -164,15 +151,10 @@ public class Museo extends AppCompatActivity
 
     }
     public void vedere(View view) {
-        Intent refresh = new Intent(this, Cosa_Vedere.class);
+        Intent refresh = new Intent(this, Vedere_Janora.class);
         refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(refresh);
         return;
     }
-    public void miglionico(View view) {
-        Intent refresh = new Intent(this, Miglionico.class);
-        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(refresh);
-        return;
-    }
+
 }

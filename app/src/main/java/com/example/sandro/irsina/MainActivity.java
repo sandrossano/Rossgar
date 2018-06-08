@@ -486,6 +486,13 @@ public class MainActivity extends AppCompatActivity
         finish();
     }
 
+    public void link(View view) {
+        String url = "http://www.rossgar.altervista.org/";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+    }
+
 
     public class MyTimerTask extends TimerTask {
 

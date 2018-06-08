@@ -48,6 +48,7 @@
         <activity android:name=".Storia_SanFrancesco"></activity>
         <activity android:name=".Cancelle"></activity>
         <activity android:name=".CriptaFrancesco"></activity>
+        <activity android:name=".Vedere_Janora"></activity>
     </application>
 
 </manifest>

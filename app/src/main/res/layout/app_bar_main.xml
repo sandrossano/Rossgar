@@ -77,6 +77,11 @@
         android:visibility="gone" />
 
     <include
+        android:id="@+id/include_vedere_janora"
+        layout="@layout/vedere_janora"
+        android:visibility="gone" />
+
+    <include
         android:id="@+id/include_nuget"
         layout="@layout/nuget1"
         android:visibility="gone" />
