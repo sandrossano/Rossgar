@@ -25,8 +25,10 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
@@ -51,6 +53,7 @@ public class Fuori extends AppCompatActivity
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
     int currentPage2 = 0;
     static Timer swipeTimer2;
+    static Integer[] XMEN2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -72,7 +75,7 @@ public class Fuori extends AppCompatActivity
         setTitle("Fuori Mappa");
 
         deleteCache(getApplicationContext());
-
+clearApplicationData();
         Log.d("lingua",Locale.getDefault().getLanguage());
         Log.d("linguaDisplay",Locale.getDefault().getDisplayLanguage());
 
@@ -122,7 +125,8 @@ public class Fuori extends AppCompatActivity
                     startActivity(intent);
                     swipeTimer2.cancel();
                     swipeTimer2.purge();
-                    finish();
+                    overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+
                     //Toast.makeText(Fuori.this, "bott", Toast.LENGTH_SHORT).show();
                 }
                 if(a[1].equals("fontane")) {
@@ -130,7 +134,8 @@ public class Fuori extends AppCompatActivity
                     startActivity(intent);
                     swipeTimer2.cancel();
                     swipeTimer2.purge();
-                    finish();
+                    overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+
                     //Toast.makeText(Fuori.this, "fontane", Toast.LENGTH_SHORT).show();
                 }
                 if(a[1].equals("peschiera")) {
@@ -138,7 +143,8 @@ public class Fuori extends AppCompatActivity
                     startActivity(intent);
                     swipeTimer2.cancel();
                     swipeTimer2.purge();
-                    finish();
+                    overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+
                     //Toast.makeText(Fuori.this, "peschiera", Toast.LENGTH_SHORT).show();
                 }
                 if(a[1].equals("pieta")) {
@@ -146,7 +152,8 @@ public class Fuori extends AppCompatActivity
                     startActivity(intent);
                     swipeTimer2.cancel();
                     swipeTimer2.purge();
-                    finish();
+                    overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+
                     //Toast.makeText(Fuori.this, "pietà", Toast.LENGTH_SHORT).show();
                 }
                 if(a[1].equals("juso")) {
@@ -154,7 +161,8 @@ public class Fuori extends AppCompatActivity
                     startActivity(intent);
                     swipeTimer2.cancel();
                     swipeTimer2.purge();
-                    finish();
+                    overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+
                     //Toast.makeText(Fuori.this, "madonna dello Juso", Toast.LENGTH_SHORT).show();
                 }
                 return true;
@@ -236,10 +244,10 @@ public class Fuori extends AppCompatActivity
         if (i1==0){caso = new Integer[]{R.drawable.banner1, R.drawable.banner3, R.drawable.banner2};}
         if (i1==1){caso= new Integer[]{R.drawable.banner2, R.drawable.banner1, R.drawable.banner3};}
         if (i1==2){caso= new Integer[]{R.drawable.banner3, R.drawable.banner2, R.drawable.banner1};}
-        final Integer[] XMEN =caso;
-        for(int i=0;i<XMEN.length;i++) {
+        XMEN2 =caso;
+        for(int i=0;i<XMEN2.length;i++) {
 
-            XMENArray.add(XMEN[i]);
+            XMENArray.add(XMEN2[i]);
 
         }
 
@@ -251,7 +259,7 @@ public class Fuori extends AppCompatActivity
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
             public void run() {
-                if (currentPage2 == XMEN.length) {
+                if (currentPage2 == XMEN2.length) {
                     currentPage2 = 0;
                 }
                 viewPager2.setCurrentItem(currentPage2++, true);
@@ -282,12 +290,9 @@ public class Fuori extends AppCompatActivity
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        swipeTimer2.cancel();
-        swipeTimer2.purge();
-        Intent refresh = new Intent(this, MainActivity.class);
-        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(refresh);
-        finishAffinity();
+
+        overridePendingTransition(R.anim.fadein_back,R.anim.fadeout_back);
+
     }
 
     @Override
@@ -344,21 +349,78 @@ public class Fuori extends AppCompatActivity
         }
 
     }
+    @Override
+    protected void onResume() {
 
-    public void bottini(View view) {
-        Toast.makeText(Fuori.this, "Bottini", Toast.LENGTH_SHORT).show();
-    }
-    public void peschiera(View view) {
-        Toast.makeText(Fuori.this, "Peschiera", Toast.LENGTH_SHORT).show();
-    }
-    public void chiesapieta(View view) {
-        Toast.makeText(Fuori.this, "Chiesa della Pietà", Toast.LENGTH_SHORT).show();
-    }
-    public void juso(View view) {
-        Toast.makeText(Fuori.this, "Madonna dello Juso", Toast.LENGTH_SHORT).show();
+        deleteCache(getApplicationContext());
+        clearApplicationData();
+
+        swipeTimer2.cancel();
+        swipeTimer2.purge();
+
+        swipeTimer2 = new Timer();
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage2 == XMEN2.length) {
+                    currentPage2 = 0;
+                }
+                viewPager2.setCurrentItem(currentPage2++, true);
+
+            }
+        };
+        swipeTimer2.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, 1000, 6000);
+
+        Locale current = getResources().getConfiguration().locale;
+        ImageView ib = (ImageView) findViewById(R.id.cambiofuori);
+        TextView cambia=(TextView)findViewById(R.id.textView13);
+        if (current.getLanguage().equals("en")) {
+            ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_unionjack));
+            cambia.setText(R.string.cambio);
+        }
+        if (current.getLanguage().equals("it")) {
+            ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_italy));
+            cambia.setText(R.string.cambio);
+        }
+        if (current.getLanguage().equals("fr")) {
+            ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_france));
+            cambia.setText(R.string.cambio);
+        }
+        super.onResume();
     }
 
-    public void fontane(View view) {
-        Toast.makeText(Fuori.this, "Fontane", Toast.LENGTH_SHORT).show();
+    public void clearApplicationData() {
+        File cacheDirectory = getCacheDir();
+        File applicationDirectory = new File(cacheDirectory.getParent());
+        if (applicationDirectory.exists()) {
+            String[] fileNames = applicationDirectory.list();
+            for (String fileName : fileNames) {
+                if (!fileName.equals("lib")) {
+                    deleteFile(new File(applicationDirectory, fileName));
+                }
+            }
+        }
     }
+
+    public static boolean deleteFile(File file) {
+        boolean deletedAll = true;
+        if (file != null) {
+            if (file.isDirectory()) {
+                String[] children = file.list();
+                for (int i = 0; i < children.length; i++) {
+                    deletedAll = deleteFile(new File(file, children[i])) && deletedAll;
+                }
+            } else {
+                deletedAll = file.delete();
+            }
+        }
+
+        return deletedAll;
+    }
+
 }

@@ -34,6 +34,8 @@ import java.util.TimerTask;
 
 import me.relex.circleindicator.CircleIndicator;
 
+import static com.example.sandro.irsina.Lingua.deleteCache;
+
 
 /**
  * Created by sandro on 21/05/18.
@@ -68,6 +70,9 @@ public class SponsorSingolo extends AppCompatActivity
         findViewById(R.id.include_nuget).setVisibility(View.GONE);
         nome=getIntent().getStringExtra("nome");
         setTitle(nome);
+
+        deleteCache(getApplicationContext());
+
 
         telefono_fisso=getIntent().getStringExtra("numero");
         email=getIntent().getStringExtra("email");

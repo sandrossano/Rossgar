@@ -37,7 +37,7 @@
             app:srcCompat="@drawable/pulsante_chiesa" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textView_statua"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView7"
@@ -70,7 +70,7 @@
             app:srcCompat="@drawable/pulsante_chiesa" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textView_miglio"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView7"
@@ -90,7 +90,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/miglionico"
-        android:layout_marginTop="48dp">
+        android:layout_marginTop="48dp"
+        android:onClick="cripta">
 
         <ImageView
             android:id="@+id/imageView7"
@@ -102,7 +103,7 @@
             app:srcCompat="@drawable/pulsante_chiesa" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textView_cripta"
             android:layout_width="115dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView7"
@@ -133,7 +134,7 @@
             app:srcCompat="@drawable/pulsante_chiesa" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textView_storia"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView7"
@@ -164,7 +165,7 @@
             app:srcCompat="@drawable/pulsante_chiesa" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textView_orari"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView7"
@@ -196,7 +197,7 @@
             app:srcCompat="@drawable/pulsante_chiesa" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textView_vedere"
             android:layout_width="115dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView7"

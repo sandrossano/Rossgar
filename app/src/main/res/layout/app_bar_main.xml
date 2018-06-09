@@ -72,6 +72,11 @@
         android:visibility="gone" />
 
     <include
+        android:id="@+id/include_cripta"
+        layout="@layout/cripta"
+        android:visibility="gone" />
+
+    <include
         android:id="@+id/include_museo"
         layout="@layout/museo"
         android:visibility="gone" />

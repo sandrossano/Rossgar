@@ -24,6 +24,8 @@ import java.util.TimerTask;
 
 import me.relex.circleindicator.CircleIndicator;
 
+import static com.example.sandro.irsina.Lingua.deleteCache;
+
 /**
  * Created by sandro on 21/05/18.
  */
@@ -55,6 +57,8 @@ public class CriptaFrancesco extends AppCompatActivity
         findViewById(R.id.include_fuori).setVisibility(View.GONE);
         findViewById(R.id.include_nuget).setVisibility(View.GONE);
         setTitle(R.string.cripta);
+
+        deleteCache(getApplicationContext());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -127,10 +131,9 @@ public class CriptaFrancesco extends AppCompatActivity
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent refresh = new Intent(this, SanFrancesco.class);
-        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(refresh);
-        finishAffinity();
+
+        overridePendingTransition(R.anim.fadein_back,R.anim.fadeout_back);
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

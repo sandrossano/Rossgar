@@ -20,8 +20,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import java.io.File;
 import java.util.Locale;
+
+import static com.example.sandro.irsina.Lingua.deleteCache;
 
 
 /**
@@ -48,6 +52,9 @@ public class Cattedrale extends AppCompatActivity
         findViewById(R.id.include_fuori).setVisibility(View.GONE);
         findViewById(R.id.include_nuget).setVisibility(View.GONE);
         setTitle("Cattedrale");
+
+        deleteCache(getApplicationContext());
+clearApplicationData();
 
         Log.d("lingua",Locale.getDefault().getLanguage());
         Log.d("linguaDisplay",Locale.getDefault().getDisplayLanguage());
@@ -82,11 +89,9 @@ public class Cattedrale extends AppCompatActivity
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onBackPressed() {
+
         super.onBackPressed();
-        Intent refresh = new Intent(this, MainActivity.class);
-        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(refresh);
-        finishAffinity();
+        overridePendingTransition(R.anim.fadein_back,R.anim.fadeout_back);
     }
 
     @Override
@@ -147,6 +152,7 @@ public class Cattedrale extends AppCompatActivity
         Intent refresh = new Intent(this, Storia.class);
         refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(refresh);
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
         return;
     }
 
@@ -154,6 +160,7 @@ public class Cattedrale extends AppCompatActivity
         Intent refresh = new Intent(this, Mantegna.class);
         refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(refresh);
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
         return;
     }
     public void maps(View view){
@@ -171,12 +178,95 @@ public class Cattedrale extends AppCompatActivity
         Intent refresh = new Intent(this, Cosa_Vedere.class);
         refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(refresh);
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
         return;
     }
     public void miglionico(View view) {
         Intent refresh = new Intent(this, Miglionico.class);
         refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(refresh);
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
         return;
+    }
+    public void cripta(View view) {
+        Intent refresh = new Intent(this, Cripta.class);
+        startActivity(refresh);
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+    }
+    @Override
+    protected void onResume() {
+
+        deleteCache(getApplicationContext());
+        clearApplicationData();
+
+        Locale current = getResources().getConfiguration().locale;
+        ImageView ib = (ImageView) findViewById(R.id.cambio1);
+        TextView cambia=(TextView)findViewById(R.id.textView13);
+        TextView cripta=(TextView)findViewById(R.id.textView_cripta);
+        TextView vedere=(TextView)findViewById(R.id.textView_vedere);
+        TextView miglio=(TextView)findViewById(R.id.textView_miglio);
+        TextView orari=(TextView)findViewById(R.id.textView_orari);
+        TextView storia=(TextView)findViewById(R.id.textView_storia);
+        TextView statua=(TextView)findViewById(R.id.textView_statua);
+        if (current.getLanguage().equals("en")) {
+            ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_unionjack));
+            cambia.setText(R.string.cambio);
+            cripta.setText(R.string.cripta_catt);
+            vedere.setText(R.string.vedere);
+            miglio.setText(R.string.miglionico);
+            orari.setText(R.string.orari);
+            storia.setText(R.string.storia);
+            statua.setText(R.string.statua);
+
+        }
+        if (current.getLanguage().equals("it")) {
+            ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_italy));
+            cambia.setText(R.string.cambio);
+            cripta.setText(R.string.cripta_catt);
+            vedere.setText(R.string.vedere);
+            miglio.setText(R.string.miglionico);
+            orari.setText(R.string.orari);
+            storia.setText(R.string.storia);
+            statua.setText(R.string.statua);
+        }
+        if (current.getLanguage().equals("fr")) {
+            ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_france));
+            cambia.setText(R.string.cambio);
+            cripta.setText(R.string.cripta_catt);
+            vedere.setText(R.string.vedere);
+            miglio.setText(R.string.miglionico);
+            orari.setText(R.string.orari);
+            storia.setText(R.string.storia);
+            statua.setText(R.string.statua);
+        }
+        super.onResume();
+    }
+    public void clearApplicationData() {
+        File cacheDirectory = getCacheDir();
+        File applicationDirectory = new File(cacheDirectory.getParent());
+        if (applicationDirectory.exists()) {
+            String[] fileNames = applicationDirectory.list();
+            for (String fileName : fileNames) {
+                if (!fileName.equals("lib")) {
+                    deleteFile(new File(applicationDirectory, fileName));
+                }
+            }
+        }
+    }
+
+    public static boolean deleteFile(File file) {
+        boolean deletedAll = true;
+        if (file != null) {
+            if (file.isDirectory()) {
+                String[] children = file.list();
+                for (int i = 0; i < children.length; i++) {
+                    deletedAll = deleteFile(new File(file, children[i])) && deletedAll;
+                }
+            } else {
+                deletedAll = file.delete();
+            }
+        }
+
+        return deletedAll;
     }
 }

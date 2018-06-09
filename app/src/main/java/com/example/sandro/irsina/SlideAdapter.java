@@ -45,7 +45,9 @@ public class SlideAdapter extends PagerAdapter {
                 .findViewById(R.id.image);
         myImage.setImageResource(images.get(position));
         view.addView(myImageLayout, 0);
+        Lingua.deleteCache(context);
         return myImageLayout;
+
     }
 
     @Override

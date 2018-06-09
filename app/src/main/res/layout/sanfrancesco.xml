@@ -37,7 +37,7 @@
             app:srcCompat="@drawable/pulsante_chiesa" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/text_sancripta"
             android:layout_width="115dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView7"
@@ -70,7 +70,7 @@
             app:srcCompat="@drawable/pulsante_chiesa" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/text_sanstoria"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView7"
@@ -101,7 +101,7 @@
             app:srcCompat="@drawable/pulsante_chiesa" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/text_sanorari"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView7"

@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity
     static Timer swipeTimer;
     static int height_device=0;
     static int numero_random=0;
+    static Integer[] XMEN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity
         findViewById(R.id.include_nuget).setVisibility(View.GONE);
 
         deleteCache(getApplicationContext());
-
+        clearApplicationData();
         ImageView ib=(ImageView)findViewById(R.id.cambio);
         Locale current = getResources().getConfiguration().locale;
         if(current.getLanguage().equals("en")) {
@@ -174,42 +175,48 @@ public class MainActivity extends AppCompatActivity
                     startActivity(intent);
                     swipeTimer.cancel();
                     swipeTimer.purge();
-                    finish();
+                    overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+
                 }
                 if(a[1].equals("sanfrancesco")) {
                     Intent intent = new Intent(MainActivity.this, SanFrancesco.class);
                     startActivity(intent);
                     swipeTimer.cancel();
                     swipeTimer.purge();
-                    finish();
+                    overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+
                 }
                 if(a[1].equals("museo")) {
                     Intent intent = new Intent(MainActivity.this, Museo.class);
                     startActivity(intent);
                     swipeTimer.cancel();
                     swipeTimer.purge();
-                    finish();
+                    overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+
                 }
                 if(a[1].equals("porticella")) {
                     Intent intent = new Intent(MainActivity.this, Porticella1.class);
                     startActivity(intent);
                     swipeTimer.cancel();
                     swipeTimer.purge();
-                    finish();
+                    overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+
                 }
                 if(a[1].equals("muretto")) {
                     Intent intent = new Intent(MainActivity.this, Muretto1.class);
                     startActivity(intent);
                     swipeTimer.cancel();
                     swipeTimer.purge();
-                    finish();
+                    overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+
                 }
                 if(a[1].equals("nuget")) {
                     Intent intent = new Intent(MainActivity.this, Nuget1.class);
                     startActivity(intent);
                     swipeTimer.cancel();
                     swipeTimer.purge();
-                    finish();
+                    overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+
                 }
                 return true;
             }
@@ -236,11 +243,11 @@ public class MainActivity extends AppCompatActivity
                 "    background-color:#FFF;\n" +
                 "    float:left;\n" +
                 "}\n" +
-                "\n" +
                 ".card:hover {\n" +
                 "    box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);\n" +
                 "}\n" +
                 "\n" +
+
                 ".container {\n" +
                 "    padding: 2px 15px;\n" +
                 "\n" +
@@ -442,7 +449,7 @@ public class MainActivity extends AppCompatActivity
         if (i1==0){caso = new Integer[]{R.drawable.banner1, R.drawable.banner3, R.drawable.banner2};}
         if (i1==1){caso= new Integer[]{R.drawable.banner2, R.drawable.banner1, R.drawable.banner3};}
         if (i1==2){caso= new Integer[]{R.drawable.banner3, R.drawable.banner2, R.drawable.banner1};}
-        final Integer[] XMEN =caso;
+        XMEN =caso;
 
         for(int i=0;i<XMEN.length;i++) {
 
@@ -483,7 +490,8 @@ public class MainActivity extends AppCompatActivity
         startActivity(refresh);
         swipeTimer.cancel();
         swipeTimer.purge();
-        finish();
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+
     }
 
     public void link(View view) {
@@ -794,5 +802,81 @@ public class MainActivity extends AppCompatActivity
             }
         }
 
+    }
+
+    @Override
+    protected void onResume() {
+
+        MainActivity.swipeTimer.cancel();
+        MainActivity.swipeTimer.purge();
+
+        swipeTimer = new Timer();
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage == XMEN.length) {
+                    currentPage = 0;
+                }
+                viewPager.setCurrentItem(currentPage++, true);
+
+            }
+        };
+        swipeTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, 1000, 6000);
+
+        Locale current = getResources().getConfiguration().locale;
+        ImageView ib = (ImageView) findViewById(R.id.cambio);
+        TextView scegli=(TextView)findViewById(R.id.textView14);
+        TextView cambia=(TextView)findViewById(R.id.textView13);
+        if (current.getLanguage().equals("en")) {
+            ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_unionjack));
+            scegli.setText(R.string.scegli);
+            cambia.setText(R.string.cambio);
+        }
+        if (current.getLanguage().equals("it")) {
+            ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_italy));
+            scegli.setText(R.string.scegli);
+            cambia.setText(R.string.cambio);
+        }
+        if (current.getLanguage().equals("fr")) {
+            ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_france));
+            scegli.setText(R.string.scegli);
+            cambia.setText(R.string.cambio);
+        }
+        deleteCache(getApplicationContext());
+        clearApplicationData();
+        super.onResume();
+    }
+    public void clearApplicationData() {
+        File cacheDirectory = getCacheDir();
+        File applicationDirectory = new File(cacheDirectory.getParent());
+        if (applicationDirectory.exists()) {
+            String[] fileNames = applicationDirectory.list();
+            for (String fileName : fileNames) {
+                if (!fileName.equals("lib")) {
+                    deleteFile(new File(applicationDirectory, fileName));
+                }
+            }
+        }
+    }
+
+    public static boolean deleteFile(File file) {
+        boolean deletedAll = true;
+        if (file != null) {
+            if (file.isDirectory()) {
+                String[] children = file.list();
+                for (int i = 0; i < children.length; i++) {
+                    deletedAll = deleteFile(new File(file, children[i])) && deletedAll;
+                }
+            } else {
+                deletedAll = file.delete();
+            }
+        }
+
+        return deletedAll;
     }
 }

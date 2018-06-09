@@ -42,5 +42,8 @@
     <string name="cenni_storici_sanfra">Testo</string>
     <string name="vedere_janora">Museo Janora</string>
     <string name="vedere_janora_testo">testo di Museo Janora</string>
+    <string name="cripta_catt">Cripta</string>
+    <string name="cripta_catt_testo">Testo Cripta</string>
+
 
 </resources>

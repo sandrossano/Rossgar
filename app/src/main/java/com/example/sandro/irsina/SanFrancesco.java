@@ -17,8 +17,12 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import java.io.File;
 import java.util.Locale;
+
+import static com.example.sandro.irsina.Lingua.deleteCache;
 
 
 /**
@@ -45,6 +49,9 @@ public class SanFrancesco extends AppCompatActivity
         findViewById(R.id.include_fuori).setVisibility(View.GONE);
         findViewById(R.id.include_nuget).setVisibility(View.GONE);
         setTitle("San Francesco D'Assisi");
+
+        deleteCache(getApplicationContext());
+clearApplicationData();
 
         Log.d("lingua",Locale.getDefault().getLanguage());
         Log.d("linguaDisplay",Locale.getDefault().getDisplayLanguage());
@@ -80,10 +87,9 @@ public class SanFrancesco extends AppCompatActivity
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent refresh = new Intent(this, MainActivity.class);
-        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(refresh);
-        finishAffinity();
+
+        overridePendingTransition(R.anim.fadein_back,R.anim.fadeout_back);
+
     }
 
     @Override
@@ -144,6 +150,7 @@ public class SanFrancesco extends AppCompatActivity
         Intent refresh = new Intent(this, Storia_SanFrancesco.class);
         refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(refresh);
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
         return;
     }
 
@@ -151,6 +158,8 @@ public class SanFrancesco extends AppCompatActivity
         Intent refresh = new Intent(this, CriptaFrancesco.class);
         refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(refresh);
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+
         return;
     }
     public void maps(View view){
@@ -165,4 +174,63 @@ public class SanFrancesco extends AppCompatActivity
 
     }
 
+    @Override
+    protected void onResume() {
+
+        deleteCache(getApplicationContext());
+        clearApplicationData();
+
+        Locale current = getResources().getConfiguration().locale;
+        ImageView ib = (ImageView) findViewById(R.id.cambiol);
+        TextView cripta=(TextView)findViewById(R.id.text_sancripta);
+        TextView orari=(TextView)findViewById(R.id.text_sanorari);
+        TextView storia=(TextView)findViewById(R.id.text_sanstoria);
+        if (current.getLanguage().equals("en")) {
+            ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_unionjack));
+            cripta.setText(R.string.cripta);
+            orari.setText(R.string.orari);
+            storia.setText(R.string.storia);
+        }
+        if (current.getLanguage().equals("it")) {
+            ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_italy));
+            cripta.setText(R.string.cripta);
+            orari.setText(R.string.orari);
+            storia.setText(R.string.storia);
+        }
+        if (current.getLanguage().equals("fr")) {
+            ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_france));
+            cripta.setText(R.string.cripta);
+            orari.setText(R.string.orari);
+            storia.setText(R.string.storia);
+        }
+        super.onResume();
+    }
+    public void clearApplicationData() {
+        File cacheDirectory = getCacheDir();
+        File applicationDirectory = new File(cacheDirectory.getParent());
+        if (applicationDirectory.exists()) {
+            String[] fileNames = applicationDirectory.list();
+            for (String fileName : fileNames) {
+                if (!fileName.equals("lib")) {
+                    deleteFile(new File(applicationDirectory, fileName));
+                }
+            }
+        }
+    }
+
+    public static boolean deleteFile(File file) {
+        boolean deletedAll = true;
+        if (file != null) {
+            if (file.isDirectory()) {
+                String[] children = file.list();
+                for (int i = 0; i < children.length; i++) {
+                    deletedAll = deleteFile(new File(file, children[i])) && deletedAll;
+                }
+            } else {
+                deletedAll = file.delete();
+            }
+        }
+
+        return deletedAll;
+    }
 }

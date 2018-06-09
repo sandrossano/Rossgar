@@ -20,6 +20,8 @@ import android.view.View;
 
 import java.util.Locale;
 
+import static com.example.sandro.irsina.Lingua.deleteCache;
+
 
 /**
  * Created by sandro on 21/05/18.
@@ -45,6 +47,8 @@ public class Storia extends AppCompatActivity
         findViewById(R.id.include_nuget).setVisibility(View.GONE);
         setTitle(R.string.storia);
 
+        deleteCache(getApplicationContext());
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -65,10 +69,8 @@ public class Storia extends AppCompatActivity
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent refresh = new Intent(this, Cattedrale.class);
-        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(refresh);
-        finishAffinity();
+        overridePendingTransition(R.anim.fadein_back,R.anim.fadeout_back);
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

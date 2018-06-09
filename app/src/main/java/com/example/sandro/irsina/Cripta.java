@@ -3,14 +3,12 @@ package com.example.sandro.irsina;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -32,7 +30,7 @@ import static com.example.sandro.irsina.Lingua.deleteCache;
  * Created by sandro on 21/05/18.
  */
 
-public class Porticella1 extends AppCompatActivity
+public class Cripta extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ViewPager viewPager;
@@ -43,21 +41,18 @@ public class Porticella1 extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        findViewById(R.id.include_cripta).setVisibility(View.VISIBLE);
         findViewById(R.id.include_cattedrale).setVisibility(View.GONE);
         findViewById(R.id.include_main).setVisibility(View.GONE);
         findViewById(R.id.include_catt_storia).setVisibility(View.GONE);
         findViewById(R.id.include_catt_mantegna).setVisibility(View.GONE);
-        findViewById(R.id.include_catt_vedere).setVisibility(View.GONE);
         findViewById(R.id.include_catt_miglionico).setVisibility(View.GONE);
-        findViewById(R.id.include_catt_miglionico).setVisibility(View.GONE);
-        findViewById(R.id.include_sanfrancesco).setVisibility(View.GONE);
         findViewById(R.id.include_museo).setVisibility(View.GONE);
-        findViewById(R.id.include_porticella).setVisibility(View.VISIBLE);
+        findViewById(R.id.include_porticella).setVisibility(View.GONE);
         findViewById(R.id.include_muretto).setVisibility(View.GONE);
         findViewById(R.id.include_fuori).setVisibility(View.GONE);
         findViewById(R.id.include_nuget).setVisibility(View.GONE);
-        setTitle(R.string.porticella);
+        setTitle(R.string.cripta_catt);
 
         deleteCache(getApplicationContext());
 
@@ -65,23 +60,21 @@ public class Porticella1 extends AppCompatActivity
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
         init();
-
     }
 
     private void init() {
 
-        final Integer[] XMEN = {R.drawable.porticella1,R.drawable.porticella2};
+        final Integer[] XMEN = {R.drawable.cripta1,R.drawable.cripta2,R.drawable.cripta3};
 
         for(int i=0;i<XMEN.length;i++) {
 
                XMENArray.add(XMEN[i]);
 
         }
-        viewPager = (ViewPager) findViewById(R.id.pager_porticella);
-        viewPager.setAdapter(new SlideAdapter(Porticella1.this, XMENArray));
-        CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator_porticella);
+        viewPager = (ViewPager) findViewById(R.id.pager_cripta_catt);
+        viewPager.setAdapter(new SlideAdapter(Cripta.this, XMENArray));
+        CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator_cripta_catt);
         indicator.setViewPager(viewPager);
 
         // Auto start of viewpager
@@ -109,10 +102,10 @@ public class Porticella1 extends AppCompatActivity
 
         @Override
         public void run() {
-            Porticella1.this.runOnUiThread(new Runnable() {
+            Cripta.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if (viewPager.getCurrentItem() == 1) {
+                    if (viewPager.getCurrentItem() == 2) {
                         viewPager.setCurrentItem(0);
                     } else {
                         viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
@@ -130,7 +123,15 @@ public class Porticella1 extends AppCompatActivity
         return true;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        overridePendingTransition(R.anim.fadein_back,R.anim.fadeout_back);
+
+    }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         Locale current = getResources().getConfiguration().locale;
@@ -171,7 +172,7 @@ public class Porticella1 extends AppCompatActivity
     public void cambioLingua() {
         Locale current = getResources().getConfiguration().locale;
 
-        if(current.getLanguage().equals("it")) {
+        if (current.getLanguage().equals("it")) {
             Locale myLocale = new Locale("en");
             Resources res = getResources();
             DisplayMetrics dm = res.getDisplayMetrics();
@@ -179,14 +180,14 @@ public class Porticella1 extends AppCompatActivity
             conf.locale = myLocale;
             res.updateConfiguration(conf, dm);
 
-            Intent refresh = new Intent(this, Porticella1.class);
+            Intent refresh = new Intent(this, Cripta.class);
             refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(refresh);
             finish();
             return;
         }
 
-        if(current.getLanguage().equals("en")) {
+        if (current.getLanguage().equals("en")) {
             Locale myLocale = new Locale("fr");
             Resources res = getResources();
             DisplayMetrics dm = res.getDisplayMetrics();
@@ -194,13 +195,13 @@ public class Porticella1 extends AppCompatActivity
             conf.locale = myLocale;
             res.updateConfiguration(conf, dm);
 
-            Intent refresh = new Intent(this, Porticella1.class);
+            Intent refresh = new Intent(this, Cripta.class);
             refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(refresh);
             finish();
             return;
         }
-        if(current.getLanguage().equals("fr")) {
+        if (current.getLanguage().equals("fr")) {
             Locale myLocale = new Locale("it");
             Resources res = getResources();
             DisplayMetrics dm = res.getDisplayMetrics();
@@ -208,32 +209,12 @@ public class Porticella1 extends AppCompatActivity
             conf.locale = myLocale;
             res.updateConfiguration(conf, dm);
 
-            Intent refresh = new Intent(this, Porticella1.class);
+            Intent refresh = new Intent(this, Cripta.class);
             refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(refresh);
             finish();
             return;
         }
-
-    }
-
-    public void maps(View view){
-        //placeid: https://developers.google.com/places/place-id
-        Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=Via+Porticella,+Irsina");
-        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-        mapIntent.setPackage("com.google.android.apps.maps");
-        if (mapIntent.resolveActivity(getPackageManager()) != null) {
-            startActivity(mapIntent);
-        }
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-        overridePendingTransition(R.anim.fadein_back,R.anim.fadeout_back);
-
     }
 }
 

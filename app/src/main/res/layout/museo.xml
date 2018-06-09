@@ -22,9 +22,9 @@
         android:id="@+id/vedere"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_alignLeft="@+id/orari"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="115dp"
         android:onClick="vedere">
 
         <ImageView
@@ -37,7 +37,7 @@
             app:srcCompat="@drawable/pulsante_chiesa" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textView_museo_vedere"
             android:layout_width="115dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView7"
@@ -55,22 +55,21 @@
         android:id="@+id/orari"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/storia"
+        android:layout_below="@+id/vedere"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="200dp">
+        android:layout_marginTop="50dp">
 
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
+            android:layout_alignLeft="@+id/orari"
             android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/orari"
             app:srcCompat="@drawable/pulsante_chiesa" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textView_museo_orari"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageView7"

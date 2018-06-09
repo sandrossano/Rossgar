@@ -75,10 +75,15 @@ public class Lingua extends AppCompatActivity {
             public void run() {
                 if(pronto==0) {
                     //continua.setVisibility(View.VISIBLE);
+
+
                     Intent refresh = new Intent(getApplicationContext(), MainActivity.class);
                     refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(refresh);
+                    finish();
+                    overridePendingTransition(R.anim.fadein,R.anim.fadeout);
                     deleteCache(getApplicationContext());
+
                 }
 
             }
@@ -89,7 +94,7 @@ public class Lingua extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        if (prefs.getBoolean("firstrun", true)) {
+        /*if (prefs.getBoolean("firstrun", true)) {
             pronto=1;
             AlertDialog alertDialog = new AlertDialog.Builder(Lingua.this).create();
             alertDialog.setTitle("Alert");
@@ -103,6 +108,7 @@ public class Lingua extends AppCompatActivity {
                             Intent refresh = new Intent(getApplicationContext(), MainActivity.class);
                             refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                             startActivity(refresh);
+                            finish();
                         }
                     });
             alertDialog.show();
@@ -110,7 +116,7 @@ public class Lingua extends AppCompatActivity {
 
 
             prefs.edit().putBoolean("firstrun", false).commit();
-        }
+        }*/
     }
 
 
@@ -119,80 +125,6 @@ public class Lingua extends AppCompatActivity {
             super.onBackPressed();
     }
 
-    public void francese(View view) {
-        //cambio lingua
-
-        Locale myLocale = new Locale("fr");
-        Resources res = getResources();
-        DisplayMetrics dm = res.getDisplayMetrics();
-        Configuration conf = res.getConfiguration();
-        conf.locale = myLocale;
-        res.updateConfiguration(conf, dm);
-        TextView continua=(TextView)findViewById(R.id.textView21);
-        continua.setVisibility(View.VISIBLE);
-
-        //per pagina aggiona lingua
-        /*Intent refresh = new Intent(this, Lingua.class);
-        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(refresh);
-        finish();*/
-        Intent refresh2 = new Intent(this, Lingua.class);
-        refresh2.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(refresh2);
-        finish();
-        return;
-
-    }
-    public void italiano(View view) {
-        //cambio lingua
-        Locale myLocale = new Locale("it");
-        Resources res = getResources();
-        DisplayMetrics dm = res.getDisplayMetrics();
-        Configuration conf = res.getConfiguration();
-        conf.locale = myLocale;
-        res.updateConfiguration(conf, dm);
-        TextView continua=(TextView)findViewById(R.id.textView21);
-        continua.setVisibility(View.VISIBLE);
-
-        //per pagina aggiona lingua
-        /*Intent refresh = new Intent(this, Lingua.class);
-        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(refresh);
-        finish();*/
-        Intent refresh = new Intent(this, Lingua.class);
-        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(refresh);
-        finish();
-        return;
-    }
-    public void inglese(View view) {
-        //cambio lingua
-        Locale myLocale = new Locale("en");
-        Resources res = getResources();
-        DisplayMetrics dm = res.getDisplayMetrics();
-        Configuration conf = res.getConfiguration();
-        conf.locale = myLocale;
-        res.updateConfiguration(conf, dm);
-        TextView continua=(TextView)findViewById(R.id.textView21);
-        continua.setVisibility(View.VISIBLE);
-
-        //per pagina aggiona lingua
-        /*Intent refresh = new Intent(this, Lingua.class);
-        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(refresh);
-        finish();*/
-        Intent refresh = new Intent(this, Lingua.class);
-        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(refresh);
-        finish();
-        return;
-    }
-
-    public void continua(View view) {
-        Intent refresh = new Intent(this, MainActivity.class);
-        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(refresh);
-    }
 
     public static void deleteCache(Context context) {
         try {
@@ -217,4 +149,5 @@ public class Lingua extends AppCompatActivity {
             return false;
         }
     }
+
 }
