@@ -15,6 +15,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -25,6 +26,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import static com.example.sandro.irsina.Lingua.logValue;
 
 
 /**
@@ -41,9 +44,13 @@ public class Cancelle extends AppCompatActivity
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
     private int currentPage = 0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        logValue();
+
         setContentView(R.layout.activity_main);
         findViewById(R.id.include_cancelle).setVisibility(View.VISIBLE);
         findViewById(R.id.include_cattedrale).setVisibility(View.GONE);
@@ -68,13 +75,11 @@ public class Cancelle extends AppCompatActivity
 
         ImageView imm=(ImageView) findViewById(R.id.immagineSingolo);
 
-        String nomesing="";
-        String fotosing="";
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
-
-        //BitmapDrawable d=writeOnDrawable(R.drawable.flag_italy,"Nome Società");
-        //imm.setImageBitmap(d.getBitmap());
-        //imm.setImageResource(R.drawable.flag_italy);
+        drawer.removeView(navigationView);
 
 
         TextView wow1= (TextView) findViewById(R.id.tvNumber1);
@@ -187,4 +192,9 @@ public class Cancelle extends AppCompatActivity
 
         return new BitmapDrawable(bm);
     }
-}
+    @Override
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        viewPager.destroyDrawingCache();
+        viewPager.removeAllViews();
+    }}

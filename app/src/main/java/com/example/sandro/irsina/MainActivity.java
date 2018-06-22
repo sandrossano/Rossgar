@@ -2,9 +2,12 @@ package com.example.sandro.irsina;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -28,12 +31,15 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Process;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
+import android.view.KeyCharacterMap;
+import android.view.KeyEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -43,11 +49,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -73,6 +83,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import static com.example.sandro.irsina.Lingua.deleteCache;
+import static com.example.sandro.irsina.Lingua.logHeap;
+import static com.example.sandro.irsina.Lingua.logValue;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -87,30 +99,79 @@ public class MainActivity extends AppCompatActivity
     static int height_device=0;
     static int numero_random=0;
     static Integer[] XMEN;
+    int cacca_selezionata_iniziale=0;
+
+    public boolean hasNavBar (Resources resources)
+    {
+        int id = resources.getIdentifier("config_showNavigationBar", "bool", "android");
+        return id > 0 && resources.getBoolean(id);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         Log.d("lingua",Locale.getDefault().getLanguage());
         Log.d("linguaDisplay",Locale.getDefault().getDisplayLanguage());
 
-
         setContentView(R.layout.activity_main);
-        findViewById(R.id.include_cattedrale).setVisibility(View.GONE);
-        findViewById(R.id.include_main).setVisibility(View.VISIBLE);
-        findViewById(R.id.include_catt_storia).setVisibility(View.GONE);
-        findViewById(R.id.include_catt_mantegna).setVisibility(View.GONE);
-        findViewById(R.id.include_catt_vedere).setVisibility(View.GONE);
-        findViewById(R.id.include_sanfrancesco).setVisibility(View.GONE);
-        findViewById(R.id.include_museo).setVisibility(View.GONE);
-        findViewById(R.id.include_porticella).setVisibility(View.GONE);
-        findViewById(R.id.include_muretto).setVisibility(View.GONE);
-        findViewById(R.id.include_fuori).setVisibility(View.GONE);
-        findViewById(R.id.include_nuget).setVisibility(View.GONE);
+
+        /*boolean hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
+        boolean hasHomeKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_HOME);
+
+        if (hasBackKey && hasHomeKey) {
+            findViewById(R.id.include_main).setVisibility(View.GONE);
+            findViewById(R.id.include_main).setEnabled(false);
+            findViewById(R.id.include_main_2).setVisibility(View.VISIBLE);
+
+            // no navigation bar, unless it is enabled in the settings
+        } else {
+            findViewById(R.id.include_main).setVisibility(View.VISIBLE);
+            findViewById(R.id.include_main_2).setEnabled(false);
+            findViewById(R.id.include_main_2).setVisibility(View.GONE);
+
+            // 99% sure there's a navigation bar
+        }*/
+
+        if(hasNavBar(getResources())==true){
+            findViewById(R.id.include_main).setVisibility(View.VISIBLE);
+            findViewById(R.id.include_main_2).setEnabled(false);
+            findViewById(R.id.include_main_2).setVisibility(View.GONE);
+        }
+        else{
+            findViewById(R.id.include_main).setVisibility(View.GONE);
+            findViewById(R.id.include_main).setEnabled(false);
+            findViewById(R.id.include_main_2).setVisibility(View.VISIBLE);
+        }
+
+if (findViewById(R.id.include_main_2).getVisibility()==View.GONE){cacca_selezionata_iniziale=1;}
+else{cacca_selezionata_iniziale=2;}
+
+if (cacca_selezionata_iniziale==1){
+        webView = (WebView)findViewById( R.id.webview_main );}
+        else{
+    webView = (WebView)findViewById( R.id.webview_main_2 );
+}
+
+        webView.setVisibility(View.INVISIBLE);
+        Lingua.mContent=getApplicationContext();
+
+        logHeap();
+        logValue();
 
         deleteCache(getApplicationContext());
         clearApplicationData();
-        ImageView ib=(ImageView)findViewById(R.id.cambio);
+        ImageView ib;
+        if (cacca_selezionata_iniziale==1){
+       ib=(ImageView)findViewById(R.id.cambio);}
+        else{ib=(ImageView)findViewById(R.id.cambio_2);}
         Locale current = getResources().getConfiguration().locale;
         if(current.getLanguage().equals("en")) {
             ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_unionjack));
@@ -141,11 +202,12 @@ public class MainActivity extends AppCompatActivity
 
         setUpAdapter();
 
+
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
 
-        webView = (WebView)findViewById( R.id.webview );
+
 
         //webView.setInitialScale( 1 );
         webView.getSettings().setJavaScriptEnabled(true);
@@ -156,13 +218,32 @@ public class MainActivity extends AppCompatActivity
         webView.getSettings().setBuiltInZoomControls( true );
         webView.setInitialScale(1);
 
+        webView.getSettings().setAllowFileAccess(true);
+
+        webView.clearHistory();
+        webView.clearFormData();
+        webView.clearCache(true);
+
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+
         //webView.getSettings().setDefaultZoom(WebSettings.ZoomDensity.FAR);
+        final int finalCacca_selezionata_iniziale = cacca_selezionata_iniziale;
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                webView.scrollTo(0,(webView.getHeight()/2)-10);
-
+                webView.scrollTo(0,(webView.getHeight()/2)-40);
+                ImageView imm;
+                if(finalCacca_selezionata_iniziale ==1) {
+                     imm = (ImageView) findViewById(R.id.logo_webmain);
+                }
+                else {
+                     imm = (ImageView) findViewById(R.id.logo_webmain_2);
+                }
+                imm.setVisibility(View.GONE);
+                imm.destroyDrawingCache();
+                webView.setVisibility(View.VISIBLE);
             }
 
 
@@ -495,7 +576,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void link(View view) {
-        String url = "http://www.rossgar.altervista.org/";
+        String url = "http://www.rossgar.it/";
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         startActivity(i);
@@ -523,7 +604,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private void setUpAdapter() {
+    public void setUpAdapter() {
 
         LinkedHashMap<String, String[]> thirdLevelq1;
         LinkedHashMap<String, String[]> thirdLevelq2;
@@ -807,6 +888,17 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onResume() {
 
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+
+        System.runFinalization();
+        Runtime.getRuntime().gc();
+        System.gc();
+
         MainActivity.swipeTimer.cancel();
         MainActivity.swipeTimer.purge();
 
@@ -829,7 +921,14 @@ public class MainActivity extends AppCompatActivity
         }, 1000, 6000);
 
         Locale current = getResources().getConfiguration().locale;
-        ImageView ib = (ImageView) findViewById(R.id.cambio);
+        ImageView ib;
+        if(cacca_selezionata_iniziale ==1) {
+            ib = (ImageView) findViewById(R.id.cambio);
+        }
+        else {
+            ib = (ImageView) findViewById(R.id.cambio_2);
+        }
+
         TextView scegli=(TextView)findViewById(R.id.textView14);
         TextView cambia=(TextView)findViewById(R.id.textView13);
         if (current.getLanguage().equals("en")) {
@@ -879,4 +978,22 @@ public class MainActivity extends AppCompatActivity
 
         return deletedAll;
     }
+
+    @Override
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        releaseWebView();
+    }
+    private void releaseWebView() {
+
+        if(webView != null){
+            webView.setTag(null);
+            webView.clearHistory();
+            webView.removeAllViews();
+            webView.clearView();
+            webView.destroy();
+            webView = null;
+        }
+    }
 }
+

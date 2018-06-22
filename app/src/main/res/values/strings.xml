@@ -10,4 +10,8 @@
     <string name="fra">FRA</string>
     <string name="prova">Scegli Lingua:</string>
 
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
 </resources>

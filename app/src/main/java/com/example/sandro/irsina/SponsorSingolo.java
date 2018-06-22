@@ -18,16 +18,20 @@ import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -35,6 +39,7 @@ import java.util.TimerTask;
 import me.relex.circleindicator.CircleIndicator;
 
 import static com.example.sandro.irsina.Lingua.deleteCache;
+import static com.example.sandro.irsina.Lingua.logValue;
 
 
 /**
@@ -52,8 +57,13 @@ public class SponsorSingolo extends AppCompatActivity
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
     private int currentPage = 0;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        logValue();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.include_cancelle).setVisibility(View.GONE);
@@ -132,6 +142,13 @@ public class SponsorSingolo extends AppCompatActivity
                 handler.post(Update);
             }
         }, 500, 4000);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        drawer.removeView(navigationView);
+
     }
 
 
@@ -219,4 +236,11 @@ public class SponsorSingolo extends AppCompatActivity
         i.setData(Uri.parse(url));
         startActivity(i);
     }
+    @Override
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        viewPager.destroyDrawingCache();
+        viewPager.removeAllViews();
+    }
+
 }

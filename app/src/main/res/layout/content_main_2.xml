@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relative_main_layout"
+    android:id="@+id/relative_main_layout_2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/color_back"
@@ -12,11 +12,11 @@
 
 
     <WebView
-        android:id="@+id/webview_main"
+        android:id="@+id/webview_main_2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:layout_below="@+id/down"
+        android:layout_below="@+id/down_2"
         android:background="@color/colorPrimaryDark"
         android:scrollbars="none"
         android:visibility="invisible">
@@ -24,7 +24,7 @@
     </WebView>
 
     <RelativeLayout
-        android:id="@+id/fuori"
+        android:id="@+id/fuori_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -65,12 +65,12 @@
         android:textStyle="italic" />
 
     <RelativeLayout
-        android:id="@+id/cambio_lingua"
+        android:id="@+id/cambio_lingua_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="false"
-        android:layout_alignTop="@+id/webview_main"
+        android:layout_alignTop="@+id/webview_main_2"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
         android:paddingLeft="5dp"
@@ -89,7 +89,7 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/cambio"
+            android:id="@+id/cambio_2"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentBottom="false"
@@ -102,7 +102,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/down"
+        android:id="@+id/down_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -137,10 +137,10 @@
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/logo_webmain"
+        android:id="@+id/logo_webmain_2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/down"
+        android:layout_below="@+id/down_2"
         android:background="@color/coloreBarraDark"
         android:src="@drawable/logo_white"
         android:visibility="visible"

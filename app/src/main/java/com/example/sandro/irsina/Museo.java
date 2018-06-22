@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
@@ -23,6 +24,7 @@ import java.io.File;
 import java.util.Locale;
 
 import static com.example.sandro.irsina.Lingua.deleteCache;
+import static com.example.sandro.irsina.Lingua.logValue;
 
 
 /**
@@ -31,8 +33,18 @@ import static com.example.sandro.irsina.Lingua.deleteCache;
 
 public class Museo extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        logValue();
+
+        System.runFinalization();
+        Runtime.getRuntime().gc();
+        System.gc();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.include_cattedrale).setVisibility(View.GONE);
@@ -73,6 +85,11 @@ clearApplicationData();
             ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_france));
         }
 
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        drawer.removeView(navigationView);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -165,6 +182,10 @@ clearApplicationData();
     @Override
     protected void onResume() {
 
+        System.runFinalization();
+        Runtime.getRuntime().gc();
+        System.gc();
+
         deleteCache(getApplicationContext());
         clearApplicationData();
 
@@ -229,4 +250,5 @@ clearApplicationData();
 
         return deletedAll;
     }
+
 }

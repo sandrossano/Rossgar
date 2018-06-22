@@ -12,6 +12,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
@@ -26,6 +27,8 @@ import java.io.File;
 import java.util.Locale;
 
 import static com.example.sandro.irsina.Lingua.deleteCache;
+import static com.example.sandro.irsina.Lingua.logHeap;
+import static com.example.sandro.irsina.Lingua.logValue;
 
 
 /**
@@ -34,9 +37,16 @@ import static com.example.sandro.irsina.Lingua.deleteCache;
 
 public class Cattedrale extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+        logValue();
+
         setContentView(R.layout.activity_main);
         findViewById(R.id.include_cattedrale).setVisibility(View.VISIBLE);
         findViewById(R.id.include_main).setVisibility(View.GONE);
@@ -55,6 +65,16 @@ public class Cattedrale extends AppCompatActivity
 
         deleteCache(getApplicationContext());
 clearApplicationData();
+        System.runFinalization();
+        Runtime.getRuntime().gc();
+        System.gc();
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        drawer.removeView(navigationView);
+
 
         Log.d("lingua",Locale.getDefault().getLanguage());
         Log.d("linguaDisplay",Locale.getDefault().getDisplayLanguage());
@@ -196,6 +216,10 @@ clearApplicationData();
     @Override
     protected void onResume() {
 
+        System.runFinalization();
+        Runtime.getRuntime().gc();
+        System.gc();
+
         deleteCache(getApplicationContext());
         clearApplicationData();
 
@@ -241,6 +265,13 @@ clearApplicationData();
         }
         super.onResume();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Runtime.getRuntime().gc();
+    }
+
     public void clearApplicationData() {
         File cacheDirectory = getCacheDir();
         File applicationDirectory = new File(cacheDirectory.getParent());
@@ -269,4 +300,5 @@ clearApplicationData();
 
         return deletedAll;
     }
+
 }

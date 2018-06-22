@@ -12,10 +12,13 @@ import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.KeyCharacterMap;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -35,6 +38,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static com.example.sandro.irsina.Lingua.logValue;
 import static com.example.sandro.irsina.MainActivity.numero_random;
 import static com.example.sandro.irsina.Lingua.deleteCache;
 import static com.example.sandro.irsina.MainActivity.banner;
@@ -54,12 +58,30 @@ public class Fuori extends AppCompatActivity
     int currentPage2 = 0;
     static Timer swipeTimer2;
     static Integer[] XMEN2;
+    int cacca_selezionata_iniziale=0;
+
+    public boolean hasNavBar (Resources resources)
+    {
+        int id = resources.getIdentifier("config_showNavigationBar", "bool", "android");
+        return id > 0 && resources.getBoolean(id);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+        logValue();
+            System.runFinalization();
+            Runtime.getRuntime().gc();
+            System.gc();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.include_fuori).setVisibility(View.VISIBLE);
         findViewById(R.id.include_cattedrale).setVisibility(View.GONE);
         findViewById(R.id.include_main).setVisibility(View.GONE);
         findViewById(R.id.include_catt_storia).setVisibility(View.GONE);
@@ -74,6 +96,21 @@ public class Fuori extends AppCompatActivity
         findViewById(R.id.include_nuget).setVisibility(View.GONE);
         setTitle("Fuori Mappa");
 
+        if(hasNavBar(getResources())==true){
+            findViewById(R.id.include_fuori).setVisibility(View.VISIBLE);
+            findViewById(R.id.include_fuori_2).setEnabled(false);
+            findViewById(R.id.include_fuori_2).setVisibility(View.GONE);
+        }
+        else{
+            findViewById(R.id.include_fuori).setVisibility(View.GONE);
+            findViewById(R.id.include_fuori).setEnabled(false);
+            findViewById(R.id.include_fuori_2).setVisibility(View.VISIBLE);
+        }
+
+
+        if (findViewById(R.id.include_fuori_2).getVisibility()==View.GONE){cacca_selezionata_iniziale=1;}
+        else{cacca_selezionata_iniziale=2;}
+
         deleteCache(getApplicationContext());
 clearApplicationData();
         Log.d("lingua",Locale.getDefault().getLanguage());
@@ -84,13 +121,25 @@ clearApplicationData();
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        drawer.removeView(navigationView);
+
+
         DisplayMetrics displaymetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
         int height = displaymetrics.heightPixels;
         int width = displaymetrics.widthPixels;
 
 
-        webView = (WebView)findViewById( R.id.webfuori );
+        if (cacca_selezionata_iniziale==1){
+            webView = (WebView)findViewById( R.id.webfuori );}
+        else{
+            webView = (WebView)findViewById( R.id.webfuori_2 );
+        }
+
 
         webView.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
@@ -106,12 +155,27 @@ clearApplicationData();
         //webView.getSettings().setBuiltInZoomControls( true );
         webView.setInitialScale(1);
 
+        webView.getSettings().setAllowFileAccess(true);
+        webView.getSettings().setAppCacheEnabled(true);
+        webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+
+
         //webView.getSettings().setDefaultZoom(WebSettings.ZoomDensity.FAR);
+        final int finalCacca_selezionata_iniziale = cacca_selezionata_iniziale;
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 webView.scrollTo(0,(webView.getHeight()));
+                ImageView imm;
+                if(finalCacca_selezionata_iniziale ==1) {
+                    imm = (ImageView) findViewById(R.id.logo_webmain2);
+                }
+                else {
+                    imm = (ImageView) findViewById(R.id.logo_webmain2_2);
+                }
+                imm.setVisibility(View.GONE);
+                imm.destroyDrawingCache();
                 webView.setVisibility(View.VISIBLE);
             }
 
@@ -225,7 +289,10 @@ clearApplicationData();
 
 
 
-        ImageView ib=(ImageView)findViewById(R.id.cambiofuori);
+        ImageView ib;
+        if (cacca_selezionata_iniziale==1){
+            ib=(ImageView)findViewById(R.id.cambiofuori);}
+        else{ib=(ImageView)findViewById(R.id.cambiofuori_2);}
                 Locale current = getResources().getConfiguration().locale;
             if(current.getLanguage().equals("en")) {
                 ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_unionjack));
@@ -352,6 +419,16 @@ clearApplicationData();
     @Override
     protected void onResume() {
 
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+        System.runFinalization();
+        Runtime.getRuntime().gc();
+        System.gc();
+
         deleteCache(getApplicationContext());
         clearApplicationData();
 
@@ -377,7 +454,13 @@ clearApplicationData();
         }, 1000, 6000);
 
         Locale current = getResources().getConfiguration().locale;
-        ImageView ib = (ImageView) findViewById(R.id.cambiofuori);
+        ImageView ib;
+        if(cacca_selezionata_iniziale ==1) {
+            ib = (ImageView) findViewById(R.id.cambiofuori);
+        }
+        else {
+            ib = (ImageView) findViewById(R.id.cambiofuori_2);
+        }
         TextView cambia=(TextView)findViewById(R.id.textView13);
         if (current.getLanguage().equals("en")) {
             ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_unionjack));
@@ -423,4 +506,20 @@ clearApplicationData();
         return deletedAll;
     }
 
+    @Override
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        releaseWebView();
+    }
+    private void releaseWebView() {
+
+        if(webView != null){
+            webView.setTag(null);
+            webView.clearHistory();
+            webView.removeAllViews();
+            webView.clearView();
+            webView.destroy();
+            webView = null;
+        }
+    }
 }

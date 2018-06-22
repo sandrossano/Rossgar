@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sandro.irsina">
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-
-        android:label="@string/app_name"
-        android:roundIcon="@drawable/logo"
-        android:icon="@drawable/logo"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:hardwareAccelerated="false"
-        android:largeHeap="true"
         android:allowBackup="true"
-        >
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <activity
             android:name=".Lingua"
             android:label="@string/app_name"
@@ -26,30 +24,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".Cattedrale"></activity>
-        <activity android:name=".Storia"></activity>
-        <activity android:name=".Mantegna"></activity>
-        <activity android:name=".Cosa_Vedere"></activity>
-        <activity android:name=".Miglionico"></activity>
-        <activity android:name=".SanFrancesco"></activity>
-        <activity android:name=".SponsorSingolo"></activity>
-        <activity android:name=".Nuget1"></activity>
-        <activity android:name=".Museo"></activity>
-        <activity android:name=".Muretto1"></activity>
-        <activity android:name=".Porticella1"></activity>
-        <activity android:name=".Fuori"></activity>
-        <activity android:name=".Nuget"></activity>
-        <activity android:name=".Bottini"></activity>
-        <activity android:name=".Fontane"></activity>
-        <activity android:name=".Peschiera"></activity>
-        <activity android:name=".Pieta"></activity>
-        <activity android:name=".Juso"></activity>
-        <activity android:name=".Storia_SanFrancesco"></activity>
-        <activity android:name=".Cancelle"></activity>
-        <activity android:name=".Cripta"></activity>
-        <activity android:name=".CriptaFrancesco"></activity>
-        <activity android:name=".Vedere_Janora"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Cattedrale" />
+        <activity android:name=".Storia" />
+        <activity android:name=".Mantegna" />
+        <activity android:name=".Cosa_Vedere" />
+        <activity android:name=".Miglionico" />
+        <activity android:name=".SanFrancesco" />
+        <activity android:name=".SponsorSingolo" />
+        <activity android:name=".Nuget1" />
+        <activity android:name=".Museo" />
+        <activity android:name=".Muretto1" />
+        <activity android:name=".Porticella1" />
+        <activity android:name=".Fuori" />
+        <activity android:name=".Nuget" />
+        <activity android:name=".Bottini" />
+        <activity android:name=".Fontane" />
+        <activity android:name=".Peschiera" />
+        <activity android:name=".Pieta" />
+        <activity android:name=".Juso" />
+        <activity android:name=".Storia_SanFrancesco" />
+        <activity android:name=".Cancelle" />
+        <activity android:name=".Cripta" />
+        <activity android:name=".CriptaFrancesco" />
+        <activity android:name=".Vedere_Janora" />
+
     </application>
 
 </manifest>

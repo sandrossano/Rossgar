@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
@@ -26,6 +27,7 @@ import java.util.TimerTask;
 import me.relex.circleindicator.CircleIndicator;
 
 import static com.example.sandro.irsina.Lingua.deleteCache;
+import static com.example.sandro.irsina.Lingua.logValue;
 
 /**
  * Created by sandro on 21/05/18.
@@ -38,10 +40,14 @@ public class Fontane extends AppCompatActivity
     private int currentPage = 0;
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        logValue();
 
         findViewById(R.id.include_juso).setVisibility(View.GONE);
         findViewById(R.id.include_pieta).setVisibility(View.GONE);
@@ -70,6 +76,13 @@ public class Fontane extends AppCompatActivity
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         init();
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        drawer.removeView(navigationView);
+
     }
 
     private void init() {
@@ -231,6 +244,11 @@ public class Fontane extends AppCompatActivity
         startActivity(intent);
 
     }
-
+    @Override
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        viewPager.destroyDrawingCache();
+        viewPager.removeAllViews();
+    }
 }
 

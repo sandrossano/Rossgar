@@ -2,6 +2,7 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator_app_bar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.sandro.irsina.MainActivity">
@@ -10,13 +11,14 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@drawable/color_back"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
@@ -27,6 +29,15 @@
         android:visibility="visible" />
 
     <include
+        android:id="@+id/include_main_2"
+        layout="@layout/content_main_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="55dp"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:visibility="gone" />
+
+    <include
         android:id="@+id/include_cattedrale"
         layout="@layout/cattedrale"
         android:visibility="gone" />
@@ -34,7 +45,16 @@
     <include
         android:id="@+id/include_fuori"
         layout="@layout/fuori"
-        android:visibility="visible" />
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/include_fuori_2"
+        layout="@layout/fuori_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="55dp"
+        android:layout_marginTop="56dp"
+        android:visibility="gone" />
 
     <include
         android:id="@+id/include_sanfrancesco"

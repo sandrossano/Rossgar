@@ -12,7 +12,7 @@
 
 
     <WebView
-        android:id="@+id/webfuori"
+        android:id="@+id/webfuori_2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/banner_fuori"
@@ -23,7 +23,7 @@
     </WebView>
 
     <RelativeLayout
-        android:id="@+id/cambio_lingua"
+        android:id="@+id/cambio_lingua_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -35,7 +35,7 @@
         android:paddingRight="5dp">
 
         <ImageView
-            android:id="@+id/cambiofuori"
+            android:id="@+id/cambiofuori_2"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_alignParentBottom="true"
@@ -49,7 +49,7 @@
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/cambiofuori"
+            android:layout_above="@+id/cambiofuori_2"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:text="@string/cambio"
@@ -61,7 +61,7 @@
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/logo_webmain2"
+        android:id="@+id/logo_webmain2_2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/coloreBarraDark"

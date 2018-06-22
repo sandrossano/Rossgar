@@ -12,6 +12,7 @@ import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
@@ -27,6 +28,7 @@ import java.util.TimerTask;
 import me.relex.circleindicator.CircleIndicator;
 
 import static com.example.sandro.irsina.Lingua.deleteCache;
+import static com.example.sandro.irsina.Lingua.logValue;
 
 /**
  * Created by sandro on 21/05/18.
@@ -39,8 +41,12 @@ public class Porticella1 extends AppCompatActivity
     private int currentPage = 0;
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        logValue();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -68,6 +74,12 @@ public class Porticella1 extends AppCompatActivity
 
         init();
 
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        drawer.removeView(navigationView);
     }
 
     private void init() {
@@ -234,6 +246,12 @@ public class Porticella1 extends AppCompatActivity
 
         overridePendingTransition(R.anim.fadein_back,R.anim.fadeout_back);
 
+    }
+    @Override
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        viewPager.destroyDrawingCache();
+        viewPager.removeAllViews();
     }
 }
 
