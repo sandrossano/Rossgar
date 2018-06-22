@@ -103,7 +103,7 @@ public class Cancelle extends AppCompatActivity
 
         viewPager = (ViewPager) findViewById(R.id.pager_tipici);
         viewPager.setAdapter(new SlideAdapter_Sponsor(Cancelle.this, XMENArray));
-        CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator_nuget);
+        CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator_tipici);
         indicator.setViewPager(viewPager);
 
         // Auto start of viewpager
