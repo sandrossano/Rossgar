@@ -39,7 +39,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import static com.example.sandro.irsina.Lingua.logValue;
-import static com.example.sandro.irsina.MainActivity.numero_random;
+
 import static com.example.sandro.irsina.Lingua.deleteCache;
 import static com.example.sandro.irsina.MainActivity.banner;
 import static com.example.sandro.irsina.MainActivity.height_device;
@@ -59,7 +59,7 @@ public class Fuori extends AppCompatActivity
     static Timer swipeTimer2;
     static Integer[] XMEN2;
     int cacca_selezionata_iniziale=0;
-
+    static int numero_random_fuori=0;
     public boolean hasNavBar (Resources resources)
     {
         int id = resources.getIdentifier("config_showNavigationBar", "bool", "android");
@@ -82,6 +82,8 @@ public class Fuori extends AppCompatActivity
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViewById(R.id.pager_banner).setVisibility(View.GONE);
+        findViewById(R.id.pager_banner_fuori).setVisibility(View.VISIBLE);
         findViewById(R.id.include_cattedrale).setVisibility(View.GONE);
         findViewById(R.id.include_main).setVisibility(View.GONE);
         findViewById(R.id.include_catt_storia).setVisibility(View.GONE);
@@ -307,7 +309,7 @@ clearApplicationData();
 
         Random r = new Random();
         int i1 = r.nextInt(3);
-        numero_random=i1;
+        numero_random_fuori=i1;
         Integer[] caso=new Integer[]{};
         if (i1==0){caso = new Integer[]{R.drawable.banner1, R.drawable.banner3, R.drawable.banner2};}
         if (i1==1){caso= new Integer[]{R.drawable.banner2, R.drawable.banner1, R.drawable.banner3};}
@@ -335,7 +337,7 @@ clearApplicationData();
             }
         };
 
-
+        if(swipeTimer2!=null){swipeTimer2.purge();swipeTimer2.cancel();swipeTimer2=null;}
         swipeTimer2 = new Timer();
 
         swipeTimer2.schedule(new TimerTask() {
@@ -435,7 +437,7 @@ clearApplicationData();
 
         swipeTimer2.cancel();
         swipeTimer2.purge();
-
+        swipeTimer2=null;
         swipeTimer2 = new Timer();
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {

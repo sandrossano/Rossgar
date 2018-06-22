@@ -82,6 +82,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static com.example.sandro.irsina.Fuori.numero_random_fuori;
 import static com.example.sandro.irsina.Lingua.deleteCache;
 import static com.example.sandro.irsina.Lingua.logHeap;
 import static com.example.sandro.irsina.Lingua.logValue;
@@ -100,7 +101,7 @@ public class MainActivity extends AppCompatActivity
     static int numero_random=0;
     static Integer[] XMEN;
     int cacca_selezionata_iniziale=0;
-
+    static int ordine=0;
     public boolean hasNavBar (Resources resources)
     {
         int id = resources.getIdentifier("config_showNavigationBar", "bool", "android");
@@ -124,6 +125,8 @@ public class MainActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_main);
 
+        findViewById(R.id.pager_banner).setVisibility(View.VISIBLE);
+        findViewById(R.id.pager_banner_fuori).setVisibility(View.GONE);
         /*boolean hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
         boolean hasHomeKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_HOME);
 
@@ -528,6 +531,7 @@ if (cacca_selezionata_iniziale==1){
         Random r = new Random();
         int i1 = r.nextInt(3);
         numero_random=i1;
+        ordine=i1;
         Integer[] caso=new Integer[]{};
         if (i1==0){caso = new Integer[]{R.drawable.banner1, R.drawable.banner3, R.drawable.banner2};}
         if (i1==1){caso= new Integer[]{R.drawable.banner2, R.drawable.banner1, R.drawable.banner3};}
@@ -556,7 +560,7 @@ if (cacca_selezionata_iniziale==1){
             }
         };
 
-
+            if(swipeTimer!=null){swipeTimer.purge();swipeTimer.cancel();swipeTimer=null;}
             swipeTimer = new Timer();
 
             swipeTimer.schedule(new TimerTask() {
@@ -573,6 +577,7 @@ if (cacca_selezionata_iniziale==1){
         startActivity(refresh);
         swipeTimer.cancel();
         swipeTimer.purge();
+        numero_random=-1;
         overridePendingTransition(R.anim.fadein,R.anim.fadeout);
 
     }
@@ -889,7 +894,8 @@ if (cacca_selezionata_iniziale==1){
 
     @Override
     protected void onResume() {
-
+        numero_random_fuori=-1;
+        numero_random=ordine;
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -903,7 +909,7 @@ if (cacca_selezionata_iniziale==1){
 
         MainActivity.swipeTimer.cancel();
         MainActivity.swipeTimer.purge();
-
+        swipeTimer=null;
         swipeTimer = new Timer();
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {

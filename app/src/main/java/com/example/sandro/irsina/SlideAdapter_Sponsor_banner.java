@@ -20,6 +20,7 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
+import static com.example.sandro.irsina.Fuori.numero_random_fuori;
 import static com.example.sandro.irsina.MainActivity.banner;
 import static com.example.sandro.irsina.MainActivity.numero_random;
 import static com.example.sandro.irsina.MainActivity.viewPager;
@@ -135,6 +136,75 @@ public class SlideAdapter_Sponsor_banner extends PagerAdapter {
                             refresh.putExtra("sito", "http://www.sito.it");
                         }
                     }
+                if (numero_random_fuori == 0) {
+                    if (position == 0) {
+                        refresh.putExtra("nome", "Società 1 Prova");
+                        refresh.putExtra("numero", "+39 3333333333");
+                        refresh.putExtra("email", "email@email.it");
+                        refresh.putExtra("indirizzo", "via Fasulla, 69");
+                        refresh.putExtra("sito", "http://www.sito.it");
+                    }
+                    if (position == 1) {
+                        refresh.putExtra("nome", "Società 3 Hello Word");
+                        refresh.putExtra("numero", "+39 1111111111");
+                        refresh.putExtra("email", "email@email.it");
+                        refresh.putExtra("indirizzo", "via Fasulla, 22");
+                        refresh.putExtra("sito", "http://www.sito.it");
+                    }
+                    if (position == 2) {
+                        refresh.putExtra("nome", "Società 2 Esempio");
+                        refresh.putExtra("numero", "+39 9898989898");
+                        refresh.putExtra("email", "email@email.it");
+                        refresh.putExtra("indirizzo", "via Fasulla, 33");
+                        refresh.putExtra("sito", "http://www.sito.it");
+                    }
+                }
+                else if (numero_random_fuori == 1) {
+                    if (position == 0) {
+                        refresh.putExtra("nome", "Società 2 Esempio");
+                        refresh.putExtra("numero", "+39 3333333333");
+                        refresh.putExtra("email", "email@email.it");
+                        refresh.putExtra("indirizzo", "via Fasulla, 69");
+                        refresh.putExtra("sito", "http://www.sito.it");
+                    }
+                    if (position == 1) {
+                        refresh.putExtra("nome", "Società 1 Prova");
+                        refresh.putExtra("numero", "+39 1111111111");
+                        refresh.putExtra("email", "email@email.it");
+                        refresh.putExtra("indirizzo", "via Fasulla, 22");
+                        refresh.putExtra("sito", "http://www.sito.it");
+                    }
+                    if (position == 2) {
+                        refresh.putExtra("nome", "Società 3 Hello Word");
+                        refresh.putExtra("numero", "+39 9898989898");
+                        refresh.putExtra("email", "email@email.it");
+                        refresh.putExtra("indirizzo", "via Fasulla, 33");
+                        refresh.putExtra("sito", "http://www.sito.it");
+                    }
+                }
+                else if (numero_random_fuori == 2) {
+                    if (position == 0) {
+                        refresh.putExtra("nome", "Società 3 Hello Word");
+                        refresh.putExtra("numero", "+39 3333333333");
+                        refresh.putExtra("email", "email@email.it");
+                        refresh.putExtra("indirizzo", "via Fasulla, 69");
+                        refresh.putExtra("sito", "http://www.sito.it");
+                    }
+                    if (position == 1) {
+                        refresh.putExtra("nome", "Società 2 Esempio");
+                        refresh.putExtra("numero", "+39 1111111111");
+                        refresh.putExtra("email", "email@email.it");
+                        refresh.putExtra("indirizzo", "via Fasulla, 22");
+                        refresh.putExtra("sito", "http://www.sito.it");
+                    }
+                    if (position == 2) {
+                        refresh.putExtra("nome", "Società 1 Prova");
+                        refresh.putExtra("numero", "+39 9898989898");
+                        refresh.putExtra("email", "email@email.it");
+                        refresh.putExtra("indirizzo", "via Fasulla, 33");
+                        refresh.putExtra("sito", "http://www.sito.it");
+                    }
+                }
                 context.startActivity(refresh);
             }
         });

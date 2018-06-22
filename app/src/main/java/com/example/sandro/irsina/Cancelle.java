@@ -27,6 +27,8 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import me.relex.circleindicator.CircleIndicator;
+
 import static com.example.sandro.irsina.Lingua.logValue;
 
 
@@ -101,6 +103,8 @@ public class Cancelle extends AppCompatActivity
 
         viewPager = (ViewPager) findViewById(R.id.pager_tipici);
         viewPager.setAdapter(new SlideAdapter_Sponsor(Cancelle.this, XMENArray));
+        CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator_nuget);
+        indicator.setViewPager(viewPager);
 
         // Auto start of viewpager
         final Handler handler = new Handler();
