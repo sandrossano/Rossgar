@@ -117,6 +117,7 @@ clearApplicationData();
         Log.d("linguaDisplay",Locale.getDefault().getDisplayLanguage());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setBackground(getResources().getDrawable(R.drawable.color_back));
         setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -461,7 +462,14 @@ clearApplicationData();
         else {
             ib = (ImageView) findViewById(R.id.cambiofuori_2);
         }
-        TextView cambia=(TextView)findViewById(R.id.textView13);
+
+        TextView cambia;
+        if(cacca_selezionata_iniziale ==1) {
+            cambia=(TextView)findViewById(R.id.textView13);
+        }
+        else {
+            cambia=(TextView)findViewById(R.id.textView13_2);
+        }
         if (current.getLanguage().equals("en")) {
             ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_unionjack));
             cambia.setText(R.string.cambio);

@@ -14,8 +14,10 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/pager_tipici"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_centerHorizontal="true" />
+            android:layout_height="200dp"
+            android:layout_below="@+id/textView15"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp" />
 
         <me.relex.circleindicator.CircleIndicator
             android:id="@+id/indicator_tipici"
@@ -30,24 +32,116 @@
             android:id="@+id/textView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/indicator_tipici"
-            android:layout_marginLeft="5dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
-            android:text="@string/cancelle"
+            android:text="@string/testocancelle"
+            android:textColor="@color/colorAccent"
             android:textSize="24sp"
             android:textStyle="bold|italic" />
 
+
         <TextView
             android:id="@+id/textView16"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView15"
+            android:layout_below="@+id/pager_tipici"
             android:layout_marginLeft="5dp"
-            android:paddingBottom="25dp"
+            android:layout_marginTop="5dp"
+            android:paddingBottom="15dp"
             android:paddingRight="5dp"
-            android:text="@string/testocancelle"
+            android:text="@string/testocancelle_acquistabile"
             android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view_prova"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@+id/textView16"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/background_light"
+            android:onClick="esempio"
+            app:cardBackgroundColor="@android:color/background_light"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="7dp"
+            app:contentPadding="0dp">
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+
+                <ImageView
+                    android:id="@+id/logo_dipartimento"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentEnd="false"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp"
+                    android:src="@drawable/shop" />
+
+                <TextView
+                    android:id="@+id/nome_lista"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toEndOf="@+id/logo_dipartimento"
+                    android:layout_toRightOf="@+id/logo_dipartimento"
+                    android:text="Panificio Esempio"
+                    android:textAlignment="center"
+                    android:textColor="@color/coloreBarraDark"
+                    android:textSize="18sp"
+                    android:textStyle="bold|italic" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view_esempio"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@+id/card_view_prova"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/background_light"
+            android:onClick="esempio"
+            app:cardBackgroundColor="@android:color/background_light"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="7dp"
+            app:contentPadding="0dp">
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+
+                <ImageView
+                    android:id="@+id/logo_dipartimento"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentEnd="false"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="40dp"
+                    android:src="@drawable/shop" />
+
+                <TextView
+                    android:id="@+id/nome_lista"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toEndOf="@+id/logo_dipartimento"
+                    android:layout_toRightOf="@+id/logo_dipartimento"
+                    android:text="Panificio Esempio"
+                    android:textAlignment="center"
+                    android:textColor="@color/coloreBarraDark"
+                    android:textSize="18sp"
+                    android:textStyle="bold|italic" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
     </RelativeLayout>
 </ScrollView>

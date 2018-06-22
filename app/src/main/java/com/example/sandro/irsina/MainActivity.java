@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity
         return id > 0 && resources.getBoolean(id);
     }
 
+    @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -188,6 +189,7 @@ if (cacca_selezionata_iniziale==1){
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setBackground(getResources().getDrawable(R.drawable.color_back_2));
         setSupportActionBar(toolbar);
         setTitle("Comune di Irsina");
 
@@ -928,9 +930,21 @@ if (cacca_selezionata_iniziale==1){
         else {
             ib = (ImageView) findViewById(R.id.cambio_2);
         }
+        TextView scegli;
+        if(cacca_selezionata_iniziale ==1) {
+            scegli=(TextView)findViewById(R.id.textView14);
+        }
+        else {
+            scegli=(TextView)findViewById(R.id.textView14_2);
+        }
 
-        TextView scegli=(TextView)findViewById(R.id.textView14);
-        TextView cambia=(TextView)findViewById(R.id.textView13);
+        TextView cambia;
+        if(cacca_selezionata_iniziale ==1) {
+            cambia=(TextView)findViewById(R.id.textView13);
+        }
+        else {
+            cambia=(TextView)findViewById(R.id.textView13_2);
+        }
         if (current.getLanguage().equals("en")) {
             ib.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.flag_unionjack));
             scegli.setText(R.string.scegli);

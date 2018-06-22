@@ -79,7 +79,8 @@ Questo, però, non bastò per stabilire con i montepelosini rapporti amichevoli,
 
 L’incuria dei secoli successivi non ha lasciato quasi pietra degli edifici monastici, ma la memoria del sito di Juso, della sua ricchezza e potenza, della sua fitta rete di relazioni europee è sopravvissuta grazie alle pergamene che, sfidando i secoli, sono giunte a noi, in parte conservate negli archivi francesi della Haute-Loire, e in parte nell’archivio della Curia vescovile di Irsina, restaurate nel 2006 ad opera dei monaci dell’Abbazia di Noci (BA) a seguito dell’interessamento del responsabile della Curia don Nicolino Di Pasquale.</string>
     <string name="cancelle">Cancelle</string>
-    <string name="testocancelle">Cancelle</string>
+    <string name="testocancelle">Descrizione e Ricetta</string>
+    <string name="testocancelle_acquistabile">Acquistabile presso i seguenti negozi: </string>
     <string name="cenni_storici_sanfra_titolo">Storia e Descrizione</string>
     <string name="cenni_storici_sanfra">Ricavata all’interno di una torre quadrangolare del castello normanno, gli affreschi della cappella ipogea di San Francesco, commissionati dai De Balzo, rappresentano un chiaro il richiamo alla pittura di Giotto non solo nelle architetture ma anche nella spiritualità dei personaggi. <b>Affrescata tra il 1370 e il 1373</b> da artisti aperti alle influenze umbre e marchigiane, denota influssi di tutte le correnti pittoriche nazionali e internazionali che interessarono Napoli nel XIV secolo.</string>
     <string name="vedere_janora">Museo Janora</string>

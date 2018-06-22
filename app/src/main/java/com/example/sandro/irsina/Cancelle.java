@@ -122,6 +122,16 @@ public class Cancelle extends AppCompatActivity
         }, 500, 4000);
     }
 
+    public void esempio(View view) {
+        Intent refresh = new Intent(getApplicationContext(), SponsorSingolo.class);
+        refresh.putExtra("nome", "Società 2 Esempio");
+        refresh.putExtra("numero", "+39 9898989898");
+        refresh.putExtra("email", "email@email.it");
+        refresh.putExtra("indirizzo", "via Fasulla, 33");
+        refresh.putExtra("sito", "http://www.sito.it");
+        startActivity(refresh);
+    }
+
 
     public class MyTimerTask extends TimerTask {
 
