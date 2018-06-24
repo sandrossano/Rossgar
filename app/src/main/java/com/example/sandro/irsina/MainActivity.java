@@ -102,10 +102,20 @@ public class MainActivity extends AppCompatActivity
     static Integer[] XMEN;
     int cacca_selezionata_iniziale=0;
     static int ordine=0;
+    @SuppressLint("NewApi")
     public boolean hasNavBar (Resources resources)
     {
-        int id = resources.getIdentifier("config_showNavigationBar", "bool", "android");
-        return id > 0 && resources.getBoolean(id);
+        Display d = getWindowManager().getDefaultDisplay(); DisplayMetrics dm = new DisplayMetrics();
+        d.getRealMetrics(dm);
+        int realHeight = dm.heightPixels;
+        int realWidth = dm.widthPixels;
+        d.getMetrics(dm);
+        int displayHeight = dm.heightPixels;
+        int displayWidth = dm.widthPixels;
+        return (realWidth - displayWidth) > 0 || (realHeight - displayHeight) > 0;
+
+        /*int id = resources.getIdentifier("config_showNavigationBar", "bool", "android");
+        return id > 0 && resources.getBoolean(id);*/
     }
 
     @SuppressLint("NewApi")

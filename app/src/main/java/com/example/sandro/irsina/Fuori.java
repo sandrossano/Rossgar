@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -60,11 +61,21 @@ public class Fuori extends AppCompatActivity
     static Integer[] XMEN2;
     int cacca_selezionata_iniziale=0;
     static int numero_random_fuori=0;
+    @SuppressLint("NewApi")
     public boolean hasNavBar (Resources resources)
     {
-        int id = resources.getIdentifier("config_showNavigationBar", "bool", "android");
-        return id > 0 && resources.getBoolean(id);
-    }
+            Display d = getWindowManager().getDefaultDisplay(); DisplayMetrics dm = new DisplayMetrics();
+            d.getRealMetrics(dm);
+            int realHeight = dm.heightPixels;
+            int realWidth = dm.widthPixels;
+            d.getMetrics(dm);
+            int displayHeight = dm.heightPixels;
+            int displayWidth = dm.widthPixels;
+            return (realWidth - displayWidth) > 0 || (realHeight - displayHeight) > 0;
+
+        /*int id = resources.getIdentifier("config_showNavigationBar", "bool", "android");
+        return id > 0 && resources.getBoolean(id);*/
+        }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

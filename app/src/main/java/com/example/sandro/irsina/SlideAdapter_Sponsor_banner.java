@@ -70,139 +70,283 @@ public class SlideAdapter_Sponsor_banner extends PagerAdapter {
                 if (numero_random == 0) {
                     if (position == 0) {
                         refresh.putExtra("nome", "Società 1 Prova");
+                        refresh.putExtra("descrizione", "Descrizione Testo");
                         refresh.putExtra("numero", "+39 3333333333");
                         refresh.putExtra("email", "email@email.it");
                         refresh.putExtra("indirizzo", "via Fasulla, 69");
                         refresh.putExtra("sito", "http://www.sito.it");
+                        refresh.putExtra("orariolun", "Aperto");
+                        refresh.putExtra("orariomar", "CHIUSO");
+                        refresh.putExtra("orariomer", "Aperto");
+                        refresh.putExtra("orariogio", "CHIUSO");
+                        refresh.putExtra("orarioven", "Aperto");
+                        refresh.putExtra("orariosab", "CHIUSO");
+                        refresh.putExtra("orariodom", "Aperto");
                     }
                     if (position == 1) {
                         refresh.putExtra("nome", "Società 3 Hello Word");
+                        refresh.putExtra("descrizione", "Descrizione Testo");
                         refresh.putExtra("numero", "+39 1111111111");
                         refresh.putExtra("email", "email@email.it");
                         refresh.putExtra("indirizzo", "via Fasulla, 22");
                         refresh.putExtra("sito", "http://www.sito.it");
+                        refresh.putExtra("orariolun", "Aperto");
+                        refresh.putExtra("orariomar", "CHIUSO");
+                        refresh.putExtra("orariomer", "Aperto");
+                        refresh.putExtra("orariogio", "CHIUSO");
+                        refresh.putExtra("orarioven", "Aperto");
+                        refresh.putExtra("orariosab", "CHIUSO");
+                        refresh.putExtra("orariodom", "Aperto");
                     }
                     if (position == 2) {
                         refresh.putExtra("nome", "Società 2 Esempio");
+                        refresh.putExtra("descrizione", "Descrizione Testo");
                         refresh.putExtra("numero", "+39 9898989898");
                         refresh.putExtra("email", "email@email.it");
                         refresh.putExtra("indirizzo", "via Fasulla, 33");
                         refresh.putExtra("sito", "http://www.sito.it");
+                        refresh.putExtra("orariolun", "Aperto");
+                        refresh.putExtra("orariomar", "CHIUSO");
+                        refresh.putExtra("orariomer", "Aperto");
+                        refresh.putExtra("orariogio", "CHIUSO");
+                        refresh.putExtra("orarioven", "Aperto");
+                        refresh.putExtra("orariosab", "CHIUSO");
+                        refresh.putExtra("orariodom", "Aperto");
                     }
                 }
                 else if (numero_random == 1) {
                     if (position == 0) {
                         refresh.putExtra("nome", "Società 2 Esempio");
+                        refresh.putExtra("descrizione", "Descrizione Testo");
                         refresh.putExtra("numero", "+39 3333333333");
                         refresh.putExtra("email", "email@email.it");
                         refresh.putExtra("indirizzo", "via Fasulla, 69");
                         refresh.putExtra("sito", "http://www.sito.it");
+                        refresh.putExtra("orariolun", "Aperto");
+                        refresh.putExtra("orariomar", "CHIUSO");
+                        refresh.putExtra("orariomer", "Aperto");
+                        refresh.putExtra("orariogio", "CHIUSO");
+                        refresh.putExtra("orarioven", "Aperto");
+                        refresh.putExtra("orariosab", "CHIUSO");
+                        refresh.putExtra("orariodom", "Aperto");
                     }
                     if (position == 1) {
                         refresh.putExtra("nome", "Società 1 Prova");
+                        refresh.putExtra("descrizione", "Descrizione Testo");
                         refresh.putExtra("numero", "+39 1111111111");
                         refresh.putExtra("email", "email@email.it");
                         refresh.putExtra("indirizzo", "via Fasulla, 22");
                         refresh.putExtra("sito", "http://www.sito.it");
+                        refresh.putExtra("orariolun", "Aperto");
+                        refresh.putExtra("orariomar", "CHIUSO");
+                        refresh.putExtra("orariomer", "Aperto");
+                        refresh.putExtra("orariogio", "CHIUSO");
+                        refresh.putExtra("orarioven", "Aperto");
+                        refresh.putExtra("orariosab", "CHIUSO");
+                        refresh.putExtra("orariodom", "Aperto");
                     }
                     if (position == 2) {
                         refresh.putExtra("nome", "Società 3 Hello Word");
+                        refresh.putExtra("descrizione", "Descrizione Testo");
                         refresh.putExtra("numero", "+39 9898989898");
                         refresh.putExtra("email", "email@email.it");
                         refresh.putExtra("indirizzo", "via Fasulla, 33");
                         refresh.putExtra("sito", "http://www.sito.it");
+                        refresh.putExtra("orariolun", "Aperto");
+                        refresh.putExtra("orariomar", "CHIUSO");
+                        refresh.putExtra("orariomer", "Aperto");
+                        refresh.putExtra("orariogio", "CHIUSO");
+                        refresh.putExtra("orarioven", "Aperto");
+                        refresh.putExtra("orariosab", "CHIUSO");
+                        refresh.putExtra("orariodom", "Aperto");
                         }
                     }
                     else if (numero_random == 2) {
                         if (position == 0) {
                             refresh.putExtra("nome", "Società 3 Hello Word");
+                            refresh.putExtra("descrizione", "Descrizione Testo");
                             refresh.putExtra("numero", "+39 3333333333");
                             refresh.putExtra("email", "email@email.it");
                             refresh.putExtra("indirizzo", "via Fasulla, 69");
                             refresh.putExtra("sito", "http://www.sito.it");
+                            refresh.putExtra("orariolun", "Aperto");
+                            refresh.putExtra("orariomar", "CHIUSO");
+                            refresh.putExtra("orariomer", "Aperto");
+                            refresh.putExtra("orariogio", "CHIUSO");
+                            refresh.putExtra("orarioven", "Aperto");
+                            refresh.putExtra("orariosab", "CHIUSO");
+                            refresh.putExtra("orariodom", "Aperto");
                         }
                         if (position == 1) {
                             refresh.putExtra("nome", "Società 2 Esempio");
+                            refresh.putExtra("descrizione", "Descrizione Testo");
                             refresh.putExtra("numero", "+39 1111111111");
                             refresh.putExtra("email", "email@email.it");
                             refresh.putExtra("indirizzo", "via Fasulla, 22");
                             refresh.putExtra("sito", "http://www.sito.it");
+                            refresh.putExtra("orariolun", "Aperto");
+                            refresh.putExtra("orariomar", "CHIUSO");
+                            refresh.putExtra("orariomer", "Aperto");
+                            refresh.putExtra("orariogio", "CHIUSO");
+                            refresh.putExtra("orarioven", "Aperto");
+                            refresh.putExtra("orariosab", "CHIUSO");
+                            refresh.putExtra("orariodom", "Aperto");
                         }
                         if (position == 2) {
                             refresh.putExtra("nome", "Società 1 Prova");
+                            refresh.putExtra("descrizione", "Descrizione Testo");
                             refresh.putExtra("numero", "+39 9898989898");
                             refresh.putExtra("email", "email@email.it");
                             refresh.putExtra("indirizzo", "via Fasulla, 33");
                             refresh.putExtra("sito", "http://www.sito.it");
+                            refresh.putExtra("orariolun", "Aperto");
+                            refresh.putExtra("orariomar", "CHIUSO");
+                            refresh.putExtra("orariomer", "Aperto");
+                            refresh.putExtra("orariogio", "CHIUSO");
+                            refresh.putExtra("orarioven", "Aperto");
+                            refresh.putExtra("orariosab", "CHIUSO");
+                            refresh.putExtra("orariodom", "Aperto");
                         }
                     }
                 if (numero_random_fuori == 0) {
                     if (position == 0) {
                         refresh.putExtra("nome", "Società 1 Prova");
+                        refresh.putExtra("descrizione", "Descrizione Testo");
                         refresh.putExtra("numero", "+39 3333333333");
                         refresh.putExtra("email", "email@email.it");
                         refresh.putExtra("indirizzo", "via Fasulla, 69");
                         refresh.putExtra("sito", "http://www.sito.it");
+                        refresh.putExtra("orariolun", "Aperto");
+                        refresh.putExtra("orariomar", "CHIUSO");
+                        refresh.putExtra("orariomer", "Aperto");
+                        refresh.putExtra("orariogio", "CHIUSO");
+                        refresh.putExtra("orarioven", "Aperto");
+                        refresh.putExtra("orariosab", "CHIUSO");
+                        refresh.putExtra("orariodom", "Aperto");
                     }
                     if (position == 1) {
                         refresh.putExtra("nome", "Società 3 Hello Word");
+                        refresh.putExtra("descrizione", "Descrizione Testo");
                         refresh.putExtra("numero", "+39 1111111111");
                         refresh.putExtra("email", "email@email.it");
                         refresh.putExtra("indirizzo", "via Fasulla, 22");
                         refresh.putExtra("sito", "http://www.sito.it");
+                        refresh.putExtra("orariolun", "Aperto");
+                        refresh.putExtra("orariomar", "CHIUSO");
+                        refresh.putExtra("orariomer", "Aperto");
+                        refresh.putExtra("orariogio", "CHIUSO");
+                        refresh.putExtra("orarioven", "Aperto");
+                        refresh.putExtra("orariosab", "CHIUSO");
+                        refresh.putExtra("orariodom", "Aperto");
                     }
                     if (position == 2) {
                         refresh.putExtra("nome", "Società 2 Esempio");
+                        refresh.putExtra("descrizione", "Descrizione Testo");
                         refresh.putExtra("numero", "+39 9898989898");
                         refresh.putExtra("email", "email@email.it");
                         refresh.putExtra("indirizzo", "via Fasulla, 33");
                         refresh.putExtra("sito", "http://www.sito.it");
+                        refresh.putExtra("orariolun", "Aperto");
+                        refresh.putExtra("orariomar", "CHIUSO");
+                        refresh.putExtra("orariomer", "Aperto");
+                        refresh.putExtra("orariogio", "CHIUSO");
+                        refresh.putExtra("orarioven", "Aperto");
+                        refresh.putExtra("orariosab", "CHIUSO");
+                        refresh.putExtra("orariodom", "Aperto");
                     }
                 }
                 else if (numero_random_fuori == 1) {
                     if (position == 0) {
                         refresh.putExtra("nome", "Società 2 Esempio");
+                        refresh.putExtra("descrizione", "Descrizione Testo");
                         refresh.putExtra("numero", "+39 3333333333");
                         refresh.putExtra("email", "email@email.it");
                         refresh.putExtra("indirizzo", "via Fasulla, 69");
                         refresh.putExtra("sito", "http://www.sito.it");
+                        refresh.putExtra("orariolun", "Aperto");
+                        refresh.putExtra("orariomar", "CHIUSO");
+                        refresh.putExtra("orariomer", "Aperto");
+                        refresh.putExtra("orariogio", "CHIUSO");
+                        refresh.putExtra("orarioven", "Aperto");
+                        refresh.putExtra("orariosab", "CHIUSO");
+                        refresh.putExtra("orariodom", "Aperto");
                     }
                     if (position == 1) {
                         refresh.putExtra("nome", "Società 1 Prova");
                         refresh.putExtra("numero", "+39 1111111111");
+                        refresh.putExtra("descrizione", "Descrizione Testo");
                         refresh.putExtra("email", "email@email.it");
                         refresh.putExtra("indirizzo", "via Fasulla, 22");
                         refresh.putExtra("sito", "http://www.sito.it");
+                        refresh.putExtra("orariolun", "Aperto");
+                        refresh.putExtra("orariomar", "CHIUSO");
+                        refresh.putExtra("orariomer", "Aperto");
+                        refresh.putExtra("orariogio", "CHIUSO");
+                        refresh.putExtra("orarioven", "Aperto");
+                        refresh.putExtra("orariosab", "CHIUSO");
+                        refresh.putExtra("orariodom", "Aperto");
                     }
                     if (position == 2) {
                         refresh.putExtra("nome", "Società 3 Hello Word");
+                        refresh.putExtra("descrizione", "Descrizione Testo");
                         refresh.putExtra("numero", "+39 9898989898");
                         refresh.putExtra("email", "email@email.it");
                         refresh.putExtra("indirizzo", "via Fasulla, 33");
                         refresh.putExtra("sito", "http://www.sito.it");
+                        refresh.putExtra("orariolun", "Aperto");
+                        refresh.putExtra("orariomar", "CHIUSO");
+                        refresh.putExtra("orariomer", "Aperto");
+                        refresh.putExtra("orariogio", "CHIUSO");
+                        refresh.putExtra("orarioven", "Aperto");
+                        refresh.putExtra("orariosab", "CHIUSO");
+                        refresh.putExtra("orariodom", "Aperto");
                     }
                 }
                 else if (numero_random_fuori == 2) {
                     if (position == 0) {
                         refresh.putExtra("nome", "Società 3 Hello Word");
                         refresh.putExtra("numero", "+39 3333333333");
+                        refresh.putExtra("descrizione", "Descrizione Testo");
                         refresh.putExtra("email", "email@email.it");
                         refresh.putExtra("indirizzo", "via Fasulla, 69");
                         refresh.putExtra("sito", "http://www.sito.it");
+                        refresh.putExtra("orariolun", "Aperto");
+                        refresh.putExtra("orariomar", "CHIUSO");
+                        refresh.putExtra("orariomer", "Aperto");
+                        refresh.putExtra("orariogio", "CHIUSO");
+                        refresh.putExtra("orarioven", "Aperto");
+                        refresh.putExtra("orariosab", "CHIUSO");
+                        refresh.putExtra("orariodom", "Aperto");
                     }
                     if (position == 1) {
                         refresh.putExtra("nome", "Società 2 Esempio");
+                        refresh.putExtra("descrizione", "Descrizione Testo");
                         refresh.putExtra("numero", "+39 1111111111");
                         refresh.putExtra("email", "email@email.it");
                         refresh.putExtra("indirizzo", "via Fasulla, 22");
                         refresh.putExtra("sito", "http://www.sito.it");
+                        refresh.putExtra("orariolun", "Aperto");
+                        refresh.putExtra("orariomar", "CHIUSO");
+                        refresh.putExtra("orariomer", "Aperto");
+                        refresh.putExtra("orariogio", "CHIUSO");
+                        refresh.putExtra("orarioven", "Aperto");
+                        refresh.putExtra("orariosab", "CHIUSO");
+                        refresh.putExtra("orariodom", "Aperto");
                     }
                     if (position == 2) {
                         refresh.putExtra("nome", "Società 1 Prova");
                         refresh.putExtra("numero", "+39 9898989898");
+                        refresh.putExtra("descrizione", "Descrizione Testo");
                         refresh.putExtra("email", "email@email.it");
                         refresh.putExtra("indirizzo", "via Fasulla, 33");
                         refresh.putExtra("sito", "http://www.sito.it");
+                        refresh.putExtra("orariolun", "Aperto");
+                        refresh.putExtra("orariomar", "CHIUSO");
+                        refresh.putExtra("orariomer", "Aperto");
+                        refresh.putExtra("orariogio", "CHIUSO");
+                        refresh.putExtra("orarioven", "Aperto");
+                        refresh.putExtra("orariosab", "CHIUSO");
+                        refresh.putExtra("orariodom", "Aperto");
                     }
                 }
                 context.startActivity(refresh);

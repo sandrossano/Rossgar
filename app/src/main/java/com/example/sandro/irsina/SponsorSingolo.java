@@ -52,11 +52,18 @@ public class SponsorSingolo extends AppCompatActivity
     String sede ="";
     String indirizzo="";
     String email = "";
+    String descrizione = "";
     String telefono_fisso = "";
     ViewPager viewPager;
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
     private int currentPage = 0;
-
+    String orariolun = "";
+    String orariomar = "";
+    String orariomer = "";
+    String orariogio = "";
+    String orarioven = "";
+    String orariosab = "";
+    String orariodom = "";
 
 
     @Override
@@ -88,6 +95,14 @@ public class SponsorSingolo extends AppCompatActivity
         email=getIntent().getStringExtra("email");
         sede=getIntent().getStringExtra("indirizzo");
         indirizzo=getIntent().getStringExtra("sito");
+        descrizione=getIntent().getStringExtra("descrizione");
+        orariolun=getIntent().getStringExtra("orariolun");
+        orariomar=getIntent().getStringExtra("orariomar");
+        orariomer=getIntent().getStringExtra("orariomer");
+        orariogio=getIntent().getStringExtra("orariogio");
+        orarioven=getIntent().getStringExtra("orarioven");
+        orariosab=getIntent().getStringExtra("orariosab");
+        orariodom=getIntent().getStringExtra("orariodom");
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -112,6 +127,23 @@ public class SponsorSingolo extends AppCompatActivity
         wow5.setText(sede);
         TextView wow4= (TextView) findViewById(R.id.tvNumber4);
         wow4.setText(indirizzo);
+        TextView wow6= (TextView) findViewById(R.id.descrizione1);
+        wow6.setText(descrizione);
+        TextView wow7= (TextView) findViewById(R.id.orari2);
+        wow7.setText(orariolun);
+        TextView wow8= (TextView) findViewById(R.id.orari4);
+        wow8.setText(orariomar);
+        TextView wow9= (TextView) findViewById(R.id.orari6);
+        wow9.setText(orariomer);
+        TextView wow10= (TextView) findViewById(R.id.orari8);
+        wow10.setText(orariogio);
+        TextView wow11= (TextView) findViewById(R.id.orari10);
+        wow11.setText(orarioven);
+        TextView wow12= (TextView) findViewById(R.id.orari12);
+        wow12.setText(orariosab);
+        TextView wow13= (TextView) findViewById(R.id.orari14);
+        wow13.setText(orariodom);
+
 
         final Integer[] XMEN = {R.drawable.flag_france, R.drawable.flag_italy, R.drawable.flag_unionjack};
 
