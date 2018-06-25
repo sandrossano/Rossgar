@@ -48,7 +48,9 @@
         <activity android:name=".Cripta" />
         <activity android:name=".CriptaFrancesco" />
         <activity android:name=".Vedere_Janora" />
-
+        <activity android:name=".Orari_Museo" />
+        <activity android:name=".Orari_SanFrancesco" />
+        <activity android:name=".Orari_Cattedrale" />
     </application>
 
 </manifest>

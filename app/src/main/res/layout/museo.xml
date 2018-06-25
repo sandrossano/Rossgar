@@ -57,7 +57,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/vedere"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="50dp"
+        android:onClick="orari_museo">
 
         <ImageView
             android:id="@+id/imageView7"

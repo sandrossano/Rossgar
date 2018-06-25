@@ -83,8 +83,11 @@ L’incuria dei secoli successivi non ha lasciato quasi pietra degli edifici mon
     <string name="testocancelle_acquistabile">Acquistabile presso i seguenti negozi: </string>
     <string name="cenni_storici_sanfra_titolo">Storia e Descrizione</string>
     <string name="cenni_storici_sanfra">Ricavata all’interno di una torre quadrangolare del castello normanno, gli affreschi della cappella ipogea di San Francesco, commissionati dai De Balzo, rappresentano un chiaro il richiamo alla pittura di Giotto non solo nelle architetture ma anche nella spiritualità dei personaggi. <b>Affrescata tra il 1370 e il 1373</b> da artisti aperti alle influenze umbre e marchigiane, denota influssi di tutte le correnti pittoriche nazionali e internazionali che interessarono Napoli nel XIV secolo.</string>
-    <string name="vedere_janora">Museo Janora</string>
+    <string name="vedere_janora">Cosa Vedere</string>
     <string name="vedere_janora_testo">testo di Museo Janora</string>
     <string name="cripta_catt">Cripta</string>
     <string name="cripta_catt_testo">Testo Cripta</string>
+    <string name="orari_museo">Orari Museo</string>
+    <string name="orari_francesco">Orari Chiesa San Francesco</string>
+    <string name="orari_cattedrale">Orari Cattedrale</string>
 </resources>

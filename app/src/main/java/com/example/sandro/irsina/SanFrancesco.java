@@ -43,6 +43,7 @@ public class SanFrancesco extends AppCompatActivity
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViewById(R.id.include_sanfrancesco_orari).setVisibility(View.GONE);
         findViewById(R.id.include_cattedrale).setVisibility(View.GONE);
         findViewById(R.id.include_main).setVisibility(View.GONE);
         findViewById(R.id.include_catt_storia).setVisibility(View.GONE);
@@ -56,7 +57,7 @@ public class SanFrancesco extends AppCompatActivity
         findViewById(R.id.include_muretto).setVisibility(View.GONE);
         findViewById(R.id.include_fuori).setVisibility(View.GONE);
         findViewById(R.id.include_nuget).setVisibility(View.GONE);
-        setTitle("San Francesco D'Assisi");
+        setTitle("San Francesco d'Assisi");
 
         deleteCache(getApplicationContext());
 clearApplicationData();
@@ -252,5 +253,12 @@ clearApplicationData();
         }
 
         return deletedAll;
+    }
+
+    public void orari_sanfrancesco(View view) {
+        Intent refresh = new Intent(this, Orari_SanFrancesco.class);
+        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(refresh);
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
     }
 }

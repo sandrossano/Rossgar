@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ingresso_museo"
+    android:background="@drawable/san_francesco_interno"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <RelativeLayout
@@ -16,7 +16,10 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:text="Orari in string"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="@string/orari_francesco"
+            android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="26sp"
             android:textStyle="bold|italic" />

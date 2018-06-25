@@ -43,6 +43,11 @@
         android:visibility="gone" />
 
     <include
+        android:id="@+id/include_cattedrale_orari"
+        layout="@layout/orari_tabella_cattedrale"
+        android:visibility="gone" />
+
+    <include
         android:id="@+id/include_fuori"
         layout="@layout/fuori"
         android:visibility="gone" />
@@ -92,6 +97,11 @@
         android:visibility="gone" />
 
     <include
+        android:id="@+id/include_sanfrancesco_orari"
+        layout="@layout/orari_tabella_sanfrancesco"
+        android:visibility="gone" />
+
+    <include
         android:id="@+id/include_cripta"
         layout="@layout/cripta"
         android:visibility="gone" />
@@ -104,6 +114,11 @@
     <include
         android:id="@+id/include_vedere_janora"
         layout="@layout/vedere_janora"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/include_orari_museo"
+        layout="@layout/orari_tabella_janora"
         android:visibility="gone" />
 
     <include

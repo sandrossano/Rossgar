@@ -48,6 +48,8 @@ public class Cattedrale extends AppCompatActivity
         logValue();
 
         setContentView(R.layout.activity_main);
+
+        findViewById(R.id.include_cattedrale_orari).setVisibility(View.GONE);
         findViewById(R.id.include_cattedrale).setVisibility(View.VISIBLE);
         findViewById(R.id.include_main).setVisibility(View.GONE);
         findViewById(R.id.include_catt_storia).setVisibility(View.GONE);
@@ -301,4 +303,9 @@ clearApplicationData();
         return deletedAll;
     }
 
+    public void orari_cattedrale(View view) {
+        Intent refresh = new Intent(this, Orari_Cattedrale.class);
+        startActivity(refresh);
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+    }
 }

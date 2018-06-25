@@ -47,6 +47,7 @@ public class Museo extends AppCompatActivity
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViewById(R.id.include_orari_museo).setVisibility(View.GONE);
         findViewById(R.id.include_cattedrale).setVisibility(View.GONE);
         findViewById(R.id.include_main).setVisibility(View.GONE);
         findViewById(R.id.include_catt_storia).setVisibility(View.GONE);
@@ -177,7 +178,7 @@ clearApplicationData();
         refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(refresh);
         overridePendingTransition(R.anim.fadein,R.anim.fadeout);
-        return;
+
     }
     @Override
     protected void onResume() {
@@ -251,4 +252,10 @@ clearApplicationData();
         return deletedAll;
     }
 
+    public void orari_museo(View view) {
+        Intent refresh = new Intent(this, Orari_Museo.class);
+        refresh.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(refresh);
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+    }
 }
