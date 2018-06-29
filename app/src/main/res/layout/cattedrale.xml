@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.sandro.irsina.Cattedrale"
+    tools:context="com.irsina.sandro.irsina.Cattedrale"
     tools:showIn="@layout/app_bar_main">
 
 

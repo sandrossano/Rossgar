@@ -33,13 +33,15 @@
             <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
@@ -53,11 +55,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="5dp"
-                    android:text="Festivo"
+                    android:text="Mattina"
+                    android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/coloreBarraDark"
                     android:textStyle="bold"></TextView>
@@ -67,11 +71,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="5dp"
-                    android:text="Feriale"
+                    android:text="Pomeriggio"
+                    android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/coloreBarraDark"
                     android:textStyle="bold"></TextView>
@@ -81,13 +87,15 @@
             <TableRow
                 android:id="@+id/tableRow2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="95dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
@@ -95,49 +103,54 @@
                     android:text="Lunedì"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/coloreBarraDark"
+                    android:textSize="16sp"
                     android:textStyle="bold"></TextView>
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="5dp"
-                    android:text="9 - 19:30"
+                    android:text="CHIUSO"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/black"
-                    android:textStyle="italic"></TextView>
+                    android:textStyle="bold|italic"></TextView>
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="5dp"
-                    android:text="9 - 19:30"
+                    android:text="CHIUSO"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/black"
-                    android:textStyle="italic"></TextView>
+                    android:textStyle="bold|italic"></TextView>
             </TableRow>
 
             <TableRow
                 android:id="@+id/tableRow3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="95dp"
+                    android:layout_height="match_parent"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
@@ -145,18 +158,20 @@
                     android:text="Martedì"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/coloreBarraDark"
+                    android:textSize="16sp"
                     android:textStyle="bold"></TextView>
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="5dp"
-                    android:text="9 - 19:30"
+                    android:text="10:30                  13:00"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/black"
@@ -164,14 +179,15 @@
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="5dp"
-                    android:text="9 - 19:30"
+                    android:text="17:30                         20:00"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/black"
@@ -182,13 +198,15 @@
             <TableRow
                 android:id="@+id/tableRow4"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="95dp"
+                    android:layout_height="match_parent"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
@@ -196,18 +214,20 @@
                     android:text="Mercoledì"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/coloreBarraDark"
+                    android:textSize="16sp"
                     android:textStyle="bold"></TextView>
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="5dp"
-                    android:text="9 - 19:30"
+                    android:text="10:30                         13:00"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/black"
@@ -215,14 +235,15 @@
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="5dp"
-                    android:text="9 - 19:30"
+                    android:text="17:30                         20:00"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/black"
@@ -233,13 +254,15 @@
             <TableRow
                 android:id="@+id/tableRow4"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="95dp"
+                    android:layout_height="match_parent"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
@@ -247,18 +270,20 @@
                     android:text="Giovedì"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/coloreBarraDark"
+                    android:textSize="16sp"
                     android:textStyle="bold"></TextView>
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="5dp"
-                    android:text="9 - 19:30"
+                    android:text="10:30                          13:00"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/black"
@@ -266,14 +291,15 @@
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="5dp"
-                    android:text="9 - 19:30"
+                    android:text="17:30                           20:00"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/black"
@@ -284,13 +310,15 @@
             <TableRow
                 android:id="@+id/tableRow4"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="95dp"
+                    android:layout_height="match_parent"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
@@ -298,18 +326,20 @@
                     android:text="Venerdì"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/coloreBarraDark"
+                    android:textSize="16sp"
                     android:textStyle="bold"></TextView>
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="5dp"
-                    android:text="9 - 19:30"
+                    android:text="10:30                              13:00"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/black"
@@ -317,14 +347,15 @@
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="5dp"
-                    android:text="9 - 19:30"
+                    android:text="17:30                               20:00"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/black"
@@ -335,13 +366,15 @@
             <TableRow
                 android:id="@+id/tableRow4"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="95dp"
+                    android:layout_height="match_parent"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
@@ -349,18 +382,20 @@
                     android:text="Sabato"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/coloreBarraDark"
+                    android:textSize="16sp"
                     android:textStyle="bold"></TextView>
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="5dp"
-                    android:text="9 - 19:30"
+                    android:text="10:30                     13:00"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/black"
@@ -368,14 +403,15 @@
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="5dp"
-                    android:text="9 - 19:30"
+                    android:text="17:30                              20:00"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/black"
@@ -386,13 +422,15 @@
             <TableRow
                 android:id="@+id/tableRow4"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="95dp"
+                    android:layout_height="match_parent"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
@@ -400,18 +438,20 @@
                     android:text="Domenica"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/coloreBarraDark"
+                    android:textSize="16sp"
                     android:textStyle="bold"></TextView>
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="5dp"
-                    android:text="9- 19:30"
+                    android:text="10:30                            13:00"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/black"
@@ -419,18 +459,19 @@
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
                     android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="5dp"
-                    android:text="9 - 19:30"
+                    android:text="CHIUSO"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@android:color/black"
-                    android:textStyle="italic"></TextView>
+                    android:textStyle="bold|italic"></TextView>
 
             </TableRow>
 
