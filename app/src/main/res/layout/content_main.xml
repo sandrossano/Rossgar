@@ -51,17 +51,15 @@
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="200dp"
+        android:layout_width="197dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="sans-serif-medium"
-        android:text="@string/scegli"
-        android:textColor="@android:color/background_light"
-        android:textSize="15dp"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="15sp"
         android:textStyle="italic" />
 
     <RelativeLayout
@@ -84,9 +82,10 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:text="@string/cambio"
-            android:textColor="@android:color/black"
+            android:textColor="?android:attr/colorActivatedHighlight"
             android:textSize="10sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="invisible" />
 
         <ImageView
             android:id="@+id/cambio"

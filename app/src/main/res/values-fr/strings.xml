@@ -20,6 +20,14 @@
     <string name="scegli">Choisissez un lieu sur la carte pour plus d\'informations</string>
     <string name="fuori_mappa">Fuori Mappa</string>
     <string name="continua">Continue</string>
+    <string name="cenni_storici_catt_titolo">Historie</string>
+    <string name="cenni_storici_catt">Ses origines remontent très loin dans le temps. Cependant, d’après la tradition l’église a été reconstruite, après un incendie, en style roman par le prince Jean de Salerne. En 1133 elle a été reconstruite à nouveau et amplifiée après un pillage. Au XVIIIᵉ siècle, l’église a été adaptée au formes du baroque et consacrée en 1802. Le clocher, et la crypte romane également, a gardé son apparence initiale, roman au-dessous et gotique au-dessus avec des fenêtres géminées et des arcatures.  L’église a été restaurée en 2016.</string>
+    <string name="descrizione_catt_titolo">Description</string>
+    <string name="descrizione_catt">La façade de la cathédrale présente le style baroque napolitain et le portail central richement orné. Le plan en forme de croix latine et trois nefs, divisées par des piliers et se terminant par trois absides, créent l’espace intérieur.</string>
+    <string name="mantegna">La cathédrale garde à son intérieur un trésor de très grande valeur : la statue de Sainte Euphémie sculptée par Andrea Mantegna. C’est un très rare témoignage de la pratique sculpturale de l’artiste de la Renaissance dont parlent les sources historiques.  La fierté et la douceur de son regard nous donnent la sensation que le bloc en pierre de Nanto, localité de la Vénétie près des monts Berici, puisse bouger ou prendre vie.  La staute de Sainte Euphémie représente la synthèse entre les nouveautés de la Renaissance et la rigueur classique qui cohabitent dans les œuvre de Mantegna. Sainte Euphémie, la « mégalomartyre ». est née à Chalcédoine en Asie Mineure vers 284. Elle est morte martyre en 305 sous Diocletien pour avoir refusé de revenir au culte des idoles. L’imposante statue, une ronde-bosse  sculptée en 1453 environ, mesure  1,72 mètres de haut avec un poids de 3,5 quintals. L’attribution à l’artiste de la Renaissance a été proposée pour la première fois par Clara Gelao, la directrice de la Pinacothèque de Bari, en 1996 et certifiée par une étude détaillée en 2003.  L’intuition de l’érudite directrice est confirmée par le poème en latin Vita Divae Euphemiae Virginis et Martyris par Pasquale Verrone, l’archidiacre de Montepeloso (l’ancien nom de la ville de Irsina), publié à Naples en 1592. L’œuvre, retrouvée par le prêtre  Nicolino Di Pasquale et republié en 1989, a donné des précieuses informations à propos de la donation de Roberto de Mabilia. Au XVIIIᵉ siècle, la sculpture de Sainte Euphémie a été replacée dans la magnifique chapelle dédiée à la martyre,  à côté du maître-autel, au bout de la nef latérale droite, ornée par des précieux marbres polychromes dans une niche en marbre gris pour se distinguer du fond multicolore. La statue a été déplacée de sa niche pour la première fois en 2006 et envoyée à Mantoue, lors de l’exposition coïncidant avec le cinquième centenaire de la mort d’Andrea Mantegna. Aujourd’hui, la statue domine le centre de la chapelle sur un piédestal en bois : Euphémie y est représentée debout, à la façon classique, enveloppée par une robe verte et un magnifique manteau doré et finement drapé jusqu’au pieds. La chlamyde dorée sur ses épaules descend doucement sur son corps, en laissant deviner son anatomie. Sur sa poitrine il y a une fissure dans laquelle on devait insérer une épée, en argent peut-être, le symbole des martyrs. Euphémie tiens dans sa main gauche la maquette de la ville d’ Irsina dont on peut distinguer les remparts et les trois collines sur lesquelles elle s’étend ; sa main droite est dans la bouche d’un lion à cause de son martyr dans l’arène. Son visage, légèrement tourné à droite, montre un faible et mystérieux sourire ; son regard est attentif et sa bouche semi-ouverte nous laisse entrevoir les dents et nous donne l’impression qu’elle veuille nous parler. La partie postérieure de la statue est très soigneusement et  minutieusement  sculptée avec des magnifiques détails : les cheveux descendent doucement sur ses épaules et le lion, fier et puissant sur la partie antérieure,  devient docile, la queue entre les jambes, comme les plus doux des animaux domestiques.
+    Le musée du Louvre même s’est intéressé tellement à la sculpture de Sainte Euphémie attribuée à Mantegna qu’on décida qu’elle aurait fait partie de l’exposition 2008 dédiée au génie de la Renaissance.
+    </string>
+
     <string name="porticella">Porticella</string>
     <string name="porticellatesto">PorticellaTesto</string>
     <string name="muretto">Antiche Mura</string>
@@ -44,7 +52,11 @@
     <string name="vedere_janora_testo">testo di Museo Janora</string>
     <string name="cripta_catt">Cripta</string>
     <string name="cripta_catt_testo">Testo Cripta</string>
-    <string name="orari_museo">Orari Museo</string>
-    <string name="orari_francesco">Orari Chiesa San Francesco</string>
-    <string name="orari_cattedrale">Orari Cattedrale</string>
+    <string name="orari_museo">Horaire Museo</string>
+    <string name="orari_francesco">Horaire Chiesa San Francesco</string>
+    <string name="orari_cattedrale">Horaire Cattedrale</string>
+    <string name="crocifisso">Au-dessus du maitre-autel, le crucifix en bois de l\'école Donatello (1454)</string>
+    <string name="pulpito">Le choeur et la chaire en bois, des deux 700</string>
+    <string name="statua_pizzolo">Une statue de pierre de la Madone avec l\'enfant de Nicolò Pizzolò (Moitié du XVème siècle)</string>
+    <string name="fonte_battesimale">Fonts baptismaux en marbre rouge finement travaillé</string>
 </resources>
