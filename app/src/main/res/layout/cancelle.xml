@@ -75,19 +75,19 @@
 
                 <ImageView
                     android:id="@+id/logo_dipartimento"
-                    android:layout_width="70dp"
+                    android:layout_width="80dp"
                     android:layout_height="70dp"
                     android:layout_alignParentEnd="false"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="30dp"
                     android:src="@drawable/shop" />
 
                 <TextView
                     android:id="@+id/nome_lista"
-                    android:layout_width="200dp"
+                    android:layout_width="245dp"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="8dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_toEndOf="@+id/logo_dipartimento"
                     android:layout_toRightOf="@+id/logo_dipartimento"
                     android:text="Panificio Esempio"
@@ -120,22 +120,21 @@
                 android:layout_height="80dp">
 
                 <ImageView
-                    android:id="@+id/logo_dipartimento"
-                    android:layout_width="70dp"
+                    android:id="@+id/logo_dipartimento2"
+                    android:layout_width="80dp"
                     android:layout_height="70dp"
                     android:layout_alignParentEnd="false"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="30dp"
                     android:src="@drawable/shop" />
 
                 <TextView
-                    android:id="@+id/nome_lista"
-                    android:layout_width="200dp"
+                    android:id="@+id/nome_lista2"
+                    android:layout_width="245dp"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="8dp"
-                    android:layout_toEndOf="@+id/logo_dipartimento"
-                    android:layout_toRightOf="@+id/logo_dipartimento"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toEndOf="@+id/logo_dipartimento2"
                     android:text="Panificio Esempio"
                     android:textAlignment="center"
                     android:textColor="@color/coloreBarraDark"

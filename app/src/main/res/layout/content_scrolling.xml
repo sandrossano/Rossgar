@@ -22,7 +22,18 @@
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
-            android:padding="@dimen/activity_horizontal_margin">
+            android:paddingBottom="14dp"
+            android:paddingRight="14dp"
+            android:paddingTop="14dp">
+
+            <ImageView
+                android:id="@+id/imageView24"
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:layout_centerHorizontal="true"
+                android:paddingBottom="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/macelleria" />
 
             <ImageView
                 android:id="@+id/descContactItem1"
@@ -31,19 +42,21 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_description_black_24dp" />
+                android:src="@drawable/ic_description_black_24dp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/descrizione1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_below="@+id/imageView24"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_toEndOf="@id/descContactItem1"
-                android:layout_toRightOf="@id/descContactItem1"
+                android:gravity="center_horizontal"
                 android:text="320 0000 000"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#212121" />
+                android:textColor="#212121"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/idcaccadesc"
@@ -57,7 +70,8 @@
                 android:layout_toRightOf="@id/descContactItem1"
                 android:text="Descrizione"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="#727272" />
+                android:textColor="#727272"
+                android:visibility="gone" />
 
         </RelativeLayout>
 
@@ -205,6 +219,7 @@
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:layout_toEndOf="@id/orariContactItem1"
                     android:layout_toRightOf="@id/orariContactItem1"
+                    android:gravity="right"
                     android:text="----"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="#212121" />
@@ -240,6 +255,7 @@
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_toEndOf="@id/orariContactItem1"
                     android:layout_toRightOf="@id/orariContactItem1"
+                    android:gravity="right"
                     android:text="----"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="#212121" />
@@ -275,6 +291,7 @@
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_toEndOf="@id/orariContactItem1"
                     android:layout_toRightOf="@id/orariContactItem1"
+                    android:gravity="right"
                     android:text="----"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="#212121" />
@@ -310,6 +327,7 @@
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_toEndOf="@id/orariContactItem1"
                     android:layout_toRightOf="@id/orariContactItem1"
+                    android:gravity="right"
                     android:text="----"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="#212121" />
@@ -345,6 +363,7 @@
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_toEndOf="@id/orariContactItem1"
                     android:layout_toRightOf="@id/orariContactItem1"
+                    android:gravity="right"
                     android:text="----"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="#212121" />
@@ -380,6 +399,7 @@
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_toEndOf="@id/orariContactItem1"
                     android:layout_toRightOf="@id/orariContactItem1"
+                    android:gravity="right"
                     android:text="----"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="#212121" />
@@ -415,6 +435,7 @@
                     android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_toEndOf="@id/orariContactItem1"
                     android:layout_toRightOf="@id/orariContactItem1"
+                    android:gravity="right"
                     android:text="----"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="#212121" />
