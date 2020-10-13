@@ -13,4 +13,8 @@
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="youAreNotUpdatedTitle">Aggiornamento Disponibile</string>
+    <string name="youAreNotUpdatedMessage">Disponibile una nuova versione di VISIT IRSINA. Tocca su Aggiorna per scaricarla</string>
+    <string name="youAreNotUpdatedMessage1"> </string>
+    <string name="update">Aggiorna</string>
 </resources>

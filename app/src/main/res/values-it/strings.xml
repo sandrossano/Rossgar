@@ -28,8 +28,7 @@
     <string name="pulpito">Il coro ed il pulpito, di legno, entrambi del Settecento</string>
     <string name="crocifisso">Sopra l\'altare maggiore, il Crocifisso ligneo della scuola del Donatello (1454), la cui espressione è resa in termini drammatici e realistici</string>
     <string name="miglionico1"><b>Irsina</b> conserva un enorme patrimonio di opere pittoriche del Settecento attribuite all’artista campano Andrea Miglionico. Le sue tele si conservano nella Cattedrale, nella chiesa del Carmine e nella chiesa di Sant’Agostino. Nel Settecento Napoli continua a rimanere il punto di riferimento di tutta l’arte del Meridione d’Italia. I dipinti di scuola napoletana giungono in questo periodo in Basilicata e si ispirano al grande maestro Luca Giordano. Uno dei migliori allievi del maestro napoletano è sicuramente <b><i>Andrea Miglionico</i></b>.</string>
-    <string name="miglionico2">Ad Irsina sono conservate importanti tele realizzate tra il 1704 e il 1706. <b>VISITAZIONE</b> (olio su tela di cm 139×190) - <b>VERGINE TRA SAN GIOVANNI BATTISTA</b>, <b>SANTA ROSA DA LIMA E SAN LORENZO</b> (olio su tela di cm 129×154)- Nella chiesa di Sant’Agostino, una volta fuori le mura del centro storico, è conservato il dipinto raffigurante <b>LE NOZZE DI CANA</b>.
-</string>
+    <string name="miglionico2">"Ad Irsina sono conservate importanti tele realizzate tra il 1704 e il 1706. <b>VISITAZIONE</b> (olio su tela di cm 139×190) - <b>VERGINE TRA SAN GIOVANNI BATTISTA</b>, <b>SANTA ROSA DA LIMA E SAN LORENZO</b> (olio su tela di cm 129×154)- Nella chiesa di Sant’Agostino, una volta fuori le mura del centro storico, è conservato il dipinto raffigurante <b>LE NOZZE DI CANA</b>. "</string>
     <string name="porticella">Porticella</string>
     <string name="muretto">Mura</string>
     <string name="murettotesto">Il paese, racchiuso da possenti fortificazioni medievali, controlla, dall’alto di un colle aspro segnato da profonde incisioni, le valli del Bradano e del Basentello.</string>
@@ -50,7 +49,7 @@
     <string name="cenni_storici_sanfra">I francescani, arrivati ad Irsina nel 1300, nel 1531 costruirono il complesso conventuale e la chiesa, ricostruita nel 1717. La presenza francescana ad Irsina è indicata dalla prima metà del XIV sec. La costruzione del complesso conventuale fu iniziata nel 1531, quando l’ordine francescano ricevette un notevole impulso da papa Clemente VII che allontanò i benedettini e riconobbe ai frati i diritti di Conventuali di San Francesco. La Chiesa, che si presenta ad unica navata con cappelle laterali.</string>
     <string name="vedere_janora">Cosa Vedere</string>
     <string name="cripta_catt">Cripta</string>
-    <string name="cripta_catt_testo">Testo Cripta</string>
+    <string name="cripta_catt_testo">La cripta della Cattedrale, con il suo suggestivo impianto a croce greca, rappresenta il nucleo più antico della chiesa. Secondo recenti ipotesi conserverebbe tracce del passaggio dei Templari nell\'antica Montepeloso, come confermerebbe il fatto di trovarsi lungo le vie del pellegrinaggio in Terra Santa</string>
     <string name="orari_museo">Orari Museo</string>
     <string name="orari_francesco">Orari Chiesa San Francesco</string>
     <string name="orari_cattedrale">Orari Cattedrale</string>
