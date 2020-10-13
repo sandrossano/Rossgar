@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "52964611147",
+    "firebase_url": "https://irsina-5cf9b.firebaseio.com",
+    "project_id": "irsina-5cf9b",
+    "storage_bucket": "irsina-5cf9b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:52964611147:android:215410b2c1249cf4",
+        "android_client_info": {
+          "package_name": "com.irsina.sandro.irsina"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "52964611147-njaij815mrnfc0rtenr7l0lsfv4e5629.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.irsina.sandro.irsina",
+            "certificate_hash": "e5287bd269f41c28cf57b7443b1474c570720f8f"
+          }
+        },
+        {
+          "client_id": "52964611147-oef4un4c1kcv4pe19oeen5vmuktkl0uv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLSbPkgWhhYkIFsRaT-Vj9ZArD1V0er1M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "52964611147-oef4un4c1kcv4pe19oeen5vmuktkl0uv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
